@@ -84,7 +84,7 @@ Also, We have to traverse all of the graph
 even though we don't need images outside of the screen.
 This is the reason why we need other methods to visualize Kleinian
 groups.
-For more details about the methods, read Indra's Pearls.
+For more details about the methods, read Indra's Pearls .
 
 %% ここからは行列表現ではなく円や球の反転を用いてクライン群を描画する．
 %% 円や球には幾何学的な直観が働くため，行列そのものを扱うよりは非常にわ
@@ -137,28 +137,74 @@ To solve the problems we discussed in previous section,
 we invent an efficient algorithm to visualize \textit{circle inversion
 fractals} shown in Figure \ref{fig:levelMax}. 
 The algorithm is called \textit{Iterated Inversion System (IIS.)}
-The fractal is also Kleinian group composed of four circle inversions.
-The fractal in Figure \ref{fig:levelMax} shows the orbit of the first
-four circles.
-
-The algorithm can visualize not only two dimensional ones but
+It can visualize not only two dimensional fractals but
 also three dimensional sphere inversion fractals.
 
-\subsubsection{Two Dimensional}
+The fractal in Figure \ref{fig:levelMax} shows the orbit of the first
+four circles.
+It is also Kleinian group composed of four circle inversions.
+The process of generation of circle inversion fractals is
+as follows.
 
-For two dimensional fractaks, the algorithm is as follows. 
+\begin{enumerate}
+ \item We need some disjoint disks to obtain circle inversion fractals.
+       For example, we assume there are four orange disks as shown in
+       Figure \ref{fig:level0}. We call orange disks \textit{initial
+       disks} and their boundary \textit{initial circles}.
+ \item First of all, we focus on the white circle in Figure
+       \ref{fig:level0inv}. The inversion in the white circle moves the
+       other three disks into the interior of the white circle.
+ \item After we apply each inversion in the initial circle to the outer disks,
+       we obtain twelve small disks. They are shown in Figure \ref{fig:level1}.
+ \item Next, we invert the twelve small disks in the initial circles.
+       The inversion in the white circle moves the outer nine small disks
+       into the interior of the white circle as shown in Figure \ref{fig:level1inv}.
+       Each inversion in the Schottky circle generates smaller disks, and we
+       obtain Figure \ref{fig:level2}.
+ \item We continue iterating these process, that is, we continue
+       applying each inversion in the initial circle to resulting
+       smaller disks.
+       Finally, we get Figure \ref{fig:levelMax}.
+\end{enumerate}
 
-The algorithm computes the depth of the circles pixel by pixel.
+\subsubsection{Two Dimensional IIS}
+
+\begin{figure}[htbp]
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/orbIIS.png}
+  \caption{\textit{Cayley Graph}}
+  \label{fig:cayleyGraph}
+ \hspace*{\fill}
+\end{figure}
+
+IIS computes the depth of the circles pixel by pixel.
 Thus, we can use parallel processing.
 The images in this paper are rendered using \textit{OpenGL Shading
 Language (GLSL)}.
+For two dimensional fractals, the algorithm of IIS is as follows.
 
-%% Iterated Inversion Systemを考案した．特定のクライン群を高速に描画する
-%% アルゴリズムである．これは二次元だけでなく，三次元にも作用させること
-%% ができる．
-%% ピクセルごとに計算を行うことで並列計算が可能になり，非常に高速に描画
-%% を行うことができる．この論文にある図はOpenGL Shading Language (GLSL)
-%% を用いて描画した．
+ \begin{algorithm}
+  \caption{Iterated Inversion System (IIS)}
+  \label{arg:iis2d}
+  \begin{algorithmic}
+   \REQUIRE count $= 0$ and coordinates $=$ position determined by
+   pixel
+   \FOR{$i=0$ to MAX\_INVERSION}
+   \STATE inOutside $\leftarrow$ \TRUE
+   \FOR{ each inversion $I$ in circles }
+   \IF{The circle $I$ contains coordinates}
+   \STATE coordinates $\leftarrow$ $I(\text{coordinates})$
+   \STATE INCREMENT count
+   \STATE inOutside $\leftarrow$ \FALSE
+   \ENDIF
+   \ENDFOR
+   \IF {inOutside}
+   \STATE BREAK for
+   \ENDIF
+   \ENDFOR
+   \STATE RETURN count
+  \end{algorithmic}
+ \end{algorithm}
 
 IIS is applied to each point on the plane and computes nesting depth of
 the disk which contains the point.
@@ -167,15 +213,13 @@ First of all, if the point is contained in initial disks, we invert the
 point in the boundary circle of the disk.
 We continue applying inversions until the transformed point is in the
 out side of the initial circles.
+Pseudo-code is in Algorithm \ref{arg:iis2d}.
 
-inversions are involution. Thus we can 
-%% 二次元のCircle Inversion Fractals を対象としてアルゴリズムを解説する．
-%% 各点に関して関して，その点が反転円に属している際に，その円に関する反
-%% 転を作用させる．これを移された点が全ての円の外側に出るまで繰り返す．
-%% ここで，反転を作用した回数が，その点が含まれている円の深さである．ま
-%% た，点の軌道上において各点の色を取得することで，絵の軌道を描画するこ
-%% ともできる．
-%% この手法は，円に関する反転が対合であることをうまく利用している．
+Furthermore, a point actually at the limit set never reaches the
+outside. So, we have to determine the maximum number of iterations in
+advance to prevent the algorithm from running indeﬁnitely.
+However, the points except for the limit set are guaranteed that they
+are transformed to outside because inversions are involution.
 
 \subsubsection{Three Dimensional Extension}
 

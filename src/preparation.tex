@@ -172,16 +172,10 @@ as follows.
 \begin{figure}[htbp]
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/preparation/orbIIS.png}
-  \caption{\textit{Cayley Graph}}
-  \label{fig:cayleyGraph}
+  \caption{\textit{Orbit of blue point by IIS}}
+  \label{fig:iisOrbit}
  \hspace*{\fill}
 \end{figure}
-
-IIS computes the depth of the circles pixel by pixel.
-Thus, we can use parallel processing.
-The images in this paper are rendered using \textit{OpenGL Shading
-Language (GLSL)}.
-For two dimensional fractals, the algorithm of IIS is as follows.
 
  \begin{algorithm}
   \caption{Iterated Inversion System (IIS)}
@@ -206,6 +200,12 @@ For two dimensional fractals, the algorithm of IIS is as follows.
   \end{algorithmic}
  \end{algorithm}
 
+IIS computes the depth of the circles point by point.
+Thus, we can use parallel processing.
+The images in this paper are rendered using \textit{OpenGL Shading
+Language (GLSL)}.
+For two dimensional fractals, the algorithm of IIS is as follows.
+
 IIS is applied to each point on the plane and computes nesting depth of
 the disk which contains the point.
 The process of the algorithm is as follows.
@@ -213,6 +213,8 @@ First of all, if the point is contained in initial disks, we invert the
 point in the boundary circle of the disk.
 We continue applying inversions until the transformed point is in the
 out side of the initial circles.
+Figure \ref{fig:iisOrbit} shows orbit of the blue point transformed by
+iterations of inversions.
 Pseudo-code is in Algorithm \ref{arg:iis2d}.
 
 Furthermore, a point actually at the limit set never reaches the
@@ -230,22 +232,24 @@ are transformed to outside because inversions are involution.
 
 In the similar manner to two dimensional algorithm,
 we extend the IIS to visualize three-dimensional kleinian groups.
-We extend circle to sphere easily.
+We extend circle inversion to sphere inversion easily, and we
+compute the nesting depth of the sphere voxel by voxel.
 
-voxel by voxel.
-and they are volume data.
+However, it is difficult to render nesting spheres efficiently, and
+visualized images are not interesting.
 
-The spheres are nesting
+We use \textit{ray tracing} to visualize three dimensional objects.
+Ray tracing computes intersection between ray and objects algebraically.
 
-ray tracing 
-
+as transparent spheres or volume rendering.
 volume rendering using \textit{ray marching}.
 This is not efficient algorithm, and resulting images are not interesting.
 
 
 We use \textit{Sphere Tracing} to render Three dimensional
-fractals.
-Sphere Tracing is one of the algorithm to ray tracing
+fractals and orbit of the seed sphere.
+Sphere Tracing is one of the algorithm to ray tracing.
+
 
 \subsection{Related Works}
 

@@ -155,17 +155,18 @@ groups.
   \label{fig:levelMax}
  \end{minipage}
  \caption{\textit{The process of rendering the orbit of Schottky disks}}
+ \label{fig:schottkyProcess}
 \end{figure}
 
 \noindent To solve the problems we discussed in previous section,
 we focus circle inversions and invent an efficient algorithm to
-visualize \textit{circle inversion fractals} shown in Figure \ref{fig:levelMax}.
+visualize \textit{circle inversion fractals} shown in Figure \ref{fig:schottkyProcess}\subref{fig:levelMax}.
 
 The algorithm is called \textit{Iterated Inversion System (IIS.)}
 It can visualize not only two dimensional circle inversion fractals but
 also three dimensional sphere inversion fractals.
 
-The fractal in Figure \ref{fig:levelMax} shows the orbit of the first
+The fractal in Figure \ref{fig:schottkyProcess}\subref{fig:levelMax} shows the orbit of the first
 four circles.
 It is also Kleinian group composed of four circle inversions.
 The process of generation of circle inversion fractals is
@@ -174,22 +175,22 @@ as follows.
 \begin{enumerate}
  \item We need some disjoint disks to obtain circle inversion fractals.
        For example, we assume there are four orange disks as shown in
-       Figure \ref{fig:level0}. We call orange disks \textit{initial
+       Figure \ref{fig:schottkyProcess}\subref{fig:level0}. We call orange disks \textit{initial
        disks} and their boundary \textit{initial circles}.
  \item First of all, we focus on the white circle in Figure
-       \ref{fig:level0inv}. The inversion in the white circle moves the
+       \ref{fig:schottkyProcess}\subref{fig:level0inv}. The inversion in the white circle moves the
        other three disks into the interior of the white circle.
  \item After we apply each inversion in the initial circle to the outer disks,
-       we obtain twelve small disks. They are shown in Figure \ref{fig:level1}.
+       we obtain twelve small disks. They are shown in Figure \ref{fig:schottkyProcess}\subref{fig:level1}.
  \item Next, we invert the twelve small disks in the initial circles.
        The inversion in the white circle moves the outer nine small disks
-       into the interior of the white circle as shown in Figure \ref{fig:level1inv}.
+       into the interior of the white circle as shown in Figure \ref{fig:schottkyProcess}\subref{fig:level1inv}.
        Each inversion in the Schottky circle generates smaller disks, and we
-       obtain Figure \ref{fig:level2}.
+       obtain Figure \ref{fig:schottkyProcess}\subref{fig:level2}.
  \item We continue iterating these process, that is, we continue
        applying each inversion in the initial circle to resulting
        smaller disks.
-       Finally, we get Figure \ref{fig:levelMax}.
+       Finally, we get Figure \ref{fig:schottkyProcess}\subref{fig:levelMax}.
 \end{enumerate}
 
 \subsubsection{Two Dimensional IIS}
@@ -251,6 +252,25 @@ are transformed to outside because inversions are involution.
 
 \subsubsection{Three Dimensional Extension}
 
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/3dExtension/3dKissingGenerator.png}
+  \subcaption{\textit{Generator}}
+  \label{fig:simpleGen}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/3dExtension/3dOrbit.png}
+  \subcaption{\textit{The orbit of spheres}}
+  \label{fig:simpleOrb}
+  \hspace*{\fill}
+ \end{minipage}
+ \caption{\textit{The orbit of the sphere inversion fractal}}
+ \label{fig:simpleGenOrb}
+\end{figure}
+
 In the similar manner to two dimensional algorithm,
 we extend the IIS to visualize three-dimensional kleinian groups.
 We extend circle inversion to sphere inversion easily, and we
@@ -263,38 +283,111 @@ transparent spheres. Second one is \textit{volume rendering}.
 However, it is difficult to render them efficiently, and
 visualized images are not interesting.
 
-Therefor we render the orbit of sphere in a similar way to the two
+Therefore we render the orbit of sphere in a similar way to the two
 dimensional circle inversion fractals.
-Thus, we prepare seed spheres of the orbit, and transform elements of
-the group.
-
-\begin{figure}[htbp]
- \begin{minipage}[t]{0.5\hsize}
-  \center
-  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/3dExtension/3dKissingGenerator.png}
-  \caption{\textit{Generator}}
-  \label{fig:cayleyGraph}
-  \hspace*{\fill}
- \end{minipage}
- \begin{minipage}[t]{0.5\hsize}
-  \center
-  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/3dExtension/3dOrbit.png}
-  \caption{\textit{The orbit of the green sphere}}
-  \label{fig:orbitCat}
-  \hspace*{\fill}
- \end{minipage}
-\end{figure}
+See Figure \ref{fig:simpleGenOrb}\subref{fig:simpleGen}. It shows
+white six inversion spheres and green seed sphere.
+Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb} shows the orbit of
+green sphere transformed by inversions in white spheres.
 
 We use \textit{Sphere Tracing} \cite{hart1996sphere} to render three dimensional
 fractals and orbit of the seed sphere.
-Sphere Tracing is one of the algorithm to ray tracing.
+Sphere Tracing is one of the algorithm to render implicit surfaces using
+ray tracing.
+In the following paragraphs, we introduce ray tracing and sphere tracing.
 
+In the first place, we work a ray as something like a vector.
+We set the origin of the ray to the position of the camera
+and direction of the ray to the direction to each pixel on the screen
+from the camera. Each pixel is colored according to the
+first object the ray hits. 
+
+In regular ray tracing, we calculate the intersection algebraically. 
+On the other hand, in sphere tracing, we march the “tip” of the ray
+along the direction of the ray step by step. 
+To check how far the tip of the ray is from the objects, we need a
+\textit{distance function}.
+Distance function is a function which returns minimum distance between
+given point and a target object.
+For example, let $P$ be a tip of a ray. A distance function of a sphere
+whose center is $C$ and radius $R$ is $f(x) = distance(P, C) - R$.
+
+However, in regard to fractal rendering, it is difficult to
+get an actual distance to its shape. So, we use lower estimated distance
+as a return value of the distance function. The technique to approximate
+distance is called \textit{distance estimation}.
+For more details about fractal rendering, see also the blog
+post\footnote{Mikael H Christensen, Distance Estimated 3D Fractals (Part I):\\ \quad\quad
+\url{http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/}}
+by Christensen. 
+
+There are well known technique to copy objects.
+We can use modulo operator to repeat object.
+See Figure n. There are a sphere and a ray.
+We draw repeated spheres.
+Apply modulo to the ray and compute distance between ray and original
+sphere.
+
+Next, we consider scaling.
+There is one sphere and we want to render orbit of $y = 2x$.
+We assume, nearest sphere to tip of the ray is 
+We use jacobian to
+
+However, we only know tip of the ray and original sphere.
+Thus, we transform the ray.
+do not preserve distance between ray and sphere.
+Thus we use jacobian
+%% 簡単な例から始める．球がy = axによって動く軌道を描画することを考える．
+%% Sphere tracingには，オブジェクトを複製するよく知られたいくつかのテク
+%% ニックが存在している．modによるrepetition．
+%% 一歩すすめて，定数倍による軌道を描画することを考える．円状の領域を考
+%% えることができる．レイは同じ領域にある球に最も近いと考えると，
 %% このアルゴリズムは距離関数を用いて物体を描画する．物体の軌道をSphere
 %% Tracingで描画する際には，物体のヤコビアンに注目する．
 %% 例えば，物体の拡縮の軌道をSphereTracingで描くためには
 %% 拡縮のヤコビアンは，y = axのときaである．最終的にヤコビアンaで距離を
 %% 割ることで実際の距離を得る．
 
+In the similar manner to scaling, we can render sphere inversion
+fractals.
+
+\begin{algorithm}
+ \caption{Distance Function}
+ \label{iis3d}
+ \begin{algorithmic}
+  \REQUIRE count $= 0$, $d$ = MAX\_DISTANCE, $dr = 1.0$, and coordinates
+  $=$ tip of the ray
+  \FOR{$i=0$ to MAX\_INVERSION}
+  \STATE inFundamentalDomain $\leftarrow$ \TRUE
+  \FOR{ each Map $G$ in Maps}
+  \IF{$G$ is available to coordinates}
+  \STATE $dr \leftarrow dr * $ (Jacobian of $G(\text{coordinates})$)
+  \STATE coordinates $\leftarrow$ $G(\text{coordinates})$
+  \STATE INCREMENT count
+  \STATE inFundamentalDomain $\leftarrow$ \FALSE
+  \ENDIF
+  \ENDFOR
+  \IF {inFundamentalDomain}
+  \STATE BREAK for
+  \ENDIF
+  \ENDFOR
+  \FOR{ each BaseSphere $S$ in BaseSpheres}
+  \STATE $d \leftarrow$ min($d$, scalingFactor $*$ (distance(coordinates, $S$.center) $-$
+  $S$.radius) $/$ (absolute value of $dr$))
+  \ENDFOR
+  \RETURN $d$
+ \end{algorithmic}
+\end{algorithm}
+
+We accumulate the Jacobian of inversions by multiplying the Jacobian for
+every inversion.
+
+%% 同様にしてsphere inverasionによるフラクタルを描画することができる．同
+%% じ領域にあると仮定し，すべての円の外側に落ちるまで反転を繰り返す．一
+%% 回の反転ごとにヤコビアンを累積し，最終的に累積したヤコビアンで距離を割る．
+$Jacobian = R^2 / distance(P,~S)^2$
+%% 最後に，点が外側に出てしまった場合，レイがフラクタルを突き抜けてしま
+%% う．そのため，得られた距離はスケーリングする必要がある．
 
 \subsection{Related Works}
 

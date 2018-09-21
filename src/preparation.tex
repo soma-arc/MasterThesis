@@ -308,9 +308,9 @@ along the direction of the ray step by step.
 To check how far the tip of the ray is from the objects, we need a
 \textit{distance function}.
 Distance function is a function which returns minimum distance between
-given point and a target object.
+given point and a target object. 
 For example, let $P$ be a tip of a ray. A distance function of a sphere
-whose center is $C$ and radius $R$ is $f(x) = distance(P, C) - R$.
+whose center is $C$ and radius is $R$ is $f(x) = distance(P, C) - R$.
 
 However, in regard to fractal rendering, it is difficult to
 get an actual distance to its shape. So, we use lower estimated distance
@@ -321,22 +321,67 @@ post\footnote{Mikael H Christensen, Distance Estimated 3D Fractals (Part I):\\ \
 \url{http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/}}
 by Christensen. 
 
-There are well known technique to copy objects.
-We can use modulo operator to repeat object.
-See Figure n. There are a sphere and a ray.
-We draw repeated spheres.
-Apply modulo to the ray and compute distance between ray and original
-sphere.
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/iis3d/modulo1.png}
+  \caption{\textit{modulo1}}
+  \label{fig:modulo1}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/iis3d/modulo2.png}
+  \caption{\textit{modulo2}}
+  \label{fig:modulo2}
+  \hspace*{\fill}
+ \end{minipage}
+\end{figure}
 
-Next, we consider scaling.
-There is one sphere and we want to render orbit of $y = 2x$.
-We assume, nearest sphere to tip of the ray is 
-We use jacobian to
+%% ここでは二次元の図で考える
+Before we introduce distance estimation, we introduce
+well known technique to copy many objects in sphere tracing.
+Instead of preparing many objects, we can use modulo operator
+to get distance function to line the objects up.
+See Figure \ref{fig:modulo1}. We assume there are blue disk, yellow ray and dotted
+circle and lines.
+Now, we want to distance function for circles.
+We assume the nearest circle to the ray is in same dotted region.
+We apply modulo operator to the ray and we can measure distance to blue
+disk as in Figure \ref{fig:modulo2}.
 
-However, we only know tip of the ray and original sphere.
-Thus, we transform the ray.
-do not preserve distance between ray and sphere.
-Thus we use jacobian
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/iis3d/scaleIIS.png}
+  \caption{\textit{scaling1}}
+  \label{fig:iisScale1}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/iis3d/scaleIIS2.png}
+  \caption{\textit{scaling2}}
+  \label{fig:iisScale2}
+  \hspace*{\fill}
+ \end{minipage}
+\end{figure}
+
+Next, we consider scaling example. See Figure \ref{fig:iisScale1}.
+There is a yellow ray and a blue disk, and orbit of scaling as
+dotted blue circles.
+The green dotted lines show scaling regions.
+We assume that the nearest sphere to the tip of the ray is at
+same regions. 
+However, we only know the coordinates of the original blue
+disk and tip of the ray.
+Thus, we scale the tip of the ray to the same region to the blue disk
+but, the distance between scaled ray and disk is also scaled.
+So, we correct the scale dividing computed distance by Jacobian of
+scaling.
+If the scaling of the circle is $f(x) = 2x$, we divide the scale by
+six.
+
 %% 簡単な例から始める．球がy = axによって動く軌道を描画することを考える．
 %% Sphere tracingには，オブジェクトを複製するよく知られたいくつかのテク
 %% ニックが存在している．modによるrepetition．
@@ -385,9 +430,15 @@ every inversion.
 %% 同様にしてsphere inverasionによるフラクタルを描画することができる．同
 %% じ領域にあると仮定し，すべての円の外側に落ちるまで反転を繰り返す．一
 %% 回の反転ごとにヤコビアンを累積し，最終的に累積したヤコビアンで距離を割る．
-$Jacobian = R^2 / distance(P,~S)^2$
+%% $Jacobian = R^2 / distance(P,~S)^2$
 %% 最後に，点が外側に出てしまった場合，レイがフラクタルを突き抜けてしま
 %% う．そのため，得られた距離はスケーリングする必要がある．
+
+We have one more thing to consider because the above calculation is
+a rough estimate.
+%% 与えられた点がフラクタルの外側に出てしまうとき，distance functionは予
+%% 期せずしておおきくなりすぎてしまい，結果としてフラクタルにアーティファ
+%% クトができてしまう
 
 \subsection{Related Works}
 

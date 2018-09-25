@@ -221,7 +221,7 @@ iterations of inversions.
 
 Furthermore, a point actually at the limit set never reaches the
 outside. So, we have to determine the maximum number of iterations in
-advance to prevent the algorithm from running indeﬁnitely.
+advance to prevent the algorithm from running indefinitely.
 However, the points except for the limit set are guaranteed that they
 are transformed to outside because inversions are involution.
 
@@ -233,9 +233,9 @@ are transformed to outside because inversions are involution.
    pixel
    \FOR{$i=0$ to MAX\_INVERSION}
    \STATE inOutside $\leftarrow$ \TRUE
-   \FOR{ each inversion $I$ in circles }
-   \IF{The circle $I$ contains coordinates}
-   \STATE coordinates $\leftarrow$ $I(\text{coordinates})$
+   \FOR{ each Map $G$ in circles }
+   \IF{$G$ is available to coordinates}
+   \STATE coordinates $\leftarrow$ $G(\text{coordinates})$
    \STATE INCREMENT count
    \STATE inOutside $\leftarrow$ \FALSE
    \ENDIF
@@ -248,7 +248,13 @@ are transformed to outside because inversions are involution.
   \end{algorithmic}
  \end{algorithm}
 
-\noindent Pseudo-code is in Algorithm \ref{arg:iis2d}.
+\noindent Pseudo-code of IIS is in Algorithm \ref{arg:iis2d}.
+Later, we will introduce generators other than simple inversions.
+We consider a map $G$ such that $G$ is an identity for a point in the
+fundamental domain and that $G$ is a composition of inversions for other
+points.
+The fundamental domain is the terminal area of transformations. 
+In the above case, the black area where outside of all circles.
 
 \subsubsection{Three Dimensional Extension}
 
@@ -302,7 +308,8 @@ and direction of the ray to the direction to each pixel on the screen
 from the camera. Each pixel is colored according to the
 first object the ray hits. 
 
-In regular ray tracing, we calculate the intersection algebraically. 
+In regular ray tracing, we calculate the intersection algebraically, but
+we can not compute intersection to fractal objects.
 On the other hand, in sphere tracing, we march the “tip” of the ray
 along the direction of the ray step by step. 
 To check how far the tip of the ray is from the objects, we need a
@@ -338,7 +345,6 @@ by Christensen.
  \end{minipage}
 \end{figure}
 
-%% ここでは二次元の図で考える
 Before we introduce distance estimation, we introduce
 well known technique to copy many objects in sphere tracing.
 Instead of preparing many objects, we can use modulo operator
@@ -377,24 +383,84 @@ However, we only know the coordinates of the original blue
 disk and tip of the ray.
 Thus, we scale the tip of the ray to the same region to the blue disk
 but, the distance between scaled ray and disk is also scaled.
-So, we correct the scale dividing computed distance by Jacobian of
-scaling.
+So, we correct the scale dividing computed distance by 
+Jacobian (sometimes referred to as the Jacobian determinant) of scaling.
 If the scaling of the circle is $f(x) = 2x$, we divide the scale by
 six.
 
-%% 簡単な例から始める．球がy = axによって動く軌道を描画することを考える．
-%% Sphere tracingには，オブジェクトを複製するよく知られたいくつかのテク
-%% ニックが存在している．modによるrepetition．
-%% 一歩すすめて，定数倍による軌道を描画することを考える．円状の領域を考
-%% えることができる．レイは同じ領域にある球に最も近いと考えると，
-%% このアルゴリズムは距離関数を用いて物体を描画する．物体の軌道をSphere
-%% Tracingで描画する際には，物体のヤコビアンに注目する．
-%% 例えば，物体の拡縮の軌道をSphereTracingで描くためには
-%% 拡縮のヤコビアンは，y = axのときaである．最終的にヤコビアンaで距離を
-%% 割ることで実際の距離を得る．
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/slice.png}
+  \caption{\textit{XY-slice image of Figure \ref{fig:simpleOrb}}}
+  \label{fig:slice2d}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/artifact.pdf}
+  \caption{\textit{artifact}}
+  \label{fig:3dartifact}
+  \hspace*{\fill}
+ \end{minipage}
+\end{figure}
 
 In the similar manner to scaling, we can render sphere inversion
 fractals.
+For the sake of simplicity, we consider a slice image of Figure
+\ref{fig:simpleGenOrb}.
+See Figure \ref{fig:slice2d}. This image shows the XY-slice of the orbit
+of spheres.
+Orange disks in background  are slices of the orbit of initial inversion spheres.
+Slices of the orbit of the base sphere are colored in
+the same color as the orbit shown in Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb}.
+$C$ is the white circle, the boundary of the initial inversion sphere.
+$S1$ is the base sphere and the inversion of $S2$ in the circle $C$. 
+The white point $P1$ is the inversion of $P2$ in the circle $C$.
+
+Now we assume that the tip of the ray is at $P2$.
+Let’s calculate the minimum distance between
+$P2$ and the orbit of base spheres.
+The nearest sphere to $P2$ is $S2$.
+So, we have to calculate the distance between $P2$ and $S2$.
+We call the distance $d$.
+However, we do not know the center and radius of $S2$.
+So, we calculate d from a distance between $S1$ and $P1$.
+Inversions in spheres and M\"obius transformations do not preserve
+Euclidean distance.
+Thus we use the Jacobian to estimate the distance.
+The equation to calculate the Jacobian of an inversion is as follows.
+
+Let $S$ be the center of the inversion sphere, let $R$ be its radius,
+and let $P$ be a point before applying the inversion in $S$.
+$Jacobian = R^2 / distance(P,~S)^2$.
+Note that the Jacobian of the inversions in a sphere with infinite radius
+is $1$.
+We accumulate the Jacobian of inversions by multiplying the Jacobian for
+every inversion.
+
+Finally, we divide the distance between the base sphere and the point on
+the fundamental domain by the accumulated Jacobian, and we can get the
+approximated distance between the tip of the ray and the nearest sphere.
+For the above case, we get an inequality $d \geq distance(P1, S1)/Jacobian$.
+The formula gives a lower bound for spheres.
+For more details on the derivation of this estimation formula, see the
+blog post\footnote{Inigo Quilez, distance estimation to implicits:
+\url{http://www.iquilezles.org/www/articles/distance/distance.htm}}
+by Inigo Quilez.
+
+We have one more thing to consider because the above calculation is
+a rough estimate.
+For example, if a given point is in the outer area of the orbit, the
+distance function returns unintentionally large distance, and the ray
+can pass through the real objects. This causes artifact shown in Figure
+\ref{fig:3dartifact}. The fore part of the fractals is not rendered.
+In order to avoid this kind of problems, we shrink the length of
+estimated distance.
+It increases the number of steps of sphere tracing, but we can
+eventually obtain the intersection of the ray and the spheres.
+The scaling factor is determined experimentally according to the size of
+the spheres.
 
 \begin{algorithm}
  \caption{Distance Function}
@@ -424,21 +490,8 @@ fractals.
  \end{algorithmic}
 \end{algorithm}
 
-We accumulate the Jacobian of inversions by multiplying the Jacobian for
-every inversion.
-
-%% 同様にしてsphere inverasionによるフラクタルを描画することができる．同
-%% じ領域にあると仮定し，すべての円の外側に落ちるまで反転を繰り返す．一
-%% 回の反転ごとにヤコビアンを累積し，最終的に累積したヤコビアンで距離を割る．
-%% $Jacobian = R^2 / distance(P,~S)^2$
-%% 最後に，点が外側に出てしまった場合，レイがフラクタルを突き抜けてしま
-%% う．そのため，得られた距離はスケーリングする必要がある．
-
-We have one more thing to consider because the above calculation is
-a rough estimate.
-%% 与えられた点がフラクタルの外側に出てしまうとき，distance functionは予
-%% 期せずしておおきくなりすぎてしまい，結果としてフラクタルにアーティファ
-%% クトができてしまう
+The generalized pseudo-code for a distance function is in Algorithm \ref{iis3d}.
+The map $G$ 
 
 \subsection{Related Works}
 
@@ -447,10 +500,32 @@ Kleinian groups \cite{Montag2014hyperbolicIFS}.
 %% テクスチャベースの描画方法 テクスチャに種となる円を描き，円に変換を作
 %% 用させることで極限集合を描画させる
 
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/related/josklein.png}
+  \caption{\textit{}}
+  \label{fig:jos}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/related/joskleinInv.png}
+  \caption{\textit{}}
+  \label{fig:josInv}
+  \hspace*{\fill}
+ \end{minipage}
+\end{figure}
+
 Jos Leys invented efficient algorithm to draw Kleinian group with Maskit
-parametrization. IIS uses circle inversions on the other hand Jos Leys
-uses normal generators.
+parametrization shown in Figure \ref{fig:jos}.
+IIS uses circle inversions on the other hand Jos Leys uses normal
+M\"obius transformations.
+We can apply circle inversions to his figure, and we obtain Figure \ref{fig:josInv}
 %% IISを普通の関数を使って行っている こちらのIISは円，球に注目している
 
 Martin von Gagern introduce similar algorithm called \textit{Reverse
-Pixel Lookup} \cite{journals/combinatorics/GagernR09}. The algorithm is for visualizing tiling.
+Pixel Lookup} \cite{journals/combinatorics/GagernR09}.
+The algorithm is for visualizing tiling.
+His method is similar to IIS.
+We explore the method not only tiling but also other varieties of images.

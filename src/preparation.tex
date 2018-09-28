@@ -4,53 +4,71 @@
 \section{Preparation}
 
 In this section, we introduce prerequisites to understand
+the algorithm to visualize Kleinian groups called
 Iterated Inversion System (IIS) and basic usage of IIS.
 
 \subsection{Kleinian Groups}
 
 Kleinian groups is discrete sub-group of the M\"obius transformation
-groups. Briefly, group of the transformations which meet some conditions.
+groups. Briefly, group of the M\"obius transformation which meet some conditions.
 
 The word \textit{group} or \textit{transformation group} means a set of
 transformations. 
-We call initial elements of the group \textit{generators}.
-For example, we assume there are two transformations $f(z)$ and $g(z)$.
-We write transformations lower case, for example we write $a$ as $f(z)$
-and $b$ as $g(z)$. Also, we use capitalized letters for inverse
-transformations. 
-We write compositions of transformations as line up letters.
-For instance, $f(z) \circ g(z) \circ f(z)^{-1}$ is $abA$.
-We call the letters \textit{word}.
+For example, we assume there are transformations $f(z)$, $g(z)$, and
+their inverse transformations.
+We call the initial elements of the group \textit{generators}.
+We write transformations in lowercase alphabet and 
+their inverse in uppercase alphabet.
+For instance, we write $a$ as $f(z)$, $b$ as $g(z)$, $A$ as $f(z)^{-1}$,
+and $B$ as $g(z)^{-1}$.
+
+We write compositions of transformations as line upped letters.
+For instance, $f(z) \circ g(z) \circ f(z)^{-1}$ is represented by $abA$.
+We call the compositions of transformations \textit{word}.
 
 In this paper, we follow the notations of Indra's Pearls
 \cite{MumfordSeriesWright200204}, for more details, read the book.
 
-\subsection{M\"obius Transformations and Inversions}
+\subsection{Inversions in Circles or Spheres}
+
+It is known that we can construct M\"obius transformations out of a finite
+composition of inversions. Thus, inversion is a kind of primitive
+functions for M\"obius transformations.
+For more details, see the chapter 1 of \cite{marden_2016}.
+
+An inversion in a circle is defined as $f(z) = \frac{r^2}{~\overline{z -c}~} + c$,
+where $c$ and $r$ are center and radius of the circle.
+Note that an inversion in a circle with infinite radius is the same as
+a reflection over a line.
+
+Also, sphere inversion can be derived from a similar equation, and an inversion
+in a sphere with infinite radius is the same as a reflection through a
+plane.
+
+Later, we consider Jacobian of the inversions.
+Let $C$ be the center of the inversion circle, let $R$ be its radius,
+and let $P$ be a point before applying the inversion in the circle.
+$Jacobian = R^2 / distance(P,~C)^2$.
+Note that the Jacobian of the inversions in a circle with
+infinite radius is $1$.
+In the same way as Jacobian of a circle inversion, we can derive Jacobian of
+sphere inversions.
+
+\subsection{M\"obius Transformations}
 
 M\"obius transformations are defined in the extended complex plane,
 $\hat{\mathbb{C}} = \mathbb{C} \cup \{\infty\}$ and expressed as linear
 fractional transformation
 $f(z)=\frac{az + b}{cz + d}$, where $a,~b,~c,~d,~z \in \hat{\mathbb{C}}$.
-However, it is also known that we can construct them out of a finite
-composition of inversions. For more details, see the chapter 1 of \cite{marden_2016}.
 
 M\"obius transformations are classified into three types as \textit{loxodromic},
 \textit{parabolic}, or \textit{elliptic}.
 Loxodromic transformations have two fixed points and are conjugate to
 scaling by complex numbers except for scaling by unit complex numbers.
 Those whose multiplier is a positive real number
-are also called hyperbolic transformations.Parabolic transformations
+are also called \textit{hyperbolic} transformations.Parabolic transformations
 have one fixed point and are conjugate to parallel translations.
 Elliptic transformations have two fixed points and are conjugate to rotations.
-
-An inversion in a circle
-is defined as $f(z) = \frac{r^2}{~\overline{z - c}~} + c$, where $c$ and
-$r$ are center and radius of the circle.
-Note that an inversion in a circle with infinite radius is the same as
-a reflection over a line.
-Also, sphere inversion can be derived from a similar equation, and an inversion
-in a sphere with infinite radius is the same as
-a reflection through a plane.
 
 \subsection{Basic Methods for Visualization}
 
@@ -83,25 +101,28 @@ We consider \textit{cayley graph} of the Kleinian groups to enumerate elements
 of the groups.
 Figure \ref{fig:cayleyGraph} shows Cayley graph of the group generated
 by two transformations.
-The nodes of the graph represent compositions of elements of the group.
-According to the way of traversing, 
+The nodes of the graph show words (compositions of elements of the group.)
+According to the way of traversing the graph, 
 there are two types of visualization of transformation groups.
 
 Firstly, we can draw orbit of the group by traversing the cayley graph with
-breadth first search.
+breadth first search. We can obtain words from the short side.
 See Figure \ref{fig:orbitCat}.
-The cat in the center transformed by found words.
+The cat in the center is transformed by found words.
+
 Moreover, we can consider tiling of the first tile.
 If the group meet some conditions, we can tile them without gaps and
 self intersections.
-The circles and cats converges, and
-we call the limit part the \textit{limit set} of the group.
+The circles and cats converges to some shape.
+We call the limiting shape the \textit{limit set} of the group.
 
 Secondly, we can only draw the limit set of the group by traversing the
 cayley graph with depth first search.
 The limit set located at the end of Cayley graph. Thus, we use fixed
 point of the transformation.
-we apply obtained word to the fixed points.
+We decide the maximum depth of traversing in advance, and we obtain
+long words.
+Next, we apply obtained word to the fixed points.
 For more details, read Indra's Pearls.
 Figure \ref{fig:limit} shows one of the limit set of the Kleinian group.
 
@@ -203,19 +224,18 @@ as follows.
  \hspace*{\fill}
 \end{figure}
 
-IIS computes the depth of the circles point by point.
-Thus, we can use parallel processing.
+\noindent IIS computes the depth of the circles point by point.
+Thus, we can use parallel processing and render the images efficiently.
 The images in this paper are rendered using \textit{OpenGL Shading
 Language (GLSL)}.
-For two dimensional fractals, the algorithm of IIS is as follows.
 
-\noindent IIS is applied to each point on the plane and computes nesting depth of
+IIS is applied to each point on the plane and computes nesting depth of
 the disk which contains the point.
 The process of the algorithm is as follows.
 First of all, if the point is contained in initial disks, we invert the
 point in the boundary circle of the disk.
 We continue applying inversions until the transformed point is in the
-out side of the initial circles.
+out side of the initial disks.
 Figure \ref{fig:iisOrbit} shows orbit of the blue point transformed by
 iterations of inversions.
 
@@ -248,10 +268,10 @@ are transformed to outside because inversions are involution.
   \end{algorithmic}
  \end{algorithm}
 
-\noindent Pseudo-code of IIS is in Algorithm \ref{arg:iis2d}.
+\noindent Pseudo-code of IIS is shown in Algorithm \ref{arg:iis2d}.
 Later, we will introduce generators other than simple inversions.
 We consider a map $G$ such that $G$ is an identity for a point in the
-fundamental domain and that $G$ is a composition of inversions for other
+\textit{fundamental domain} and that $G$ is a composition of inversions for other
 points.
 The fundamental domain is the terminal area of transformations. 
 In the above case, the black area where outside of all circles.
@@ -300,7 +320,8 @@ We use \textit{Sphere Tracing} \cite{hart1996sphere} to render three dimensional
 fractals and orbit of the seed sphere.
 Sphere Tracing is one of the algorithm to render implicit surfaces using
 ray tracing.
-In the following paragraphs, we introduce ray tracing and sphere tracing.
+In the following paragraphs, we introduce ray tracing and
+ sphere tracing.
 
 In the first place, we work a ray as something like a vector.
 We set the origin of the ray to the position of the camera

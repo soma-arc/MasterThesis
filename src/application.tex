@@ -10,17 +10,20 @@ In this section, we introduce advanced usage of IIS.
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/application/internal/schottky.png}
   \caption{\textit{Edge of the circlte inversion fractal}}
-  \label{fig:}
+  \label{fig:divideTwo}
  \hspace*{\fill}
 \end{figure}
 
 %% 二次元のフラクタルの内側だけを描く．全ての円盤が接していれば極限集合
 %% で二分割することができる
 
-two dimensional circle inversion fractals
-
-All of the circles touches each other, the limit set split plane by two.
+In two dimensional circle inversion fractals,
+when all of the circles touches each other, the limit set divides plane
+into two. See Figure \ref{fig:divideTwo}.
 transformed point is outside of the limit set.
+
+We fill a pixel result of IIS, the point moved into inner part of the
+resulting fractal.
 
 \subsection{Render Edge of the Circles}
 
@@ -33,7 +36,7 @@ transformed point is outside of the limit set.
 \end{figure}
 
 We can draw only edges of disks in circle inversion fractals.
-We can estimate the distance from the center of the disks usin jacobian
+We can estimate the distance from the center of the disks using jacobian
 of circle inversions.
 
 %% ヤコビアンを累積させていき，最後の円周からの距離を累積させたヤコビア
@@ -84,14 +87,14 @@ arranging geometrical objects like circles or lines on the plane.
    \center
    \includegraphics[ height=1.4in, keepaspectratio]{./img/application/2dGen/translationEdgedGen.pdf}
    \subcaption{\textit{Generator}}
-   \label{fig:translate2dGen}
+   \label{fig:translation2dGen}
   \end{minipage}
   \hspace*{\fill}
   \begin{minipage}{0.25\hsize}
    \center
    \includegraphics[ height=1.4in, keepaspectratio]{./img/application/2dGen/translationEdgedOrb.pdf}
    \subcaption{\textit{Orbit}}
-   \label{fig:translate2dOrb}
+   \label{fig:translation2dOrb}
   \end{minipage}
   \hspace*{\fill}
   \caption{\textit{Parallel translation generator and four Schottky disks}}
@@ -116,7 +119,7 @@ arranging geometrical objects like circles or lines on the plane.
   \end{minipage}
   \hspace*{\fill}
   \caption{\textit{Rotation generator and three Schottky disks}}
-  \label{fig:Rotation}
+  \label{fig:Rotation2d}
  \end{minipage}
  \begin{minipage}{0.5\hsize}
   \begin{minipage}{0.25\hsize}
@@ -178,10 +181,32 @@ arranging geometrical objects like circles or lines on the plane.
 \end{figure}
 
 \noindent\textbf{Inversion in a Circle with Infinite Radius.}
+An inversion in a circle with infinite radius is treated as a reflection
+over a border line of half plane. See Figure
+\ref{fig:infCircle}\subref{fig:infCircleGen}.
+The four inversion circles are lying on the right side, and there is the
+orange region on the left side. The region is is a half plane, that is, a
+disk with infinite radius. Its boundary is colored with white line.
+The orbit is shown in
+Figure \ref{fig:infCircle}\subref{fig:infCircleOrb}.
+As we can see, the circles are reflected over the white line.
 
 \noindent\textbf{Parallel Translation.}
+A composition of reflections over two parallel half planes facing each
+other generates a parallel translation. See Figure
+\ref{fig:translation2d}\subref{fig:translation2dGen}.
+There are two orange half planes on the right and left sides.
+The orbit is shown in Figure
+\ref{fig:translation2d}\subref{fig:translation2dOrb}.
 
 \noindent\textbf{Rotation.}
+A composition of reflections over two crossing half planes generates a
+rotation. The generator is shown in Figure
+\ref{fig:Rotation2d}\subref{rotation2dGen}
+The two half planes are crossing. The rotation axis is crossing point of
+white border lines. The orbit is shown in Figure 
+\ref{fig:Rotation2d}\subref{rotation2dOrb}.
+It has a rotation symmetry and it is an elliptic transformation.
 
 \noindent\textbf{Composition of Two Circles.}
 %% Hyperbolic, parabolic, elliptic

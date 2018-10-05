@@ -23,7 +23,7 @@ For instance, we write $a$ as $f(z)$, $b$ as $g(z)$, $A$ as $f(z)^{-1}$,
 and $B$ as $g(z)^{-1}$.
 
 We write compositions of transformations as line upped letters.
-For instance, $f(z) \circ g(z) \circ f(z)^{-1}$ is represented by $abA$.
+For example, $f(z) \circ g(z) \circ f(z)^{-1}$ is represented by $abA$.
 We call the compositions of transformations \textit{word}.
 
 In this paper, we follow the notations of Indra's Pearls
@@ -41,18 +41,17 @@ where $c$ and $r$ are center and radius of the circle.
 Note that an inversion in a circle with infinite radius is the same as
 a reflection over a line.
 
-Also, sphere inversion can be derived from a similar equation, and an inversion
-in a sphere with infinite radius is the same as a reflection through a
-plane.
-
 Later, we consider Jacobian of the inversions.
 Let $C$ be the center of the inversion circle, let $R$ be its radius,
 and let $P$ be a point before applying the inversion in the circle.
 $Jacobian = R^2 / distance(P,~C)^2$.
 Note that the Jacobian of the inversions in a circle with
 infinite radius is $1$.
-In the same way as Jacobian of a circle inversion, we can derive Jacobian of
-sphere inversions.
+
+Also, sphere inversions and Jacobian of sphere inversions can be
+derived from a similar equation to circle inversions.
+An inversion in sphere with infinite radius is the same as a reflection
+through a plane.
 
 \subsection{M\"obius Transformations}
 
@@ -101,18 +100,21 @@ We consider \textit{cayley graph} of the Kleinian groups to enumerate elements
 of the groups.
 Figure \ref{fig:cayleyGraph} shows Cayley graph of the group generated
 by two transformations.
-The nodes of the graph show words (compositions of elements of the group.)
+The nodes of the graph show words.
+They represent compositions of elements of the group.
 According to the way of traversing the graph, 
 there are two types of visualization of transformation groups.
 
 Firstly, we can draw orbit of the group by traversing the cayley graph with
-breadth first search. We can obtain words from the short side.
+breadth first search. We can obtain words from the short ones.
 See Figure \ref{fig:orbitCat}.
 The cat in the center is transformed by found words.
 
-Moreover, we can consider tiling of the first tile.
+Moreover, we can consider tiling.
+If there is a first tile, we can tile it by elements of the group.
 If the group meet some conditions, we can tile them without gaps and
 self intersections.
+ 
 The circles and cats converges to some shape.
 We call the limiting shape the \textit{limit set} of the group.
 

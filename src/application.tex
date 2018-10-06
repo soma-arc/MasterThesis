@@ -119,7 +119,7 @@ arranging geometrical objects like circles or lines on the plane.
   \end{minipage}
   \hspace*{\fill}
   \caption{\textit{Rotation generator and three Schottky disks}}
-  \label{fig:Rotation2d}
+  \label{fig:rotation2d}
  \end{minipage}
  \begin{minipage}{0.5\hsize}
   \begin{minipage}{0.25\hsize}
@@ -137,7 +137,7 @@ arranging geometrical objects like circles or lines on the plane.
   \end{minipage}
  \hspace*{\fill}
   \caption{\textit{Hyperbolic generator and a Schottky disk}}
-  \label{}
+  \label{fig:hyperbolic2d}
  \end{minipage}
 \end{figure}
 
@@ -202,17 +202,82 @@ The orbit is shown in Figure
 \noindent\textbf{Rotation.}
 A composition of reflections over two crossing half planes generates a
 rotation. The generator is shown in Figure
-\ref{fig:Rotation2d}\subref{rotation2dGen}
+\ref{fig:rotation2d}\subref{fig:rotation2dGen}
 The two half planes are crossing. The rotation axis is crossing point of
 white border lines. The orbit is shown in Figure 
-\ref{fig:Rotation2d}\subref{rotation2dOrb}.
+\ref{fig:rotation2d}\subref{fig:rotation2dOrb}.
 It has a rotation symmetry and it is an elliptic transformation.
 
 \noindent\textbf{Composition of Two Circles.}
-%% Hyperbolic, parabolic, elliptic
+ Next, we use a composition of inversions in two circles.
+ See Figure \ref{fig:hyperbolic2d}\subref{fig:hyperbolic2dGen}.
+ There are one Schottky disk and three regions colored with red, green,
+ and blue.
+ We call the boundary of red disk $C1$, 
+ the outer circle of green region $C2$, and
+ let $C1'$ be the inversion of $C1$ in $C2$.
+ The outer circle of blue region is $C1'$.
+ The generator is composed of $C1$, $C2$, and $C1'$.
+ While $C1$ and $C2$ have no intersection, the composition of inversions
+ in $C1$ and $C2$ represents hyperbolic transformations
+ \footnote{\url{https://www.shadertoy.com/view/MsScWW}}.
+ The orbit is shown in Figure
+ \ref{fig:hyperbolic2d}\subref{fig:hyperbolic2dOrb}.
+ The orbit of the disk converges to two fixed points.
+ We compose the map $G$ as follows.
+ The prefix $I$ represents an inversion, for example, $I_{C1}$ represents
+ an inversion in $C1$.
+ \begin{align*}
+  G =
+  \begin{cases}
+   I_{C2} \circ I_{C1} & (\text{The point is inside of } C1) \\
+   I_{C1} \circ I_{C2} & (\text{The point is outside of }C1')
+  \end{cases}
+ \end{align*}
+ In the process of IIS, we can transform the point to the fundamental
+ domain by applying $G$ repeatedly.
+ The fundamental domain of this type of generators is the blue and green
+ area in Figure \ref{fig:hyperbolic2d}\subref{fig:hyperbolic2dGen}..
+
+ Then, we displace $C1$.
+ When $C1$ and $C2$ are kissing as shown in Figure 
+ \ref{fig:parabolic2d}\subref{fig:parabolic2dGen},
+ this generator becomes a parabolic transformation
+ \footnote{\url{https://www.shadertoy.com/view/XsBcDD}}.
+ The fixed points overlap each other, and the orbit converges to the
+ point as shown in Figure \ref{fig:parabolic2d}\subref{fig:parabolic2dOrb}.
+
+ When $C1$ and $C2$ are crossing as in Figure n, 
+ the generator becomes an elliptic transformation.
+ The orbit is as shown in Figure n.
+ The disks are rotate around crossing line.
+ Note that crossing angle of $C1$ and $C2$ should be rational angles,
+ otherwise the orbit of the disks will overlap each other.
 
 \noindent\textbf{Loxodromic.}
-
+ We can twist the orbit by adding another two inversions.
+ See Figure \ref{fig:loxodromic2d}\subref{fig:loxo2dGen}.
+ The yellow disk and the white line are added to the hyperbolic generator.
+ The white line is a line with two centers of $C1$ and $C2$.
+ We call the line $L$, the boundary of the yellow disk $C3$, and
+ light blue point $P$.
+ $P$ is a user-defined control point, and the circle $C3$ is determined
+ by three points, one is the point $P$, and the others are inversions
+ of $P$ in $C1$ and $C2$.
+ $L$ and $C3$ are perpendicular to $C1$ and $C2$.
+ Thus, a composition of the reflection over $L$ and the inversion in $C3$
+ represents a rotation, and
+ the orbit of the group is twisted as shown in Figure
+ \ref{fig:loxodromic2d}\subref{fig:loxo2dOrb}. This is a loxodromic
+ transformation\footnote{\url{https://www.shadertoy.com/view/lsSyDW}}.
+ The map $G$ is as follows.
+ \begin{align*}
+  G =
+  \begin{cases}
+   (I_{C2} \circ I_{C1}) \circ (I_{C3} \circ I_L) & (\text{The point is inside of } C1) \\
+   (I_L \circ I_{C3}) \circ (I_{C1} \circ I_{C2}) & (\text{The point is outside of }C1')
+  \end{cases}
+ \end{align*}
 
 \subsubsection{Three Dimensionanl Generators}
 
@@ -380,15 +445,60 @@ It has a rotation symmetry and it is an elliptic transformation.
 \end{figure}
 
 \noindent\textbf{Inversion in a Sphere with Infinite Radius.}
+An inversion in a sphere with infinite radius is represented by
+a reflection through a plane.
+See Figure \ref{fig:infSphere}\subref{fig:infSphereGen}.
+There are four white inversion spheres, one green base sphere,
+and one blue plate.
+The blue plate is a part of a sphere with infinite radius.
+The orbit of the group is shown in Figure
+\ref{fig:infSphere}\subref{fig:infSphereOrb}.
+The resulting orbit has a reflection symmetry.
 
 \noindent\textbf{Parallel
 Translation~\footnote{\url{https://www.shadertoy.com/view/lsjyzK}}.}
+A composition of inversions in two parallel planes represents a parallel
+translation along a normal vector of the planes.
+See Figure \ref{fig:translation3d}.
+This is a parabolic transformation.
+Moreover, in 3D, we can add a twist to the orbit.
+See Figure \ref{fig:compParabolic}.
+The orbit is rotated around the normal vector of the planes for every
+translation.
+This operation is possible in 3D space, because we have gained a degree
+of freedom over 2D space.
+The transformations yielding twisted orbits are called \textit{compound
+parabolic} transformations.
 
 \noindent\textbf{Rotation.}
+A composition of reflections through two crossing planes generates a rotation.
+The axis of rotation is the intersection line of two planes.
+The generators and the orbit are shown in Figure \ref{fig:rotation3d}.
 
 \noindent\textbf{Composition of Two
 Spheres~\footnote{\url{https://www.shadertoy.com/view/ldByDW}}.}
-%% Hyperbolic, parabolic, elliptic
+We compose generators using two spheres.
+See Figure \ref{fig:loxoGen3d}.
+We call the light red sphere $S1$, the light green sphere $S2$, and the blue
+sphere $S1'$.
+The map $G$ is as follows.
+\begin{align*}
+G =
+\begin{cases}
+ I_{S2} \circ I_{S1} & (\text{The point is inside of } S1) \\
+ I_{S1} \circ I_{S2} & (\text{The point is outside of }S1')
+\end{cases}
+\end{align*}
+While $S1$ and $S2$ have no intersection, the generator is hyperbolic
+transformation.
+The orbit of the base sphere is shown in Figure \ref{fig:loxoOrb3d}.
+When $S1$ and $S2$ come in contact with each other at one point as shown
+in Figure \ref{fig:parabolic3dGen}, it becomes a parabolic transformation.
+The orbit of spheres touches at the fixed point.
+The orbit is shown in Figure \ref{fig:parabolic3dOrb}.
+Also, Figure \ref{fig:complicated3d} shows the example of the more
+complicated orbit of spheres generated by adding six Schottky spheres to
+the group shown in Figure \ref{fig:loxo3d} and Figure \ref{fig:parabolic3d}.
 
 \noindent\textbf{Compound Loxodromic~\footnote{\url{https://www.shadertoy.com/view/MdjyRV}}.}
 

@@ -647,24 +647,41 @@ Therefore, we call this generator \textit{compound loxodromic}.
 
 \subsection{Sphairahedra and Three-dimensional Fractals}
 
-%% 球面体のタイリングもIISで描画することができる
-
-\begin{figure}[htbp]
- \begin{minipage}{0.5\hsize}
-   \center
-   \includegraphics[ height=1.4in, keepaspectratio]{./img/application/sphairahedron/cube.png}
-   \caption{\textit{cube-type sphairahedron}}
-   \label{fig:cubeTypeSphairahedron}
- \end{minipage}
- \hspace*{\fill}
-  \begin{minipage}{0.5\hsize}
-   \center
-   \includegraphics[ height=1.4in, keepaspectratio]{./img/application/sphairahedron/quasi-sphere.png}
-   \caption{\textit{Quasi-sphere}}
-   \label{}
+\begin{figure}[h!tbp]
+  \begin{minipage}[t]{0.25\textwidth}
+   \centering
+   \includegraphics[height=1.2in, keepaspectratio]{./img/application/sphairahedron/cube.png}
+   \caption{Cube-type sphairahedron.}
+   \label{fig:cubeSphaira}
   \end{minipage}
- \hspace*{\fill}
+  \hspace*{\fill}
+ \begin{minipage}[t]{0.75\textwidth}
+  \begin{minipage}[t]{0.25\textwidth}
+   \centering
+   \includegraphics[height=1.2in,
+   keepaspectratio]{./img/application/sphairahedron/quasi-sphere.png}
+   \subcaption{}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.25\textwidth}
+   \centering
+   \includegraphics[height=1.2in,
+   keepaspectratio]{./img/application/sphairahedron/other.png}
+   \subcaption{}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.25\textwidth}
+   \centering
+   \includegraphics[height=1.2in,
+   keepaspectratio]{./img/application/sphairahedron/quasi-sphereZoom.png}
+   \subcaption{}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Images of a quasi-sphere rendered in different viewpoints.}
+  \label{fig:quasi-sphere}
+ \end{minipage}
 \end{figure}
+
 
 In this section, we introduce an example of three dimensional
 tiling using IIS.
@@ -724,5 +741,21 @@ We can use IIS to render three dimensional tiling of sphairahedra.
  \label{fig:sphairahedronTile}
 \end{figure}
 
+\subsubsection{Construct Fractal}
+
+In Figure \ref{fig:sphairahedronTile} we show a process of the tiling of
+sphairahedra.
+The sphairahedron presented in Figure
+\ref{fig:sphairahedronTile}\subref{fig:sphaira-step1} has six spherical
+faces.
+We apply inversions in each spherical face to original sphairahedron,
+and we obtain new six sphairahedra surrounding the initial sphairahedron
+as shown in Figure
+\ref{fig:sphairahedronTile}\subref{fig:sphaira-step2}.
+Next, we apply inversions in each of the new faces to the new sphairahedra,
+and we obtain more sphairahedra.
+We continue iterating inversions, and finally, we get a three-dimensional
+fractal shape as presented in Figure \ref{fig:sphairahedronTile}\subref{fig:sphaira-final}.
 
 For more details, read \cite{bridges2018:171}.
+

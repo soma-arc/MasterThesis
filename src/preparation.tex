@@ -3,31 +3,36 @@
 
 \section{Preparation}
 
-In this section, we introduce prerequisites to understand
-the algorithm to visualize Kleinian groups called
-Iterated Inversion System (IIS) and basic usage of IIS.
+In this section, we introduce some mathematical terms and prerequisites
+to understand the IIS algorithm and basic usage of IIS.
 
 \subsection{Kleinian Groups}
 
 Kleinian groups is discrete sub-group of the M\"obius transformation
 groups. Briefly, group of the M\"obius transformation which meet some conditions.
+In this paper, we use the notations about kleinian groups used in the
+book, Indra's Pearls \cite{MumfordSeriesWright200204}.
 
 The word \textit{group} or \textit{transformation group} means a set of
 transformations. 
 For example, we assume there are transformations $f(z)$, $g(z)$, and
 their inverse transformations.
 We call the initial elements of the group \textit{generators}.
-We write transformations in lowercase alphabet and 
+We denote transformations in lowercase alphabet and 
 their inverse in uppercase alphabet.
 For instance, we write $a$ as $f(z)$, $b$ as $g(z)$, $A$ as $f(z)^{-1}$,
 and $B$ as $g(z)^{-1}$.
-
-We write compositions of transformations as line upped letters.
+We also denote compositions of transformations as line upped letters.
 For example, $f(z) \circ g(z) \circ f(z)^{-1}$ is represented by $abA$.
 We call the compositions of transformations \textit{word}.
+In this way, we can compose infinite number of transformations;
+We call the set of transformations transformation group.
 
-In this paper, we follow the notations of Indra's Pearls
-\cite{MumfordSeriesWright200204}, for more details, read the book.
+An infinitely long word is represented by overline.
+For instance, the word $aaaaa...$ corresponds to $\overline{a}$ and
+$abABabAB...$ corresponds to $\overline{abAB}$.
+Fixed point of the infinite length word corresponds to action of the
+word.
 
 \subsection{Inversions in Circles or Spheres}
 
@@ -36,20 +41,18 @@ composition of inversions. Thus, inversion is a kind of primitive
 functions for M\"obius transformations.
 For more details, see the chapter 1 of \cite{marden_2016}.
 
-An inversion in a circle is defined as $f(z) = \frac{r^2}{~\overline{z -c}~} + c$,
-where $c$ and $r$ are center and radius of the circle.
+An inversion in a circle is defined as $f(z) = \frac{R^2}{~\overline{z -C}~} + C$,
+where $C$ and $R$ are center and radius of the circle.
 Note that an inversion in a circle with infinite radius is the same as
 a reflection over a line.
-
-Later, we consider Jacobian of the inversions.
-Let $C$ be the center of the inversion circle, let $R$ be its radius,
-and let $P$ be a point before applying the inversion in the circle.
-$Jacobian = R^2 / distance(P,~C)^2$.
+Later, we use Jacobian of the inversions. The equation is as follows
+$Jacobian = R^2 / distance(P,~C)^2$, where $P$ is a point before
+applying the inversion in the circle.
 Note that the Jacobian of the inversions in a circle with
 infinite radius is $1$.
 
 Also, sphere inversions and Jacobian of sphere inversions can be
-derived from a similar equation to circle inversions.
+derived from a same equation to circle inversions.
 An inversion in sphere with infinite radius is the same as a reflection
 through a plane.
 
@@ -95,7 +98,7 @@ Elliptic transformations have two fixed points and are conjugate to rotations.
  \end{minipage}
 \end{figure}
 
-\noindent In this section, we introduce basic methods for visualizing Kleinian groups.
+\noindent In this sub-section, we introduce basic methods for visualizing Kleinian groups.
 We consider \textit{cayley graph} of the Kleinian groups to enumerate elements
 of the groups.
 Figure \ref{fig:cayleyGraph} shows Cayley graph of the group generated
@@ -110,7 +113,7 @@ breadth first search. We can obtain words from the short ones.
 See Figure \ref{fig:orbitCat}.
 The cat in the center is transformed by found words.
 
-Moreover, we can consider tiling.
+Moreover, it is used to draw an tiling of the fundamental domain.
 If there is a first tile, we can tile it by elements of the group.
 If the group meet some conditions, we can tile them without gaps and
 self intersections.
@@ -120,11 +123,11 @@ We call the limiting shape the \textit{limit set} of the group.
 
 Secondly, we can only draw the limit set of the group by traversing the
 cayley graph with depth first search.
-The limit set located at the end of Cayley graph. Thus, we use fixed
-point of the transformation.
-We decide the maximum depth of traversing in advance, and we obtain
-long words.
-Next, we apply obtained word to the fixed points.
+The limit set is located at the end of Cayley graph. Thus, we use fixed
+point of the word. 
+We decide the maximum depth of traversing in advance, and
+obtain words.
+Next, we apply obtained words to the preselected fixed points.
 For more details, read Indra's Pearls.
 Figure \ref{fig:limit} shows one of the limit set of the Kleinian group.
 

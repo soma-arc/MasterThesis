@@ -105,6 +105,7 @@ Figure \ref{fig:cayleyGraph} shows Cayley graph of the group generated
 by two transformations.
 The nodes of the graph show words.
 They represent compositions of elements of the group.
+Before we traverse the graph, we decide the maximum depth of traversing in advance.
 According to the way of traversing the graph, 
 there are two types of visualization of transformation groups.
 
@@ -113,21 +114,21 @@ breadth first search. We can obtain words from the short ones.
 See Figure \ref{fig:orbitCat}.
 The cat in the center is transformed by found words.
 
-Moreover, it is used to draw an tiling of the fundamental domain.
-If there is a first tile, we can tile it by elements of the group.
+Moreover, it is used to draw an tiling of the fundamental domain (tile.)
+We can tile it by elements of the group.
 If the group meet some conditions, we can tile them without gaps and
 self intersections.
  
-The circles and cats converges to some shape.
+The circles and cats converges to some shape in Figure \ref{fig:orbitCat}. 
 We call the limiting shape the \textit{limit set} of the group.
 
 Secondly, we can only draw the limit set of the group by traversing the
 cayley graph with depth first search.
 The limit set is located at the end of Cayley graph. Thus, we use fixed
 point of the word. 
-We decide the maximum depth of traversing in advance, and
-obtain words.
-Next, we apply obtained words to the preselected fixed points.
+After we traverse the graph, we obtain some long words.
+We apply the words to the preselected fixed points of the group, and
+we get limit set of the group as polygonal lines.
 For more details, read Indra's Pearls.
 Figure \ref{fig:limit} shows one of the limit set of the Kleinian group.
 

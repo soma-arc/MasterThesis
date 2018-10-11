@@ -185,7 +185,7 @@ groups.
  \label{fig:schottkyProcess}
 \end{figure}
 
-\noindent To solve the problems we discussed in previous section,
+\noindent To solve the problems we discussed in previous sub-section,
 we focus circle inversions and invent an efficient algorithm to
 visualize \textit{circle inversion fractals} shown in Figure \ref{fig:schottkyProcess}\subref{fig:levelMax}.
 
@@ -241,14 +241,14 @@ The process of the algorithm is as follows.
 First of all, if the point is contained in initial disks, we invert the
 point in the boundary circle of the disk.
 We continue applying inversions until the transformed point is in the
-out side of the initial disks.
+outside of the initial disks.
 Figure \ref{fig:iisOrbit} shows orbit of the blue point transformed by
 iterations of inversions.
 
 Furthermore, a point actually at the limit set never reaches the
 outside. So, we have to determine the maximum number of iterations in
 advance to prevent the algorithm from running indefinitely.
-However, the points except for the limit set are guaranteed that they
+The points except for the limit set are guaranteed that they
 are transformed to outside because inversions are involution.
 
  \begin{algorithm}
@@ -274,7 +274,7 @@ are transformed to outside because inversions are involution.
   \end{algorithmic}
  \end{algorithm}
 
-\noindent Pseudo-code of IIS is shown in Algorithm \ref{arg:iis2d}.
+Pseudo-code of IIS is shown in Algorithm \ref{arg:iis2d}.
 Later, we will introduce generators other than simple inversions.
 We consider a map $G$ such that $G$ is an identity for a point in the
 \textit{fundamental domain} and that $G$ is a composition of inversions for other
@@ -310,8 +310,9 @@ compute the nesting depth of the sphere voxel by voxel.
 
 We use \textit{ray tracing} to visualize three dimensional objects.
 Ray tracing computes intersection between ray and objects algebraically.
-There are two ways to render nesting spheres. First one is drawing
-transparent spheres. Second one is \textit{volume rendering}.
+There are two ways to render nesting spheres. First one is to draw
+nesting spheres as transparent spheres.
+Second one is \textit{volume rendering}.
 However, it is difficult to render them efficiently, and
 visualized images are not interesting.
 
@@ -335,16 +336,18 @@ and direction of the ray to the direction to each pixel on the screen
 from the camera. Each pixel is colored according to the
 first object the ray hits. 
 
-In regular ray tracing, we calculate the intersection algebraically, but
+In regular ray tracing, we calculate the intersections algebraically, but
 we can not compute intersection to fractal objects.
 On the other hand, in sphere tracing, we march the “tip” of the ray
 along the direction of the ray step by step. 
 To check how far the tip of the ray is from the objects, we need a
 \textit{distance function}.
 Distance function is a function which returns minimum distance between
-given point and a target object. 
-For example, let $P$ be a tip of a ray. A distance function of a sphere
-whose center is $C$ and radius is $R$ is $f(x) = distance(P, C) - R$.
+given point and a objects.
+For example, a distance function of a sphere is as follows.
+Let $P$ be a tip of a ray, let $C$ and $R$ be center and
+radius of the sphere.
+Distance function $f(x)$ is $f(x) = distance(P, C) - R$.
 
 However, in regard to fractal rendering, it is difficult to
 get an actual distance to its shape. So, we use lower estimated distance

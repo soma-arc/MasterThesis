@@ -343,11 +343,12 @@ along the direction of the ray step by step.
 To check how far the tip of the ray is from the objects, we need a
 \textit{distance function}.
 Distance function is a function which returns minimum distance between
-given point and a objects.
+given point and objects.
 For example, a distance function of a sphere is as follows.
 Let $P$ be a tip of a ray, let $C$ and $R$ be center and
 radius of the sphere.
 Distance function $f(x)$ is $f(x) = distance(P, C) - R$.
+If there are many spheres, we use minimum distance to the circle and the ray.
 
 However, in regard to fractal rendering, it is difficult to
 get an actual distance to its shape. So, we use lower estimated distance
@@ -376,15 +377,17 @@ by Christensen.
 \end{figure}
 
 Before we introduce distance estimation, we introduce
-well known technique to copy many objects in sphere tracing.
-Instead of preparing many objects, we can use modulo operator
-to get distance function to line the objects up.
+well known technique to render many objects in sphere tracing.
+Instead of preparing distance functions for many objects, we can use modulo operator
+to get distance to the lined up objects.
+
 See Figure \ref{fig:modulo1}. We assume there are blue disk, yellow ray and dotted
 circle and lines.
-Now, we want to distance function for circles.
+Now, we want to minimum distance between the ray and dotted circles.
+Note that we only know the position of the tip of the ray and the blue disk.
 We assume the nearest circle to the ray is in same dotted region.
-We apply modulo operator to the ray and we can measure distance to blue
-disk as in Figure \ref{fig:modulo2}.
+Next, we fold up the regions using modulo operator, and
+we can measure distance to blue disk as in Figure \ref{fig:modulo2}.
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
@@ -407,6 +410,7 @@ Next, we consider scaling example. See Figure \ref{fig:iisScale1}.
 There is a yellow ray and a blue disk, and orbit of scaling as
 dotted blue circles.
 The green dotted lines show scaling regions.
+We want to minimum distance to dotted blue circles.
 We assume that the nearest sphere to the tip of the ray is at
 same regions. 
 However, we only know the coordinates of the original blue
@@ -415,14 +419,15 @@ Thus, we scale the tip of the ray to the same region to the blue disk
 but, the distance between scaled ray and disk is also scaled.
 So, we correct the scale dividing computed distance by 
 Jacobian (sometimes referred to as the Jacobian determinant) of scaling.
+See Figure \ref{fig:iisScale2}.
 If the scaling of the circle is $f(x) = 2x$, we divide the scale by
-six.
+six because the ray is moved three green scaling region.
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/preparation/slice.png}
-  \caption{\textit{XY-slice image of Figure \ref{fig:simpleOrb}}}
+  \caption{\textit{XY-slice image of Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb}}}
   \label{fig:slice2d}
   \hspace*{\fill}
  \end{minipage}
@@ -455,17 +460,10 @@ The nearest sphere to $P2$ is $S2$.
 So, we have to calculate the distance between $P2$ and $S2$.
 We call the distance $d$.
 However, we do not know the center and radius of $S2$.
-So, we calculate d from a distance between $S1$ and $P1$.
+So, we calculate $d$ from a distance between $S1$ and $P1$.
 Inversions in spheres and M\"obius transformations do not preserve
 Euclidean distance.
 Thus we use the Jacobian to estimate the distance.
-The equation to calculate the Jacobian of an inversion is as follows.
-
-Let $S$ be the center of the inversion sphere, let $R$ be its radius,
-and let $P$ be a point before applying the inversion in $S$.
-$Jacobian = R^2 / distance(P,~S)^2$.
-Note that the Jacobian of the inversions in a sphere with infinite radius
-is $1$.
 We accumulate the Jacobian of inversions by multiplying the Jacobian for
 every inversion.
 
@@ -526,8 +524,16 @@ The generalized pseudo-code for a distance function is in Algorithm \ref{iis3d}.
 
 Aaron Montag uses texture based approach to visualize limit set of the
 Kleinian groups \cite{Montag2014hyperbolicIFS}.
-%% テクスチャベースの描画方法 テクスチャに種となる円を描き，円に変換を作
-%% 用させることで極限集合を描画させる
+We prepare initial seed circle in the texture.
+Next, we apply generators of the group to each pixel.
+If transformed pixel is on the seed circle or filled pixel, we fill the original pixel.
+We continue iterating this process, we obtain image of the limit set of
+the group.
+This algorithm needs high resolution texture, and it is difficult to
+extend this algorithm to three-dimension.
+%% テクスチャベースの描画方法 テクスチャに種となる円を描く，点ごとに，変
+%% 換を作用させ，元のテクスチャの円の上にもどってきたらテクスチャを描く
+%% これを続けることで極限集合を描画する
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
@@ -548,13 +554,12 @@ Kleinian groups \cite{Montag2014hyperbolicIFS}.
 
 Jos Leys invented efficient algorithm to draw Kleinian group with Maskit
 parametrization shown in Figure \ref{fig:jos}.
-IIS uses circle inversions on the other hand Jos Leys uses normal
-M\"obius transformations.
+IIS uses circle or sphere inversions on the other hand Jos Leys used
+M\"obius transformations algebraically.
 We can apply circle inversions to his figure, and we obtain Figure \ref{fig:josInv}
-%% IISを普通の関数を使って行っている こちらのIISは円，球に注目している
 
 Martin von Gagern introduce similar algorithm called \textit{Reverse
-Pixel Lookup} \cite{journals/combinatorics/GagernR09}.
-The algorithm is for visualizing tiling.
-His method is similar to IIS.
-We explore the method not only tiling but also other varieties of images.
+Pixel Lookup} \cite{journals/combinatorics/GagernR09} to render
+two-dimensional hyperbolic tiling.
+We explore the method not only tiling but also other varieties of
+images.

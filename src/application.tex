@@ -63,6 +63,8 @@ fractals and M\"obius transformation groups.
 Moreover, we can tweak parameters of M\"obius transformations by
 arranging geometrical objects like circles or lines on the plane.
 
+This section is revised version of \cite{bridges2017:159}.
+
 \subsubsection{Two Dimensionanl Generators}
 
 \begin{figure}[htbp]
@@ -686,7 +688,10 @@ Therefore, we call this generator \textit{compound loxodromic}.
 
 
 In this section, we introduce an example of three dimensional
-tiling using IIS.
+tiling using IIS. 
+We discussed this topic in \cite{bridges2018:171}.
+We revised the paper for this subsection.
+
 In 2003, Kazushi Ahara and Yoshiaki Araki invented
 \textit{Sphairahedron} to introduce new kind of three dimensional
 fractals \cite{ahara2003sphairahedral}.
@@ -702,6 +707,63 @@ As we can see, each face of the cube is a part of a sphere.
 We can make a tiling pattern using inversions about their spherical
 faces.
 We can use IIS to render three dimensional tiling of sphairahedra.
+
+\subsubsection{Sphairahedron}
+
+\begin{figure}[h!tbp]
+ \begin{minipage}[t]{0.6\textwidth}
+  \centering
+  \begin{minipage}[t]{0.19\textwidth}
+   \includegraphics[width=1.2in, height=1.2in, keepaspectratio]
+   {./img/application/sphairahedron/sphairahedron/sphairaAll.png}
+   \subcaption{$A$}
+   \label{fig:sphairaPrismAll}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.19\textwidth}
+   \includegraphics[width=1.2in, height=1.2in, keepaspectratio]
+   {./img/application/sphairahedron/sphairahedron/sphairaHalf.png}
+   \subcaption{Infinite type}
+   \label{fig:sphairaPrismHalf}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.19\textwidth}
+   \includegraphics[width=1.2in, height=1.2in, keepaspectratio]{./img/application/sphairahedron/sphairahedron/sphairahedron.png}
+   \subcaption{Finite type}
+   \label{fig:sphairahedronFinite}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Sphairahedron.}
+  \label{fig:sphairahedron}
+ \end{minipage}
+ \begin{minipage}[t]{0.4\textwidth}
+  \centering
+  \begin{minipage}[t]{0.19\textwidth}
+   \includegraphics[width=1.2in, height=1.2in, keepaspectratio]{./img/application/sphairahedron/sphairahedron/semiSphairaAll.png}
+   \subcaption{$A$}
+   \label{fig:semi-sphairaAll}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.19\textwidth}
+   \includegraphics[width=1.2in, height=1.2in, keepaspectratio]{./img/application/sphairahedron/sphairahedron/semiSphairaHalf.png}
+   \subcaption{Infinite type}
+   \label{fig:semi-sphairaHalf}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Semi-sphairahedron.}
+  \label{fig:semi-sphairahedron}
+ \end{minipage}
+\end{figure}
+
+First of all, we will describe the definition of a sphairahedron.
+Let $S^3 = R^3 \cup \{\infty\}$ be a three-dimensional sphere and let
+$\overline{D_1},~\overline{D_2},~...,~\overline{D_p}$ be some three-dimensional closed balls.
+We consider the complement $A$ of the union of these balls, that is,
+$A = S^3 - (\overline{D_1} \cup \overline{D_2} \cup ... \cup \overline{D_p})$.
+If $A$ is composed of simply-connected two components;
+in other words, $A$ has two connected components and the first homology
+group of each component is trivial, we call one side of $A$
+a sphairahedron.
 
 \begin{figure}[H]
  \begin{minipage}[t]{0.19\textwidth}
@@ -759,5 +821,31 @@ and we obtain more sphairahedra.
 We continue iterating inversions, and finally, we get a three-dimensional
 fractal shape as presented in Figure \ref{fig:sphairahedronTile}\subref{fig:sphaira-final}.
 
-For more details, read \cite{bridges2018:171}.
+\subsubsection{Ideality and Rationality}
+
+\subsubsection{Parameter Space}
+
+\subsubsection{Variations of Sphairahedra}
+
+\subsubsection{Breaking Ideality or Rationality}
+
+\subsubsection{Three Dimensional Printing}
+
+Yoshiaki Araki tried to materialize these fractal objects
+\cite{araki2006materializing}.
+Now, there are Three dimensional printer for home use.
+We try to 
+
+There are also full-colored three dimensional printing service.
+To 3d-print of them we have to convert data.
+Using IIS, we can obtain voxel data.
+We use OpenVDB to represent level set.
+Next, we mesh surfaces from voxel data.
+There are famous algorithm called \textit{marching cubes}.
+We can use OpenVDB.
+Finally, we have to decimate mesh because generated mesh often
+have many mesh.
+For full-colored 3d-printing, we have to apply UV unwrapping and 
+prepare texture.
+We use ZBrush.
 

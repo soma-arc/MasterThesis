@@ -1,6 +1,11 @@
 %#BIBTEX biber --bblencoding=utf8 -u -U --output_safechars main
 %#!uplatex main.tex
 
+\definecolor{rvwvcq}{rgb}{0.08235294117647059,0.396078431372549,0.7529411764705882}
+\definecolor{sexdts}{rgb}{0.1803921568627451,0.49019607843137253,0.19607843137254902}
+\definecolor{ffxfqq}{rgb}{1,0.4980392156862745,0}
+\definecolor{wqwqwq}{rgb}{0.5,0.5,0.5}
+
 \section{Application}
 
 In this section, we introduce advanced usage of IIS.
@@ -690,7 +695,7 @@ Therefore, we call this generator \textit{compound loxodromic}.
 In this section, we introduce an example of three dimensional
 tiling using IIS. 
 We discussed this topic in \cite{bridges2018:171}.
-We revised the paper for this subsection.
+The paper was revised for this subsection.
 
 In 2003, Kazushi Ahara and Yoshiaki Araki invented
 \textit{Sphairahedron} to introduce new kind of three dimensional
@@ -706,7 +711,7 @@ As we can see, each face of the cube is a part of a sphere.
 
 We can make a tiling pattern using inversions about their spherical
 faces.
-We can use IIS to render three dimensional tiling of sphairahedra.
+We can use IIS to render three dimensional tiling of sphairahedra in real-time.
 
 \subsubsection{Sphairahedron}
 
@@ -765,6 +770,32 @@ in other words, $A$ has two connected components and the first homology
 group of each component is trivial, we call one side of $A$
 a sphairahedron.
 
+The image in Figure \ref{fig:sphairahedron}\subref{fig:sphairaPrismAll}
+is an example of $A$.
+We hollow out the $S^3$ with six balls: we remove three half space
+(three balls with infinite radius,) from $S^3$ and obtain the prism of
+infinite length, and we scoop out the prism by the remaining
+three-colored transparent balls as in Figure \ref{fig:sphairahedron}\subref{fig:sphairaPrismAll}.
+$A$ is composed of two parts, and each of the components is simply connected.
+Since it has six faces, and these faces are arranged as those of faces of
+a cube, it is called a cube-type sphairahedron.
+Especially, it is also called an \textit{infinite type sphairahedron},
+because one of the vertices of the sphairahedron is at the infinity.
+Similarly, the shape hollowed out by six finite balls in Figure
+\ref{fig:sphairahedron}\subref{fig:sphairahedronFinite} is called a
+\textit{finite type sphairahedron}.
+
+Moreover, we can loosen the definition of sphairahedron,
+that is, the case $A$ has simply connected three or more components.
+Figure \ref{fig:semi-sphairahedron}\subref{fig:semi-sphairaAll} shows an
+example of $A$ with simply connected three components.
+Since it is the $S^3$ scooped out by five balls, this is a
+pentahedral prism type sphairahedron.
+We divide $A$ so that one part of $A$ has five faces as shown in
+Figure \ref{fig:semi-sphairahedron}\subref{fig:semi-sphairaHalf}.
+We can regard the resulting shape as a singular case of a pentahedron,
+and we call it a \textit{semi-sphairahedron}.
+
 \begin{figure}[H]
  \begin{minipage}[t]{0.19\textwidth}
   \centering
@@ -819,15 +850,648 @@ as shown in Figure
 Next, we apply inversions in each of the new faces to the new sphairahedra,
 and we obtain more sphairahedra.
 We continue iterating inversions, and finally, we get a three-dimensional
-fractal shape as presented in Figure \ref{fig:sphairahedronTile}\subref{fig:sphaira-final}.
+fractal shape as presented in Figure
+\ref{fig:sphairahedronTile}\subref{fig:sphaira-final}.
+
+\begin{figure}[h!tbp]
+ \begin{minipage}[t]{0.19\textwidth}
+  \centering
+  \includegraphics[height=1.2in, keepaspectratio]{./img/application/sphairahedron/constructFractal/terrainProcess/step1.png}
+  \subcaption{Step 1}
+  \label{fig:terrainStep1}
+ \end{minipage}
+ \hspace*{\fill}
+ \begin{minipage}[t]{0.19\textwidth}
+  \centering
+  \includegraphics[height=1.2in, keepaspectratio]{./img/application/sphairahedron/constructFractal/terrainProcess/step2.png}
+  \subcaption{Step 2}
+  \label{}
+ \end{minipage}
+ \hspace*{\fill}
+ \begin{minipage}[t]{0.19\textwidth}
+  \centering
+  \includegraphics[height=1.2in, keepaspectratio]{./img/application/sphairahedron/constructFractal/terrainProcess/step5.png}
+  \subcaption{Step 5}
+  \label{}
+ \end{minipage}
+ \hspace*{\fill}
+ \begin{minipage}[t]{0.19\textwidth}
+  \centering
+  \includegraphics[height=1.2in, keepaspectratio]{./img/application/sphairahedron/constructFractal/terrainProcess/step10.jpg}
+  \subcaption{Step 10}
+  \label{fig:terrainStep10}
+ \end{minipage}
+ \hspace*{\fill}
+ \begin{minipage}[t]{0.19\textwidth}
+  \centering
+  \includegraphics[height=1.2in, keepaspectratio]{./img/application/sphairahedron/constructFractal/terrainProcess/final.jpg}
+  \subcaption{Final image}
+  \label{figsphairaPrismFinal}
+ \end{minipage}
+ \caption{Tiling of a cube-type infinite sphairahedron.}
+ \label{fig:sphairahedralPrismTile}
+\end{figure}
+
+\begin{figure}[h!tbp]
+ \begin{minipage}[t]{0.5\textwidth}
+ \centering
+ \includegraphics[height=1.3in, keepaspectratio]{./img/application/sphairahedron/constructFractal/terrain.jpg}
+ \caption{Fractal terrain besed on the infinite sphairahedron in Figure \ref{fig:sphairahedralPrismTile}.}
+ \label{fig:terrain}
+ \end{minipage}
+ \hspace*{\fill}
+ \begin{minipage}[t]{0.5\textwidth}
+ \centering
+ \includegraphics[height=1.3in, keepaspectratio]{./img/application/sphairahedron/constructFractal/semi-terrain2.png}
+ \caption{Fractal terrain based on the infinite semi-sphairahedron in
+  Figure \ref{fig:semi-sphairahedron}.}
+ \label{fig:semi-terrain}
+ \end{minipage}
+ \hspace*{\fill}
+\end{figure}
+
+\noindent
+Also, an infinite type sphairahedron can be tiled as presented in Figure
+\ref{fig:sphairahedralPrismTile}.
+The pattern converges to fractal terrain owing to reflections over side
+faces of the sphairahedron as shown in Figure \ref{fig:terrain}.
+In the fractal terrain, we can find symmetry easily.
+For example, we can see hexagram-like terrain patterns in Figure
+\ref{fig:terrain}.
+These patterns are originated from the dihedral angles of the side faces of
+$\pi / 3$.
+
+In the same way as the tiling of the sphairahedron, a semi-sphairahedron
+can be tiled by the inversions about its faces.
+The resulting fractal of the semi-sphairahedron is different from normal
+sphairahedron's one.
+Figure \ref{fig:semi-terrain} shows the pattern
+generated by an infinite semi-sphairahedron shown in Figure 
+\ref{fig:semi-sphairahedron}.
+It is the union of an infinite number of balls
+circumscribing each other and no longer homeomorphic
+to a three-dimensional ball.
+Thus, It is not a quasi-sphere or a quasi-fuchsian.
+We will describe more about a tiling pattern of a semi-sphairahedron later.
+
+In the images of fractals within this paper, each tile of the
+sphairahedra is colored according to the
+number of inversions.
+We use the color wheel to determine their color,
+and the tile's color varies in order of red, yellow, green, and blue.
+In Figure \ref{fig:sphairahedronTile} \subref{fig:sphaira-step1} $\sim$
+\subref{fig:sphaira-step10} and
+Figure  \ref{fig:sphairahedralPrismTile} \subref{fig:terrainStep1}
+$\sim$ \subref{fig:terrainStep10}，
+we refer color wheel with large steps to visualize each tile clearly.
+On the other hand, in the other images, we refer the wheel with smaller
+steps, and we find lots of tiles with many inversions in the blue
+parts of the fractal.
+We can also find that the blue parts themselves form the constant patterns.
+
+Up to this point, We showed tiling patterns without gaps between the tiles and
+intersections of the tiles.
+However, not every sphairahedra can generate such proper tiling patterns.
+To obtain them, we have to consider two mathematical properties
+of the original sphairahedron, that is, the sphairahedron should be
+ideal and rational.
+In the next section, we will introduce these properties.
 
 \subsubsection{Ideality and Rationality}
 
-\subsubsection{Parameter Space}
+We consider two properties to characterize a sphairahedron:
+ideality and rationality.
+First, we introduce ideality.
+Let $P$ be a sphairahedron. We say $P$ is \textit{ideal} when all of the edges of
+$P$ are mutually tangent at their vertices.
+A standard polyhedron, that is, a polyhedron with planar faces, never have this property.
+The second property is rationality.
+We say $P$ is \textit{rational} if each of the
+dihedral angles of the edges is equal to $\pi / n$ for a natural number
+$n$.
+
+For instance, all of the dihedral angles of the sphairahedron
+in Figure \ref{fig:sphairahedron} are $\pi / 3$.
+That is to say, all of the dihedral angles are expressed as
+$\pi /n$, and the sphairahedron is rational.
+Then, as presented in Figure
+\ref{fig:sphairahedron}\subref{fig:sphairaPrismAll}, each of the vertices is
+the point of contact between three balls.
+Thus, the sphairahedron is ideal.
+
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.24\textwidth}
+  \centering
+  \includegraphics[width=1.5in, height=1.5in, keepaspectratio]{./img/application/sphairahedron/derivation/graphTri.png}
+ \caption{Polyhedral Graph for infinite sphairahedron.}
+ \label{fig:graph}
+ \end{minipage}
+ \hspace*{\fill}
+ \begin{minipage}[t]{0.24\textwidth}
+  \centering
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle
+ 45,x=1cm,y=1cm]
+\draw[->,color=black] (-1.7879982790065765,0) --
+ (1.9702145209475532,0);\foreach \x in
+ {-1.5,-1,-0.5,0.5,1, 1.5}\draw[shift={(\x,0)},color=black] (0pt,2pt) --
+ (0pt,-2pt);\draw[->,color=black] (0,-1.545344552024163) --
+ (0,1.596018730612241);\foreach \y in
+ {-1.5,-1,-0.5,0.5,1}\draw[shift={(0,\y)},color=black] (2pt,0pt) --
+ (-2pt,0pt);\clip(-1.7879982790065765,-1.545344552024163) rectangle
+ (1.9702145209475532,1.596018730612241);
+ \draw[line width=0pt,dash
+ pattern=on 1pt off 1pt,color=wqwqwq,fill=wqwqwq,fill
+ opacity=0.2](0.6124404939620633,1.2250488973986702)--(0.5780045693371592,1.201976720533932)--(0.48395223524051034,1.1411715588334386)--(0.3922496978948061,1.0840803412862037)--(0.3024810567829962,1.0303728832892913)--(0.21426108965273136,0.9797570133882552)--(0.12722913340978584,0.9319732558979307)--(0.041043725782849066,0.8867903818025842)--(-0.044622170473813075,0.8440016669054409)--(-0.13008550904331037,0.803421729447473)--(-0.21565719357168806,0.7648838451357799)--(-0.3016459143925736,0.728237657560985)--(-0.3883618897293505,0.6933472177017516)--(-0.47612060746630336,0.6600892986235605)--(-0.5652466626682917,0.6283519413348821)--(-0.6125593295934284,0.6125593295934274)--(-0.6125593295934281,0.6125593295934274)--(-0.6283519413348823,0.5652466626682917)--(-0.6600892986235609,0.4761206074663035)--(-0.6933472177017517,0.38836188972935043)--(-0.7282376575609851,0.30164591439257366)--(-0.76488384513578,0.21565719357168817)--(-0.8034217294474734,0.13008550904331026)--(-0.844001666905441,0.0446221704738127)--(-0.8867903818025843,-0.041043725782849046)--(-0.9319732558979311,-0.12722913340978573)--(-0.9797570133882553,-0.2142610896527315)--(-1.0303728832892916,-0.3024810567829966)--(-1.084080341286204,-0.3922496978948064)--(-1.1411715588334388,-0.4839522352405108)--(-1.2019767205339325,-0.5780045693371595)--(-1.2250488973986702,-0.6124404939620631)--(-1.2250488973986706,-0.6124404939620631)--(-1.2108922257978854,-0.6193779958458375)--(-1.1604559044732938,-0.646297715500365)--(-1.1124111198346147,-0.6742111676405248)--(-1.066591712200237,-0.7031744119339248)--(-1.022846566109127,-0.7332478055364395)--(-0.9810379453638532,-0.7644964229409448)--(-0.9410400444000885,-0.7969905260281707)--(-0.9027377238859907,-0.8308060914652986)--(-0.8660254037844385,-0.8660254037844385)--(-0.8308060914652985,-0.9027377238859905)--(-0.7969905260281707,-0.9410400444000885)--(-0.7644964229409446,-0.9810379453638532)--(-0.7332478055364394,-1.0228465661091268)--(-0.7031744119339249,-1.0665917122002369)--(-0.6742111676405248,-1.1124111198346147)--(-0.6462977155003651,-1.1604559044732943)--(-0.6193779958458375,-1.2108922257978856)--(-0.6124404939620633,-1.2250488973986702)--(-0.6124404939620631,-1.2250488973986702)--(-0.5780045693371592,-1.201976720533932)--(-0.4839522352405105,-1.1411715588334386)--(-0.3922496978948061,-1.0840803412862035)--(-0.3024810567829962,-1.0303728832892913)--(-0.21426108965273136,-0.9797570133882552)--(-0.12722913340978584,-0.9319732558979309)--(-0.041043725782849066,-0.886790381802584)--(0.044622170473813075,-0.8440016669054407)--(0.13008550904331037,-0.803421729447473)--(0.21565719357168806,-0.7648838451357799)--(0.3016459143925736,-0.7282376575609851)--(0.3883618897293505,-0.6933472177017513)--(0.47612060746630336,-0.6600892986235605)--(0.5652466626682917,-0.6283519413348821)--(0.6125593295934256,-0.6125593295934283)--(0.6125593295934276,-0.6125593295934283)--(0.6283519413348823,-0.5652466626682915)--(0.6600892986235609,-0.4761206074663035)--(0.6933472177017517,-0.38836188972935043)--(0.7282376575609851,-0.30164591439257366)--(0.7648838451357798,-0.21565719357168817)--(0.8034217294474734,-0.13008550904331026)--(0.844001666905441,-0.0446221704738127)--(0.8867903818025843,0.041043725782849046)--(0.9319732558979312,0.12722913340978573)--(0.9797570133882553,0.21426108965273166)--(1.0303728832892918,0.3024810567829966)--(1.084080341286204,0.3922496978948064)--(1.1411715588334388,0.4839522352405108)--(1.201976720533932,0.5780045693371596)--(1.22504889739867,0.6124404939620635)--(1.2108922257978854,0.6193779958458375)--(1.160455904473294,0.6462977155003651)--(1.1124111198346147,0.6742111676405247)--(1.066591712200237,0.7031744119339249)--(1.022846566109127,0.7332478055364395)--(0.9810379453638535,0.7644964229409446)--(0.9410400444000883,0.7969905260281708)--(0.9027377238859907,0.8308060914652984)--(0.8660254037844384,0.8660254037844385)--(0.8308060914652985,0.9027377238859907)--(0.7969905260281706,0.9410400444000886)--(0.7644964229409443,0.9810379453638535)--(0.7332478055364395,1.0228465661091268)--(0.7031744119339249,1.066591712200237)--(0.674211167640525,1.1124111198346147)--(0.6462977155003649,1.160455904473294)--(0.6193779958458375,1.2108922257978856)--(0.6124404939620633,1.2250488973986702);\draw[line
+ width=0pt,dash pattern=on 1pt off 1pt,color=wqwqwq,fill=wqwqwq,fill
+ opacity=0.2](0.6124404939620633,1.2250488973986702)--(0.5780045693371592,1.201976720533932)--(0.48395223524051034,1.1411715588334386)--(0.3922496978948061,1.0840803412862037)--(0.3024810567829962,1.0303728832892913)--(0.21426108965273136,0.9797570133882552)--(0.12722913340978584,0.9319732558979307)--(0.041043725782849066,0.8867903818025842)--(-0.044622170473813075,0.8440016669054409)--(-0.13008550904331037,0.803421729447473)--(-0.21565719357168806,0.7648838451357799)--(-0.3016459143925736,0.728237657560985)--(-0.3883618897293505,0.6933472177017516)--(-0.47612060746630336,0.6600892986235605)--(-0.5652466626682917,0.6283519413348821)--(-0.6125593295934284,0.6125593295934274)--(-0.6125593295934281,0.6125593295934274)--(-0.6283519413348823,0.5652466626682917)--(-0.6600892986235609,0.4761206074663035)--(-0.6933472177017517,0.38836188972935043)--(-0.7282376575609851,0.30164591439257366)--(-0.76488384513578,0.21565719357168817)--(-0.8034217294474734,0.13008550904331026)--(-0.844001666905441,0.0446221704738127)--(-0.8867903818025843,-0.041043725782849046)--(-0.9319732558979311,-0.12722913340978573)--(-0.9797570133882553,-0.2142610896527315)--(-1.0303728832892916,-0.3024810567829966)--(-1.084080341286204,-0.3922496978948064)--(-1.1411715588334388,-0.4839522352405108)--(-1.2019767205339325,-0.5780045693371595)--(-1.2250488973986702,-0.6124404939620631)--(-1.2250488973986706,-0.6124404939620631)--(-1.2108922257978854,-0.6193779958458375)--(-1.1604559044732938,-0.646297715500365)--(-1.1124111198346147,-0.6742111676405248)--(-1.066591712200237,-0.7031744119339248)--(-1.022846566109127,-0.7332478055364395)--(-0.9810379453638532,-0.7644964229409448)--(-0.9410400444000885,-0.7969905260281707)--(-0.9027377238859907,-0.8308060914652986)--(-0.8660254037844385,-0.8660254037844385)--(-0.8308060914652985,-0.9027377238859905)--(-0.7969905260281707,-0.9410400444000885)--(-0.7644964229409446,-0.9810379453638532)--(-0.7332478055364394,-1.0228465661091268)--(-0.7031744119339249,-1.0665917122002369)--(-0.6742111676405248,-1.1124111198346147)--(-0.6462977155003651,-1.1604559044732943)--(-0.6193779958458375,-1.2108922257978856)--(-0.6124404939620633,-1.2250488973986702)--(-0.6124404939620631,-1.2250488973986702)--(-0.5780045693371592,-1.201976720533932)--(-0.4839522352405105,-1.1411715588334386)--(-0.3922496978948061,-1.0840803412862035)--(-0.3024810567829962,-1.0303728832892913)--(-0.21426108965273136,-0.9797570133882552)--(-0.12722913340978584,-0.9319732558979309)--(-0.041043725782849066,-0.886790381802584)--(0.044622170473813075,-0.8440016669054407)--(0.13008550904331037,-0.803421729447473)--(0.21565719357168806,-0.7648838451357799)--(0.3016459143925736,-0.7282376575609851)--(0.3883618897293505,-0.6933472177017513)--(0.47612060746630336,-0.6600892986235605)--(0.5652466626682917,-0.6283519413348821)--(0.6125593295934256,-0.6125593295934283)--(0.6125593295934276,-0.6125593295934283)--(0.6283519413348823,-0.5652466626682915)--(0.6600892986235609,-0.4761206074663035)--(0.6933472177017517,-0.38836188972935043)--(0.7282376575609851,-0.30164591439257366)--(0.7648838451357798,-0.21565719357168817)--(0.8034217294474734,-0.13008550904331026)--(0.844001666905441,-0.0446221704738127)--(0.8867903818025843,0.041043725782849046)--(0.9319732558979312,0.12722913340978573)--(0.9797570133882553,0.21426108965273166)--(1.0303728832892918,0.3024810567829966)--(1.084080341286204,0.3922496978948064)--(1.1411715588334388,0.4839522352405108)--(1.201976720533932,0.5780045693371596)--(1.22504889739867,0.6124404939620635)--(1.2108922257978854,0.6193779958458375)--(1.160455904473294,0.6462977155003651)--(1.1124111198346147,0.6742111676405247)--(1.066591712200237,0.7031744119339249)--(1.022846566109127,0.7332478055364395)--(0.9810379453638535,0.7644964229409446)--(0.9410400444000883,0.7969905260281708)--(0.9027377238859907,0.8308060914652984)--(0.8660254037844384,0.8660254037844385)--(0.8308060914652985,0.9027377238859907)--(0.7969905260281706,0.9410400444000886)--(0.7644964229409443,0.9810379453638535)--(0.7332478055364395,1.0228465661091268)--(0.7031744119339249,1.066591712200237)--(0.674211167640525,1.1124111198346147)--(0.6462977155003649,1.160455904473294)--(0.6193779958458375,1.2108922257978856)--(0.6124404939620633,1.2250488973986702);\draw[line
+ width=0pt,dash pattern=on 1pt off 1pt,color=wqwqwq,fill=wqwqwq,fill
+ opacity=0.2](0.6124404939620633,1.2250488973986702)--(0.5780045693371592,1.201976720533932)--(0.48395223524051034,1.1411715588334386)--(0.3922496978948061,1.0840803412862037)--(0.3024810567829962,1.0303728832892913)--(0.21426108965273136,0.9797570133882552)--(0.12722913340978584,0.9319732558979307)--(0.041043725782849066,0.8867903818025842)--(-0.044622170473813075,0.8440016669054409)--(-0.13008550904331037,0.803421729447473)--(-0.21565719357168806,0.7648838451357799)--(-0.3016459143925736,0.728237657560985)--(-0.3883618897293505,0.6933472177017516)--(-0.47612060746630336,0.6600892986235605)--(-0.5652466626682917,0.6283519413348821)--(-0.6125593295934284,0.6125593295934274)--(-0.6125593295934281,0.6125593295934274)--(-0.6283519413348823,0.5652466626682917)--(-0.6600892986235609,0.4761206074663035)--(-0.6933472177017517,0.38836188972935043)--(-0.7282376575609851,0.30164591439257366)--(-0.76488384513578,0.21565719357168817)--(-0.8034217294474734,0.13008550904331026)--(-0.844001666905441,0.0446221704738127)--(-0.8867903818025843,-0.041043725782849046)--(-0.9319732558979311,-0.12722913340978573)--(-0.9797570133882553,-0.2142610896527315)--(-1.0303728832892916,-0.3024810567829966)--(-1.084080341286204,-0.3922496978948064)--(-1.1411715588334388,-0.4839522352405108)--(-1.2019767205339325,-0.5780045693371595)--(-1.2250488973986702,-0.6124404939620631)--(-1.2250488973986706,-0.6124404939620631)--(-1.2108922257978854,-0.6193779958458375)--(-1.1604559044732938,-0.646297715500365)--(-1.1124111198346147,-0.6742111676405248)--(-1.066591712200237,-0.7031744119339248)--(-1.022846566109127,-0.7332478055364395)--(-0.9810379453638532,-0.7644964229409448)--(-0.9410400444000885,-0.7969905260281707)--(-0.9027377238859907,-0.8308060914652986)--(-0.8660254037844385,-0.8660254037844385)--(-0.8308060914652985,-0.9027377238859905)--(-0.7969905260281707,-0.9410400444000885)--(-0.7644964229409446,-0.9810379453638532)--(-0.7332478055364394,-1.0228465661091268)--(-0.7031744119339249,-1.0665917122002369)--(-0.6742111676405248,-1.1124111198346147)--(-0.6462977155003651,-1.1604559044732943)--(-0.6193779958458375,-1.2108922257978856)--(-0.6124404939620633,-1.2250488973986702)--(-0.6124404939620631,-1.2250488973986702)--(-0.5780045693371592,-1.201976720533932)--(-0.4839522352405105,-1.1411715588334386)--(-0.3922496978948061,-1.0840803412862035)--(-0.3024810567829962,-1.0303728832892913)--(-0.21426108965273136,-0.9797570133882552)--(-0.12722913340978584,-0.9319732558979309)--(-0.041043725782849066,-0.886790381802584)--(0.044622170473813075,-0.8440016669054407)--(0.13008550904331037,-0.803421729447473)--(0.21565719357168806,-0.7648838451357799)--(0.3016459143925736,-0.7282376575609851)--(0.3883618897293505,-0.6933472177017513)--(0.47612060746630336,-0.6600892986235605)--(0.5652466626682917,-0.6283519413348821)--(0.6125593295934256,-0.6125593295934283)--(0.6125593295934276,-0.6125593295934283)--(0.6283519413348823,-0.5652466626682915)--(0.6600892986235609,-0.4761206074663035)--(0.6933472177017517,-0.38836188972935043)--(0.7282376575609851,-0.30164591439257366)--(0.7648838451357798,-0.21565719357168817)--(0.8034217294474734,-0.13008550904331026)--(0.844001666905441,-0.0446221704738127)--(0.8867903818025843,0.041043725782849046)--(0.9319732558979312,0.12722913340978573)--(0.9797570133882553,0.21426108965273166)--(1.0303728832892918,0.3024810567829966)--(1.084080341286204,0.3922496978948064)--(1.1411715588334388,0.4839522352405108)--(1.201976720533932,0.5780045693371596)--(1.22504889739867,0.6124404939620635)--(1.2108922257978854,0.6193779958458375)--(1.160455904473294,0.6462977155003651)--(1.1124111198346147,0.6742111676405247)--(1.066591712200237,0.7031744119339249)--(1.022846566109127,0.7332478055364395)--(0.9810379453638535,0.7644964229409446)--(0.9410400444000883,0.7969905260281708)--(0.9027377238859907,0.8308060914652984)--(0.8660254037844384,0.8660254037844385)--(0.8308060914652985,0.9027377238859907)--(0.7969905260281706,0.9410400444000886)--(0.7644964229409443,0.9810379453638535)--(0.7332478055364395,1.0228465661091268)--(0.7031744119339249,1.066591712200237)--(0.674211167640525,1.1124111198346147)--(0.6462977155003649,1.160455904473294)--(0.6193779958458375,1.2108922257978856)--(0.6124404939620633,1.2250488973986702);\draw[line
+ width=0pt,dash pattern=on 1pt off 1pt,color=wqwqwq,fill=wqwqwq,fill
+ opacity=0.2](0.6124404939620633,1.2250488973986702)--(0.5780045693371592,1.201976720533932)--(0.48395223524051034,1.1411715588334386)--(0.3922496978948061,1.0840803412862037)--(0.3024810567829962,1.0303728832892913)--(0.21426108965273136,0.9797570133882552)--(0.12722913340978584,0.9319732558979307)--(0.041043725782849066,0.8867903818025842)--(-0.044622170473813075,0.8440016669054409)--(-0.13008550904331037,0.803421729447473)--(-0.21565719357168806,0.7648838451357799)--(-0.3016459143925736,0.728237657560985)--(-0.3883618897293505,0.6933472177017516)--(-0.47612060746630336,0.6600892986235605)--(-0.5652466626682917,0.6283519413348821)--(-0.6125593295934284,0.6125593295934274)--(-0.6125593295934281,0.6125593295934274)--(-0.6283519413348823,0.5652466626682917)--(-0.6600892986235609,0.4761206074663035)--(-0.6933472177017517,0.38836188972935043)--(-0.7282376575609851,0.30164591439257366)--(-0.76488384513578,0.21565719357168817)--(-0.8034217294474734,0.13008550904331026)--(-0.844001666905441,0.0446221704738127)--(-0.8867903818025843,-0.041043725782849046)--(-0.9319732558979311,-0.12722913340978573)--(-0.9797570133882553,-0.2142610896527315)--(-1.0303728832892916,-0.3024810567829966)--(-1.084080341286204,-0.3922496978948064)--(-1.1411715588334388,-0.4839522352405108)--(-1.2019767205339325,-0.5780045693371595)--(-1.2250488973986702,-0.6124404939620631)--(-1.2250488973986706,-0.6124404939620631)--(-1.2108922257978854,-0.6193779958458375)--(-1.1604559044732938,-0.646297715500365)--(-1.1124111198346147,-0.6742111676405248)--(-1.066591712200237,-0.7031744119339248)--(-1.022846566109127,-0.7332478055364395)--(-0.9810379453638532,-0.7644964229409448)--(-0.9410400444000885,-0.7969905260281707)--(-0.9027377238859907,-0.8308060914652986)--(-0.8660254037844385,-0.8660254037844385)--(-0.8308060914652985,-0.9027377238859905)--(-0.7969905260281707,-0.9410400444000885)--(-0.7644964229409446,-0.9810379453638532)--(-0.7332478055364394,-1.0228465661091268)--(-0.7031744119339249,-1.0665917122002369)--(-0.6742111676405248,-1.1124111198346147)--(-0.6462977155003651,-1.1604559044732943)--(-0.6193779958458375,-1.2108922257978856)--(-0.6124404939620633,-1.2250488973986702)--(-0.6124404939620631,-1.2250488973986702)--(-0.5780045693371592,-1.201976720533932)--(-0.4839522352405105,-1.1411715588334386)--(-0.3922496978948061,-1.0840803412862035)--(-0.3024810567829962,-1.0303728832892913)--(-0.21426108965273136,-0.9797570133882552)--(-0.12722913340978584,-0.9319732558979309)--(-0.041043725782849066,-0.886790381802584)--(0.044622170473813075,-0.8440016669054407)--(0.13008550904331037,-0.803421729447473)--(0.21565719357168806,-0.7648838451357799)--(0.3016459143925736,-0.7282376575609851)--(0.3883618897293505,-0.6933472177017513)--(0.47612060746630336,-0.6600892986235605)--(0.5652466626682917,-0.6283519413348821)--(0.6125593295934256,-0.6125593295934283)--(0.6125593295934276,-0.6125593295934283)--(0.6283519413348823,-0.5652466626682915)--(0.6600892986235609,-0.4761206074663035)--(0.6933472177017517,-0.38836188972935043)--(0.7282376575609851,-0.30164591439257366)--(0.7648838451357798,-0.21565719357168817)--(0.8034217294474734,-0.13008550904331026)--(0.844001666905441,-0.0446221704738127)--(0.8867903818025843,0.041043725782849046)--(0.9319732558979312,0.12722913340978573)--(0.9797570133882553,0.21426108965273166)--(1.0303728832892918,0.3024810567829966)--(1.084080341286204,0.3922496978948064)--(1.1411715588334388,0.4839522352405108)--(1.201976720533932,0.5780045693371596)--(1.22504889739867,0.6124404939620635)--(1.2108922257978854,0.6193779958458375)--(1.160455904473294,0.6462977155003651)--(1.1124111198346147,0.6742111676405247)--(1.066591712200237,0.7031744119339249)--(1.022846566109127,0.7332478055364395)--(0.9810379453638535,0.7644964229409446)--(0.9410400444000883,0.7969905260281708)--(0.9027377238859907,0.8308060914652984)--(0.8660254037844384,0.8660254037844385)--(0.8308060914652985,0.9027377238859907)--(0.7969905260281706,0.9410400444000886)--(0.7644964229409443,0.9810379453638535)--(0.7332478055364395,1.0228465661091268)--(0.7031744119339249,1.066591712200237)--(0.674211167640525,1.1124111198346147)--(0.6462977155003649,1.160455904473294)--(0.6193779958458375,1.2108922257978856)--(0.6124404939620633,1.2250488973986702);
+\draw
+ [samples=50,domain=-0.99:0.99,rotate
+ around={-135:(0,0)},xshift=0cm,yshift=0cm,line width=2pt,color=ffxfqq]
+ plot
+ ({1.224744871391589*(1+(\x)^2)/(1-(\x)^2)},{1.224744871391589*2*(\x)/(1-(\x)^2)});\draw
+ [samples=50,domain=-0.99:0.99,rotate
+ around={-135:(0,0)},xshift=0cm,yshift=0cm,line width=2pt,color=ffxfqq]
+ plot
+ ({1.224744871391589*(-1-(\x)^2)/(1-(\x)^2)},{1.224744871391589*(-2)*(\x)/(1-(\x)^2)});\draw
+ [samples=50,domain=-0.99:0.99,rotate
+ around={-67.5:(0,0)},xshift=0cm,yshift=0cm,line width=2pt,color=sexdts]
+ plot
+ ({0.7882387605032136*(1+(\x)^2)/(1-(\x)^2)},{1.9029767059950162*2*(\x)/(1-(\x)^2)});\draw
+ [samples=50,domain=-0.99:0.99,rotate
+ around={-67.5:(0,0)},xshift=0cm,yshift=0cm,line width=2pt,color=sexdts]
+ plot
+ ({0.7882387605032136*(-1-(\x)^2)/(1-(\x)^2)},{1.9029767059950162*(-2)*(\x)/(1-(\x)^2)});\draw
+ [samples=50,domain=-0.99:0.99,rotate
+ around={-22.5:(0,0)},xshift=0cm,yshift=0cm,line width=2pt,color=rvwvcq]
+ plot
+ ({0.7882387605032136*(1+(\x)^2)/(1-(\x)^2)},{1.9029767059950162*2*(\x)/(1-(\x)^2)});\draw
+ [samples=50,domain=-0.99:0.99,rotate
+ around={-22.5:(0,0)},xshift=0cm,yshift=0cm,line width=2pt,color=rvwvcq]
+ plot
+ ({0.7882387605032136*(-1-(\x)^2)/(1-(\x)^2)},{1.9029767059950162*(-2)*(\x)/(1-(\x)^2)});
+ \begin{scriptsize}
+  \draw [fill=ffxfqq] (-0.86,0) circle (4.5pt);
+  \draw[color=black] (-0.95,0.31) node {\large $A$};
+  \draw [fill=ffxfqq] (0.87,0) circle (4.5pt);
+  \draw[color=black] (0.8,0.31) node {\large $B$};
+ \end{scriptsize}
+\end{tikzpicture}
+  \caption{Parameter space of the cube-type sphairahedron.}
+  \label{fig:paramSpace}
+ \end{minipage}
+ \hspace*{\fill}
+ \begin{minipage}[t]{0.5\textwidth}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.5in, height=1.5in, keepaspectratio]{./img/application/sphairahedron/derivation/prism-0864.png}
+   \subcaption{Sphairahedron}
+   \label{fig:pointASphaira}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.5in, height=1.5in, keepaspectratio]{./img/application/sphairahedron/derivation/limit-0864.jpg}
+   \subcaption{Limit set}
+   \label{fig:pointALimit}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Sphairahedron corresponding to the parameter $A$ in
+  Figure \ref{fig:paramSpace}.}
+  \label{fig:pointA}
+ \end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.5\textwidth}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.5in, height=1.5in, keepaspectratio]{./img/application/sphairahedron/derivation/prism0864.png}
+   \subcaption{Sphairahedron}
+   \label{fig:pointBSphaira}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.5in, height=1.5in,
+   keepaspectratio]{./img/application/sphairahedron/derivation/limit0864.jpg}
+   \subcaption{Limit set}
+   \label{fig:pointBLimit}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Sphairahedron corresponding to the parameter $B$
+  in Figure \ref{fig:paramSpace}.}
+  \label{fig:pointB}
+ \end{minipage}
+ \hspace*{\fill}
+ \begin{minipage}[t]{0.5\textwidth}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.5in, height=1.5in,
+   keepaspectratio]{./img/application/sphairahedron/derivation/conj1.png}
+   \subcaption{Limit set}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.5in, height=1.5in,
+   keepaspectratio]{./img/application/sphairahedron/derivation/conj2.png}
+   \subcaption{Limit set}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Limit sets based on the sphairahedron in Figure
+  \ref{fig:pointB}.
+  Each of them is transformed by two different inversion spheres.}
+  \label{fig:conjugation}
+ \end{minipage}
+\end{figure}
+
+\subsubsection{Parameter Space of Ideal Rational Sphairahedron}
+
+\noindent
+Ahara and Araki worked on a classification problem of ideal rational
+sphairahedra and derived the parameter space of cube-type
+sphairahedra in their publication
+\cite{ahara2003sphairahedral}.
+However, they showed only the limit set originated from a cube-type
+sphairahedron whose dihedral angles are $\pi / 3$.
+In this section, we briefly show how to derive parametrization of ideal
+rational sphairahedra in general cases.
+
+First of all, we have to determine the number of faces of a sphairahedron
+and how to arrange its edges between vertices.
+In order to represent a sphairahedron, we use a polyhedral graph as
+shown in Figure \ref{fig:graph}.
+The graph shows an infinite cube-type sphairahedron.
+The black lines represent edges, and the circles represent vertices.
+The three radial edges connect the infinite vertex and finite vertices.
+Each of the numbers beside the edges means a natural number $n$ for the
+dihedral angle $\pi / n$.
+
+Secondly, we enumerate the combinations of dihedral angles of each edge and
+choose one combination.
+In order to satisfy ideality, the sum of the dihedral angles at each vertex
+should be $(k - 2)\pi$ for the number of the edges $k$ connected to the
+vertex.
+Thus, the total of the dihedral angles at each vertex of the cube-type
+sphairahedron is $\pi$. Ahara and Araki found that the cube-type
+sphairahedron has seven combinations of the angles
+\cite{ahara2003sphairahedral}.
+
+After we choose a combination of dihedral angles, we fix some side
+faces and height of some balls.
+In the cube-type sphairahedron, we fix side faces
+of the prism so that their interior angles are determined
+angles by the graph, and we fix the height of one of the balls to zero.
+
+Finally, we parametrize the ideal rational sphairahedron respect to the
+heights of the rest of the balls.
+The positions and radii of the balls are decided on the basis of
+ideality and rationality in relation to the fixed prism and
+balls.
+
+For example, we show the outline of the parameter space for the infinite
+cube-type sphairahedra whose all dihedral angles are $\pi / 3$ in Figure
+\ref{fig:paramSpace}.
+It is derived by Ahara and Araki in their paper
+\cite{ahara2003sphairahedral}.
+Figure \ref{fig:pointA} and Figure \ref{fig:pointB} show sphairahedra
+and their limit sets corresponding to the points $A$ and $B$ on the
+parameter space.
+The coordinates of the parameter space represent the heights of the two
+balls for the sphairahedra in Figure
+\ref{fig:pointA}\subref{fig:pointASphaira} and Figure
+\ref{fig:pointB}\subref{fig:pointBSphaira}.
+The x-coordinate is the height of the green ball on the right side, and
+the y-coordinate is the height of the blue ball in front of
+the left side.
+The gray area surrounded by the three hyperbolas is the
+parameter space of ideal rational sphairahedra.
+In other words, if the parameter is contained in the gray area,
+the corresponding sphairahedron is ideal and rational.
+
+It is ensured mathematically that the limit set of the
+sphairahedron is continuously deformed while the parameter varied
+in the parameter space.
+For instance, we find that there are many crater-like dents in the limit
+set in Figure \ref{fig:pointA}\subref{fig:pointALimit}.
+As we increase the height of the green ball on the right side, the dents
+rise, and we can see the hexagram-like terrain in Figure
+\ref{fig:pointB}\subref{fig:pointBLimit}.
+
+After we obtain an infinite sphairahedron, we can get
+finite sphairahedra from it.
+We fix a point which does not match vertices of the infinite
+sphairahedron, and we consider another sphere centered at the point.
+We call the new sphere an \textit{inversion sphere}.
+We invert the infinite sphairahedron in the inversion sphere, and we get
+a finite sphairahedron.
+We can choose positions and radii of the inversion sphere, and
+the quasi-spheres are continuously deformed according to the
+configuration of the inversion sphere.
+In Figure \ref{fig:conjugation}, we show the two limit sets.
+Each of them is generated by the same sphairahedron in Figure
+\ref{fig:pointB} using two different inversion spheres.
+In this way, we can get many variations of sphairahedra and limit sets
+by choosing the inversion sphere besides we change the parameter.
+
+
+\begin{figure}[H]
+ \begin{minipage}{0.5\textwidth}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.35in, height=1.35in, keepaspectratio]{./img/application/sphairahedron/variations/tetrahedron/sphairahedron.pdf}
+   \subcaption{Sphairahedron}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.35in, height=1.35in, keepaspectratio]{./img/application/sphairahedron/variations/tetrahedron/limitset2.png}
+   \subcaption{Limit set}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Finite tetrahedron type.}
+  \label{fig:tetrahedron}
+ \end{minipage}
+ \hspace*{\fill}
+ \begin{minipage}{0.5\textwidth}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.35in, height=1.35in, keepaspectratio]{./img/application/sphairahedron/variations/pentahedralPyramid/sphairahedron.pdf}
+   \subcaption{Sphairahedron}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.35in, height=1.35in, keepaspectratio]{./img/application/sphairahedron/variations/pentahedralPyramid/limitset2.png}
+   \subcaption{Limit set}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Finite pentahedral pyramid type.}
+  \label{fig:pentahedralPyramid}
+ \end{minipage}
+\end{figure}
+
+\begin{figure}[h!tbp]
+ \begin{minipage}[t]{0.5\textwidth}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.4in, height=1.4in, keepaspectratio]{./img/application/sphairahedron/variations/pentahedralPrism/nflatPrism.png}
+   \subcaption{Sphairahedron}
+   \label{fig:semi-prism-under}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.4in, height=1.4in, keepaspectratio]{./img/application/sphairahedron/variations/pentahedralPrism/flat.jpg}
+   \subcaption{Limit set}
+   \label{fig:semi-prism-under-limit}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Infinite pentahedral prism type.}
+  \label{fig:semi-sphaira-under}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.4in, height=1.4in, keepaspectratio]{./img/application/sphairahedron/variations/pentahedralPrism/nglowPrism.png}
+   \subcaption{Sphairahedron}
+   \label{fig:semi-prism-glow}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.4in, height=1.4in, keepaspectratio]{./img/application/sphairahedron/variations/pentahedralPrism/glowPrismLimit.jpg}
+   \subcaption{Limit set}
+   \label{fig:semi-prism-glow-limit}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Infinite pentahedral prism type \\with two components.}
+  \label{fig:semi-sphaira-glow}
+ \end{minipage}
+\end{figure}
+
+\begin{figure}[h!tbp]
+ \begin{minipage}[t]{0.5\textwidth}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.4in, height=1.4in, keepaspectratio]{./img/application/sphairahedron/variations/pentahedralPrism/finiteSphairahedron.png}
+   \subcaption{Sphairahedron}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.4in, height=1.4in, keepaspectratio]{./img/application/sphairahedron/variations/pentahedralPrism/finiteLimitset.png}
+   \subcaption{Limit set}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Finite pentahedral prism type.}
+  \label{fig:semi-finite}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.4in, height=1.4in, keepaspectratio]
+   {./img/application/sphairahedron/variations/cube/prismType3.png}
+   \subcaption{\textit{Sphairahedron}}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.24\textwidth}
+  \centering
+  \includegraphics[width=1.4in, height=1.4in, keepaspectratio]
+   {./img/application/sphairahedron/variations/cube/limitType3.jpg}
+  \subcaption{Limit set}
+  \end{minipage}
+  \hspace*{\fill}
+ \caption{$(\pi/2,~\pi/3,~\pi/6)$ infinite cube-type.}
+ \label{fig:cube-236}
+ \end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[t]{0.5\textwidth}
+ \begin{minipage}[t]{0.24\textwidth}
+  \centering
+  \includegraphics[width=1.4in, height=1.4in, keepaspectratio]
+  {./img/application/sphairahedron/variations/cube/prismType5.png}
+  \subcaption{\textit{Sphairahedron}}
+ \end{minipage}
+ \hspace*{\fill}
+ \begin{minipage}[t]{0.24\textwidth}
+  \centering
+  \includegraphics[width=1.4in, height=1.4in, keepaspectratio]
+  {./img/application/sphairahedron/variations/cube/limitType5.jpg}
+  \subcaption{Limit set}
+ \end{minipage}
+ \hspace*{\fill}
+ \caption{$(\pi/2,~\pi/4,~\pi/4)$ infinite cube-type.}
+ \label{fig:cube-244}
+\end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+  \centering
+  \includegraphics[width=1.4in, height=1.4in, keepaspectratio]
+  {./img/application/sphairahedron/variations/hexahedralCake2/base.png}
+  \caption{Cake-type hexahedron.}
+  \label{fig:cake-polyhedron}
+ \end{minipage}
+ \hspace*{\fill}
+\end{figure}
+
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.5\textwidth}
+  \begin{minipage}[t]{0.24\textwidth}
+  \centering
+  \includegraphics[width=1.35in, height=1.35in, keepaspectratio]{./img/application/sphairahedron/variations/hexahedralCake2/prism.png}
+  \subcaption{Sphairahedron}
+   \label{fig:cake-limit-inf-sphaira}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.24\textwidth}
+  \centering
+  \includegraphics[width=1.35in, height=1.35in, keepaspectratio]{./img/application/sphairahedron/variations/hexahedralCake2/limit0644.png}
+  \subcaption{Limit set}
+   \label{fig:cake-limit-inf-limit}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Infinite hexahedral cake-type.}
+  \label{fig:cake-limit-inf}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.35in, height=1.35in, keepaspectratio]{./img/application/sphairahedron/variations/hexahedralCake2/sphairahedron.png}
+   \subcaption{Sphairahedron}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.24\textwidth}
+   \centering
+   \includegraphics[width=1.35in, height=1.35in, keepaspectratio]{./img/application/sphairahedron/variations/hexahedralCake2/finiteLimit.png}
+   \subcaption{Limit set}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Finite hexahedral cake-type.}
+  \label{fig:cake-limit-finite}
+ \end{minipage}
+\end{figure}
 
 \subsubsection{Variations of Sphairahedra}
 
+\noindent
+In the same way as the parametrization of the cube-type sphairahedron, we
+can obtain the parameter spaces of other types of the
+ideal rational sphairahedron.
+In this section, we will show some more examples of sphairahedra and
+their limit sets.
+
+Figure \ref{fig:tetrahedron} and Figure \ref{fig:pentahedralPyramid}
+show sphairahedra and their limit sets based on a tetrahedron and
+a pentahedral pyramid.
+Each of them has the unique combination of dihedral angles and a single
+parameter.
+Both of the limit sets are actual spheres, but their patterns of color
+are different from each other.
+
+Sphairahedra based on pentahedral prism have six combinations of the
+dihedral angles.
+It turns out that most combinations of this type become
+semi-sphairahedra.
+The pentahedral prism type sphairahedra have one parameter for the
+height of the green ball on the left side in Figure
+\ref{fig:semi-sphairahedron}\subref{fig:semi-sphairaAll}.
+The limit sets of them have an interesting character.
+See Figure \ref{fig:semi-sphaira-under}\subref{fig:semi-prism-under}.
+It shows one of the semi-sphairahedron whose dihedral angles are $\pi / 3$.
+The limit set shown in Figure
+\ref{fig:semi-sphaira-under}\subref{fig:semi-prism-under-limit} seemed
+to be a plane, but there is an infinite number of the spherical hollows
+under the plane.
+When we decrease the height of the green ball, the semi-sphairahedron
+becomes to be composed of two components as shown in Figure
+\ref{fig:semi-sphaira-glow}\subref{fig:semi-prism-glow}.
+The hollows rise, and they emerge on the plane as balls
+as presented in Figure
+\ref{fig:semi-sphaira-glow}\subref{fig:semi-prism-glow-limit}.
+As described in the previous section, the limit sets of semi-sphairahedra
+are no longer quasi-spheres or quasi-fuchsian.
+Figure \ref{fig:semi-finite} shows finite type semi-sphairahedron
+and its limit set.
+It is easy to find that the limit set is composed of an infinite number
+of balls circumscribing each other.
+
+We already introduced the cube-type sphairahedron whose every angle is
+$\pi / 3$.
+According to the combinations of the angles, the patterns of the limit
+set are greatly changed.
+Figure \ref{fig:cube-236} and Figure \ref{fig:cube-244} show the
+sphairahedra whose dihedral angles of the side faces are
+$\pi / 2$, $\pi / 3$, and $\pi / 6$,
+and $\pi / 2$, $\pi / 4$, and $\pi / 4$ respectively.
+Each of the limit sets forms a crater-like shape.
+The shapes of the limit sets result from triangular reflections of side faces and
+difference in the height of the spherical faces of the sphairahedra.
+
+Finally, we show another sphairahedron based on the hexahedron
+called cake-type in Figure \ref{fig:cake-polyhedron}.
+The infinite sphairahedron in
+Figure \ref{fig:cake-limit-inf}\subref{fig:cake-limit-inf-sphaira}
+have four side faces, and one parameter for the height of the smaller
+red ball on the left side.
+The limit set shown in
+Figure \ref{fig:cake-limit-inf}\subref{fig:cake-limit-inf-limit} has parallel
+translation symmetry along the vertical directions of the faces, and the
+difference between the heights of two spherical faces of the
+sphairahedron causes the difference of elevation of the terrain.
+A finite sphairahedron and its limit set are shown in Figure
+\ref{fig:cake-limit-finite}.
+
 \subsubsection{Breaking Ideality or Rationality}
+
+\noindent
+In the previous section, we dealt with ideal rational sphairahedra.
+If we increase the number of the faces of a sphairahedron more than
+six, it becomes difficult to obtain an ideal rational sphairahedron.
+The reasons are because the constraint of dihedral angles owing to
+rationality becomes more strict as the number of the faces increases
+and the number of the edges connected to one vertex
+is limited to at most four owing to ideality.
+
+\noindent
+In this way, we try to think about sphairahedra not always satisfying
+ideality and rationality.
+For instance, the parameter space in Figure \ref{fig:paramSpace}
+is a subset of the plane.
+In this section, we will examine sphairahedra and quasi-spheres
+corresponding to the parameter on the plane and outside of the
+parameter space.
+The sphairahedra may not be ideal or rational nor even sphairahedra, but
+their limit sets are meaningful shapes.
+
+For example, we consider the cube-type sphairahedron in Figure \ref{fig:pointB}.
+The limit set forms a hexagram-like shape, and we call six elongated parts
+of the hexagram arms.
+The arms get longer as the parameter approaches to the edge of the
+parameter space.
+When the parameter is at the edge (the point $B$ in Figure \ref{fig:paramSpace},)
+the arms come into contact with neighboring arms.
+Then the parameter is outside of the parameter space, and the arms
+overlap each other as presented in Figure
+\ref{fig:self-intersect}\subref{fig:intersect-overlap}.
+In this case, the sphairahedron corresponding to the limit set
+may not be rational, and the other part of the sphairahedron gets a hole
+as shown in Figure \ref{fig:self-intersect}\subref{fig:hole-sphairahedron}.
+
+Another example is in Figure \ref{fig:broken-sphairahedron}.
+It is based on the cake-type sphairahedron in Figure \ref{fig:cake-limit-inf}.
+If we make the height of the smaller red ball too high, the resulting
+sphairahedron will be broken as shown in Figure
+\ref{fig:broken-sphairahedron}\subref{fig:cake-sphairahedron-broken}.
+However, the resulting limit set in Figure
+\ref{fig:broken-sphairahedron}\subref{fig:cake-limit-broken} keeps the
+meaningful shape, and there are holes everywhere in the shape.
+
 
 \subsubsection{Three Dimensional Printing}
 
@@ -848,4 +1512,3 @@ have many mesh.
 For full-colored 3d-printing, we have to apply UV unwrapping and 
 prepare texture.
 We use ZBrush.
-

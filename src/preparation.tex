@@ -8,7 +8,7 @@ to understand the IIS algorithm and basic usage of IIS.
 
 \subsection{Kleinian Groups}
 
-Kleinian groups is discrete sub-group of the M\"obius transformation
+Kleinian groups are discrete sub-group of the M\"obius transformation
 groups. Briefly, group of the M\"obius transformation which meet some conditions.
 In this paper, we use the notations about kleinian groups used in the
 book, Indra's Pearls \cite{MumfordSeriesWright200204}.
@@ -44,7 +44,7 @@ For more details, see the chapter 1 of \cite{marden_2016}.
 An inversion in a circle is defined as $f(z) = \frac{R^2}{~\overline{z -C}~} + C$,
 where $C$ and $R$ are center and radius of the circle.
 Note that an inversion in a circle with infinite radius is the same as
-a reflection over a line.
+a reflection over a border line.
 Later, we use Jacobian of the inversions. The equation is as follows
 $Jacobian = R^2 / distance(P,~C)^2$, where $P$ is a point before
 applying the inversion in the circle.
@@ -62,6 +62,8 @@ M\"obius transformations are defined in the extended complex plane,
 $\hat{\mathbb{C}} = \mathbb{C} \cup \{\infty\}$ and expressed as linear
 fractional transformation
 $f(z)=\frac{az + b}{cz + d}$, where $a,~b,~c,~d,~z \in \hat{\mathbb{C}}$.
+The m\"obius transformation which acts on complex plane is represented
+by 2x2 complex number matrix called $PSL_2\mathbb{C}$.
 
 M\"obius transformations are classified into three types as \textit{loxodromic},
 \textit{parabolic}, or \textit{elliptic}.
@@ -71,6 +73,12 @@ Those whose multiplier is a positive real number
 are also called \textit{hyperbolic} transformations.Parabolic transformations
 have one fixed point and are conjugate to parallel translations.
 Elliptic transformations have two fixed points and are conjugate to rotations.
+
+The m\"obius transformation which acts on three dimensional space is represented
+by 2x2 quaternion matrix called $Sp^k(1, 1)$.
+
+However, in this paper we use compositions of circle or sphere
+inversions to represent m\"obius transformations in many cases.
 
 \subsection{Basic Methods for Visualization}
 
@@ -104,7 +112,7 @@ of the groups.
 Figure \ref{fig:cayleyGraph} shows Cayley graph of the group generated
 by two transformations.
 The nodes of the graph show words.
-They represent compositions of elements of the group.
+They represent elements of the group.
 Before we traverse the graph, we decide the maximum depth of traversing in advance.
 According to the way of traversing the graph, 
 there are two types of visualization of transformation groups.
@@ -113,8 +121,9 @@ Firstly, we can draw orbit of the group by traversing the cayley graph with
 breadth first search. We can obtain words from the short ones.
 See Figure \ref{fig:orbitCat}.
 The cat in the center is transformed by found words.
-The circles and cats converges to some shape.
-We call the limiting shape the \textit{limit set} of the group.
+The circles and cats converges to the circle formed by disks.
+We call the limiting disks the \textit{limit set} of the group.
+
 
 Moreover, it is used to draw an tiling of the fundamental domain (tile.)
 We can tile it by elements of the group.

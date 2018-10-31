@@ -13,7 +13,7 @@ Indra's Pearls \cite{MumfordSeriesWright200204}.
 The word \textit{group} or \textit{transformation group} means a set of
 transformations. 
 For example, we assume there are transformations $f(z)$, $g(z)$, and
-their inverse transformations.
+their inverse transformations. %%TODO f(z), g(z)についてよりくわしく
 We call the initial elements of the group \textit{generators}.
 We denote transformations in lowercase alphabet and 
 their inverse in uppercase alphabet.
@@ -39,15 +39,18 @@ groups. Briefly, group of the M\"obius transformation which meet some conditions
 It is known that we can construct M\"obius transformations out of a finite
 composition of inversions. Thus, inversion is a kind of primitive
 functions for M\"obius transformations.
-For more details, see the chapter 1 of \cite{marden_2016}.
+For more details, see the chapter 1 of \textit{Hyperbolic Manifolds}
+ \cite{marden_2016}.
 
 An inversion in a circle is defined as $f(z) = \frac{R^2}{~\overline{z -C}~} + C$,
-where $C$ and $R$ are center and radius of the circle.
+where $z \in \mathbb{C}$ and $C$ and $R$ are center and radius of the circle.
 Note that an inversion in a circle with infinite radius is the same as
 a reflection over a border line.
+
 Later, we use Jacobian of the inversions. The equation is as follows
 $Jacobian = R^2 / distance(P,~C)^2$, where $P$ is a point before
-applying the inversion in the circle.
+applying the inversion in the circle and $C$ and $R$ are center and
+radius of the circle.
 Note that the Jacobian of the inversions in a circle with
 infinite radius is $1$.
 
@@ -74,7 +77,8 @@ are also called \textit{hyperbolic} transformations.Parabolic transformations
 have one fixed point and are conjugate to parallel translations.
 Elliptic transformations have two fixed points and are conjugate to rotations.
 
-The m\"obius transformation which acts on three dimensional space is represented
+On the other hand, the m\"obius transformation which acts on three
+dimensional space is represented
 by 2x2 quaternion matrix called $Sp^k(1, 1)$.
 
 However, in this paper we use compositions of circle or sphere
@@ -119,11 +123,10 @@ there are two types of visualization of transformation groups.
 
 Firstly, we can draw orbit of the group by traversing the cayley graph with
 breadth first search. We can obtain words from the short ones.
-See Figure \ref{fig:orbitCat}.
+See Figure \ref{fig:orbitCat}.%% TODO 画像をよいものに変更
 The cat in the center is transformed by found words.
 The circles and cats converges to the circle formed by disks.
 We call the limiting disks the \textit{limit set} of the group.
-
 
 Moreover, it is used to draw an tiling of the fundamental domain (tile.)
 We can tile it by elements of the group.
@@ -195,7 +198,7 @@ groups.
 
 \noindent To solve the problems we discussed in previous sub-section,
 we focus circle inversions and invent an efficient algorithm to
-visualize \textit{circle inversion fractals} shown in Figure \ref{fig:schottkyProcess}\subref{fig:levelMax}.
+visualize circle inversion fractals shown in Figure \ref{fig:schottkyProcess}\subref{fig:levelMax}.
 The algorithm is called \textit{Iterated Inversion System (IIS.)}
 It can visualize not only two dimensional circle inversion fractals but
 also three dimensional sphere inversion fractals.
@@ -203,6 +206,7 @@ also three dimensional sphere inversion fractals.
 The fractal in Figure \ref{fig:schottkyProcess}\subref{fig:levelMax} shows the orbit of the first
 four circles.
 It is also Kleinian group composed of four circle inversions.
+Especially, it is also called a \textit{quasi-fuchsian group}.
 The process of generation of circle inversion fractals is
 as follows.
 

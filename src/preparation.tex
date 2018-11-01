@@ -131,7 +131,8 @@ We call the limiting disks the \textit{limit set} of the group.
 Moreover, it is used to draw an tiling of the fundamental domain (tile.)
 We can tile it by elements of the group.
 If the group meet some conditions, we can tile them without gaps and
-self intersections.
+self intersections.%% TODO タイリングの画像をつける(Hyperbolic
+                   %% Tessellationあたり)
 
 Secondly, we can only draw the limit set of the group by traversing the
 cayley graph with depth first search.
@@ -204,7 +205,7 @@ It can visualize not only two dimensional circle inversion fractals but
 also three dimensional sphere inversion fractals.
 
 The fractal in Figure \ref{fig:schottkyProcess}\subref{fig:levelMax} shows the orbit of the first
-four circles.
+four circles. %% TODO もうすこし説明を加える
 It is also Kleinian group composed of four circle inversions.
 Especially, it is also called a \textit{quasi-fuchsian group}.
 The process of generation of circle inversion fractals is
@@ -265,7 +266,7 @@ as follows.
  \end{algorithm}
 
 \noindent IIS computes the depth of the circles point by point.
-Thus, we can use parallel processing and render the images efficiently.
+Thus, we can perform parallel processing and render the images efficiently.
 The images in this paper are rendered using \textit{OpenGL Shading
 Language (GLSL)}.
 
@@ -287,7 +288,7 @@ are transformed to outside because inversions are involution.
 
 Pseudo-code of IIS is shown in Algorithm \ref{arg:iis2d}.
 Later, we will introduce generators other than simple inversions.
-We consider a map $G$ such that $G$ is an identity for a point in the
+Thus, we consider a map $G$ such that $G$ is an identity for a point in the
 \textit{fundamental domain} and that $G$ is a composition of inversions for other
 points.
 The fundamental domain is the terminal area of transformations. 
@@ -324,7 +325,7 @@ Ray tracing computes intersection between ray and objects algebraically.
 There are two ways to render nesting spheres. First one is to draw
 nesting spheres as transparent spheres.
 Second one is \textit{volume rendering}.
-However, it is difficult to render them efficiently, and
+However, these are difficult to render them efficiently, and
 visualized images are not interesting.
 
 Therefore we render the orbit of sphere in a similar way to the two
@@ -358,14 +359,15 @@ given point and objects.
 For example, a distance function of a sphere is as follows.
 Let $P$ be a tip of a ray, let $C$ and $R$ be center and
 radius of the sphere.
-Distance function $f(x)$ is $f(x) = distance(P, C) - R$.
-If there are many spheres, we use minimum distance to the sphere and the ray.
+Distance function $f(x)$ is $f(x) = distance(P, C) - R$ where $x$ is tip
+of the ray.
+If there are many spheres, we use minimum distance to the sphere.
 
 However, in regard to fractal rendering, it is difficult to
 get an actual distance to its shape. So, we use lower estimated distance
 as a return value of the distance function. The technique to approximate
 distance is called \textit{distance estimation}.
-For more details about fractal rendering, see also the blog
+For more details about fractal rendering and distance estimation, see also the blog
 post\footnote{Mikael H Christensen, Distance Estimated 3D Fractals (Part I):\\ \quad\quad
 \url{http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/}}
 by Christensen. 
@@ -381,23 +383,24 @@ by Christensen.
  \begin{minipage}[t]{0.5\hsize}
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/preparation/iis3d/modulo2.png}
-  \caption{\textit{modulo2}}
+  \caption{\textit{Fold space by modulo operator}}
   \label{fig:modulo2}
   \hspace*{\fill}
  \end{minipage}
 \end{figure}
 
-Before we introduce distance estimation, we introduce
+Before we introduce distance estimation, we show
 well known technique to render many objects in sphere tracing.
 Instead of preparing distance functions for many objects, we can use modulo operator
 to get distance to the lined up objects.
 
-See Figure \ref{fig:modulo1}. We assume there are blue disk, yellow ray and dotted
+See Figure \ref{fig:modulo1}. We assume there are blue disk, yellow  ray and dotted
 circle and lines.
-Now, we want to minimum distance between the ray and dotted circles.
-Note that we only know the position of the tip of the ray and the blue disk.
-We assume the nearest circle to the ray is in same dotted region.
-Next, we fold up the regions using modulo operator.
+Now, we want to draw all of the dotted circles.
+So, we want to minimum distance between the ray and dotted circles.
+However we only know the position of the tip of the ray and the blue disk.
+We assume the nearest circle to the ray is in same dotted region, and
+we fold up the regions using modulo operator.
 We can measure distance to blue disk as in Figure \ref{fig:modulo2}.
 Finally, we can draw line upped disks.
 
@@ -433,7 +436,7 @@ So, we correct the scale dividing computed distance by
 Jacobian (sometimes referred to as the Jacobian determinant) of scaling.
 See Figure \ref{fig:iisScale2}.
 If the scaling of the circle is $f(x) = 2x$, we divide the scale by
-six because the ray is moved three green scaling region.
+eight because the ray is moved three green scaling region.
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
@@ -466,7 +469,7 @@ $S1$ is the base sphere and the inversion of $S2$ in the circle $C$.
 The white point $P1$ is the inversion of $P2$ in the circle $C$.
 
 Now we assume that the tip of the ray is at $P2$.
-Let’s calculate the minimum distance between
+Let's calculate the minimum distance between
 $P2$ and the orbit of base spheres.
 The nearest sphere to $P2$ is $S2$.
 So, we have to calculate the distance between $P2$ and $S2$.

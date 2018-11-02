@@ -6,14 +6,14 @@
 In this section, we introduce some mathematical terms and prerequisites
 to understand the IIS algorithm and basic usage of IIS.
 
-\subsection{Kleinian Groups}
+\subsection{Notation}
 
 In this paper, we use the notations about kleinian groups used in
-Indra's Pearls \cite{MumfordSeriesWright200204}.
+Indra's Pearls.
 The word \textit{group} or \textit{transformation group} means a set of
 transformations. 
-For example, we assume there are transformations $f(z)$, $g(z)$, and
-their inverse transformations. %%TODO f(z), g(z)についてよりくわしく
+For example, we assume there are complex functionss $f(z)$, $g(z)$
+where $z$ is complex number, and their inverse transformations. %%TODO f(z), g(z)についてよりくわしく
 We call the initial elements of the group \textit{generators}.
 We denote transformations in lowercase alphabet and 
 their inverse in uppercase alphabet.
@@ -31,9 +31,6 @@ $abABabAB...$ corresponds to $\overline{abAB}$.
 Fixed point of the infinite length word corresponds to action of the
 word.
 
-Mathematically, Kleinian groups are discrete sub-group of the M\"obius transformation
-groups. Briefly, group of the M\"obius transformation which meet some conditions.
-
 \subsection{Inversions in Circles or Spheres}
 
 It is known that we can construct M\"obius transformations out of a finite
@@ -47,7 +44,7 @@ where $z \in \mathbb{C}$ and $C$ and $R$ are center and radius of the circle.
 Note that an inversion in a circle with infinite radius is the same as
 a reflection over a border line.
 
-Later, we use Jacobian of the inversions. The equation is as follows
+Later, we use Jacobian of the inversions. The equation is as follows.
 $Jacobian = R^2 / distance(P,~C)^2$, where $P$ is a point before
 applying the inversion in the circle and $C$ and $R$ are center and
 radius of the circle.
@@ -83,6 +80,14 @@ by 2x2 quaternion matrix called $Sp^k(1, 1)$.
 
 However, in this paper we use compositions of circle or sphere
 inversions to represent m\"obius transformations in many cases.
+
+\subsection{Kleinian Groups}
+
+Mathematically, Kleinian groups are discrete sub-group of the M\"obius transformation
+groups. 
+Briefly, discreteness of the group means when we are given a group (way of tiling),
+whether we can tile so as not to have self-intersections and gaps.
+If the tiles are not collapse, the group is discrete.
 
 \subsection{Basic Methods for Visualization}
 
@@ -137,7 +142,7 @@ self intersections.%% TODO タイリングの画像をつける(Hyperbolic
 Secondly, we can only draw the limit set of the group by traversing the
 cayley graph with depth first search.
 The limit set is located at the end of Cayley graph. Thus, we use fixed
-point of the word. 
+point of the word.
 After we traverse the graph, we obtain some long words.
 We apply the words to the preselected fixed points of the group, and
 we get limit set of the group as polygonal lines.
@@ -553,7 +558,7 @@ extend this algorithm to three-dimension.
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
   \center
-  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/related/josklein.png}
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparationrelated/josklein.png}
   \caption{\textit{}}
   \label{fig:jos}
   \hspace*{\fill}
@@ -568,13 +573,14 @@ extend this algorithm to three-dimension.
 \end{figure}
 
 Jos Leys invented efficient algorithm to draw Kleinian group with Maskit
-parametrization shown in Figure \ref{fig:jos}.
+parametrization shown in Figure \ref{fig:jos}\footnote{\url{http://www.josleys.com/article_show.php?id=221}}.
 IIS uses circle or sphere inversions on the other hand Jos Leys used
 M\"obius transformations algebraically.
-We can apply circle inversions to his figure, and we obtain Figure \ref{fig:josInv}
+He observe the orbit of the maskit parametrization group and 
+We can apply circle inversions to his figure, and we obtain Figure \ref{fig:josInv}.
 
-Martin von Gagern introduce similar algorithm called \textit{Reverse
-Pixel Lookup} \cite{journals/combinatorics/GagernR09} to render
-two-dimensional hyperbolic tiling.
+Martin von Gagern and Jürgen Richter-Gebert introduce similar algorithm
+called \textit{Reverse Pixel Lookup}
+\cite{journals/combinatorics/GagernR09} to render two dimensional hyperbolic tiling.
 We explore the method not only tiling but also other varieties of
-images.
+images for instance, three dimensional objects.

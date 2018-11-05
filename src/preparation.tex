@@ -8,28 +8,28 @@ to understand the IIS algorithm and basic usage of IIS.
 
 \subsection{Notation}
 
-In this paper, we use the notations about kleinian groups used in
+In this paper, we use the notations about Kleinian groups used in
 Indra's Pearls.
 The word \textit{group} or \textit{transformation group} means a set of
 transformations. 
-For example, we assume there are complex functionss $f(z)$, $g(z)$
-where $z$ is complex number, and their inverse transformations. %%TODO f(z), g(z)についてよりくわしく
+For example, we assume there are complex functions $f(z)$, $g(z)$
+where $z$ is a complex number, and their inverse transformations. %%TODO f(z), g(z)についてよりくわしく
 We call the initial elements of the group \textit{generators}.
-We denote transformations in lowercase alphabet and 
-their inverse in uppercase alphabet.
+We denote transformations in a lowercase alphabet and 
+their inverse in uppercase an alphabet.
 For instance, we write $a$ as $f(z)$, $b$ as $g(z)$, $A$ as $f(z)^{-1}$,
 and $B$ as $g(z)^{-1}$.
 
-We also denote compositions of transformations as line upped letters.
+We also denote compositions of transformations as line up letters.
 For example, $f(z) \circ g(z) \circ f(z)^{-1}$ is represented by $abA$.
 We call the compositions of transformations \textit{word}.
-In this way, we can compose infinite number of transformations;
+In this way, we can compose an infinite number of transformations;
 We call the set of transformations transformation group.
 An infinitely long word is represented by overline.
 For instance, the word $aaaaa...$ corresponds to $\overline{a}$ and
 $abABabAB...$ corresponds to $\overline{abAB}$.
-Fixed point of the infinite length word corresponds to action of the
-word.
+The fixed point of the infinite length word corresponds to the action of
+the word.
 
 \subsection{Inversions in Circles or Spheres}
 
@@ -42,7 +42,7 @@ For more details, see the chapter 1 of \textit{Hyperbolic Manifolds}
 An inversion in a circle is defined as $f(z) = \frac{R^2}{~\overline{z -C}~} + C$,
 where $z \in \mathbb{C}$ and $C$ and $R$ are center and radius of the circle.
 Note that an inversion in a circle with infinite radius is the same as
-a reflection over a border line.
+a reflection over a borderline.
 
 Later, we use Jacobian of the inversions. The equation is as follows.
 $Jacobian = R^2 / distance(P,~C)^2$, where $P$ is a point before
@@ -52,8 +52,8 @@ Note that the Jacobian of the inversions in a circle with
 infinite radius is $1$.
 
 Also, sphere inversions and Jacobian of sphere inversions can be
-derived from a same equation to circle inversions.
-An inversion in sphere with infinite radius is the same as a reflection
+derived from the same equation to circle inversions.
+An inversion in a sphere with infinite radius is the same as a reflection
 through a plane.
 
 \subsection{M\"obius Transformations}
@@ -62,7 +62,7 @@ M\"obius transformations are defined in the extended complex plane,
 $\hat{\mathbb{C}} = \mathbb{C} \cup \{\infty\}$ and expressed as linear
 fractional transformation
 $f(z)=\frac{az + b}{cz + d}$, where $a,~b,~c,~d,~z \in \hat{\mathbb{C}}$.
-The m\"obius transformation which acts on complex plane is represented
+The M\"obius transformation which acts on complex plane is represented
 by 2x2 complex number matrix called $PSL_2\mathbb{C}$.
 
 M\"obius transformations are classified into three types as \textit{loxodromic},
@@ -70,16 +70,16 @@ M\"obius transformations are classified into three types as \textit{loxodromic},
 Loxodromic transformations have two fixed points and are conjugate to
 scaling by complex numbers except for scaling by unit complex numbers.
 Those whose multiplier is a positive real number
-are also called \textit{hyperbolic} transformations.Parabolic transformations
+are also called \textit{hyperbolic} transformations. Parabolic transformations
 have one fixed point and are conjugate to parallel translations.
 Elliptic transformations have two fixed points and are conjugate to rotations.
 
-On the other hand, the m\"obius transformation which acts on three
-dimensional space is represented
+On the other hand, the M\"obius transformation which acts on
+three-dimensional space is represented
 by 2x2 quaternion matrix called $Sp^k(1, 1)$.
 
-However, in this paper we use compositions of circle or sphere
-inversions to represent m\"obius transformations in many cases.
+However, in this paper, we use compositions of circle or sphere
+inversions to represent M\"obius transformations in many cases.
 
 \subsection{Kleinian Groups}
 
@@ -87,7 +87,8 @@ Mathematically, Kleinian groups are discrete sub-group of the M\"obius transform
 groups. 
 Briefly, discreteness of the group means when we are given a group (way of tiling),
 whether we can tile so as not to have self-intersections and gaps.
-If the tiles are not collapse, the group is discrete.
+If the tiles do not collapsed, the group is discrete.
+%% ポアンカレの多面体定理の話を入れる?
 
 \subsection{Basic Methods for Visualization}
 
@@ -116,9 +117,9 @@ If the tiles are not collapse, the group is discrete.
 \end{figure}
 
 \noindent In this sub-section, we introduce basic methods for visualizing Kleinian groups.
-We consider \textit{cayley graph} of the Kleinian groups to enumerate elements
+We consider the \textit{Cayley graph} of the Kleinian groups to enumerate elements
 of the groups.
-Figure \ref{fig:cayleyGraph} shows Cayley graph of the group generated
+Figure \ref{fig:cayleyGraph} shows the Cayley graph of the group generated
 by two transformations.
 The nodes of the graph show words.
 They represent elements of the group.
@@ -126,23 +127,23 @@ Before we traverse the graph, we decide the maximum depth of traversing in advan
 According to the way of traversing the graph, 
 there are two types of visualization of transformation groups.
 
-Firstly, we can draw orbit of the group by traversing the cayley graph with
-breadth first search. We can obtain words from the short ones.
+Firstly, we can draw an orbit of the group by traversing the Cayley graph with
+the breadth-first search. We can obtain words from the short ones.
 See Figure \ref{fig:orbitCat}.%% TODO 画像をよいものに変更
 The cat in the center is transformed by found words.
-The circles and cats converges to the circle formed by disks.
+The circles and cats converge to the circle formed by disks.
 We call the limiting disks the \textit{limit set} of the group.
 
-Moreover, it is used to draw an tiling of the fundamental domain (tile.)
+Moreover, it is used to draw a tiling of the fundamental domain (tile.)
 We can tile it by elements of the group.
 If the group meet some conditions, we can tile them without gaps and
-self intersections.%% TODO タイリングの画像をつける(Hyperbolic
+self-intersections.%% TODO タイリングの画像をつける(Hyperbolic
                    %% Tessellationあたり)
 
 Secondly, we can only draw the limit set of the group by traversing the
-cayley graph with depth first search.
-The limit set is located at the end of Cayley graph. Thus, we use fixed
-point of the word.
+Cayley graph with the depth-first search.
+The limit set is located at the end of the Cayley graph. Thus, we use
+the fixed point of the word.
 After we traverse the graph, we obtain some long words.
 We apply the words to the preselected fixed points of the group, and
 we get limit set of the group as polygonal lines.
@@ -152,9 +153,9 @@ Figure \ref{fig:limit} shows one of the limit set of the Kleinian group.
 However, there are some faults in these methods.
 For example, if we increase the number of generators,
 It takes too much time to traverse the graph because of
-combinatorial explosion.
-Also, We have to traverse all of the graph
-even though we don't need images outside of the screen.
+the combinatorial explosion.
+Also, We have to traverse all nodes of the graph
+even though we do not need images outside of the screen.
 This is the reason why we need other methods to visualize Kleinian
 groups.
 
@@ -202,16 +203,16 @@ groups.
  \label{fig:schottkyProcess}
 \end{figure}
 
-\noindent To solve the problems we discussed in previous sub-section,
+\noindent To solve the problems we discussed in the previous sub-section,
 we focus circle inversions and invent an efficient algorithm to
 visualize circle inversion fractals shown in Figure \ref{fig:schottkyProcess}\subref{fig:levelMax}.
 The algorithm is called \textit{Iterated Inversion System (IIS.)}
-It can visualize not only two dimensional circle inversion fractals but
-also three dimensional sphere inversion fractals.
+It can visualize not only two-dimensional circle inversion fractals but
+also three-dimensional sphere inversion fractals.
 
 The fractal in Figure \ref{fig:schottkyProcess}\subref{fig:levelMax} shows the orbit of the first
 four circles. %% TODO もうすこし説明を加える
-It is also Kleinian group composed of four circle inversions.
+It is also a Kleinian group composed of four circle inversions.
 Especially, it is also called a \textit{quasi-fuchsian group}.
 The process of generation of circle inversion fractals is
 as follows.
@@ -282,7 +283,7 @@ First of all, if the point is contained in initial disks, we invert the
 point in the boundary circle of the disk.
 We continue applying inversions until the transformed point is in the
 outside of the initial disks.
-Figure \ref{fig:iisOrbit} shows orbit of the blue point transformed by
+Figure \ref{fig:iisOrbit} shows the orbit of the blue point transformed by
 iterations of inversions.
 
 Furthermore, a point actually at the limit set never reaches the
@@ -320,29 +321,30 @@ In the above case, the black area where outside of all circles.
  \label{fig:simpleGenOrb}
 \end{figure}
 
-In the similar manner to two dimensional algorithm,
-we extend the IIS to visualize three-dimensional kleinian groups.
+In a similar manner to the two-dimensional algorithm,
+we extend the IIS to visualize three-dimensional Kleinian groups.
 We extend circle inversion to sphere inversion easily, and we
 compute the nesting depth of the sphere voxel by voxel.
 
-We use \textit{ray tracing} to visualize three dimensional objects.
-Ray tracing computes intersection between ray and objects algebraically.
+We use \textit{ray tracing} to visualize three-dimensional objects.
+Ray tracing computes an intersection between a ray and objects
+algebraically.
 There are two ways to render nesting spheres. First one is to draw
 nesting spheres as transparent spheres.
 Second one is \textit{volume rendering}.
 However, these are difficult to render them efficiently, and
 visualized images are not interesting.
 
-Therefore we render the orbit of sphere in a similar way to the two
-dimensional circle inversion fractals.
+Therefore we render the orbit of the sphere in a similar way to the
+two-dimensional circle inversion fractals.
 See Figure \ref{fig:simpleGenOrb}\subref{fig:simpleGen}. It shows
-white six inversion spheres and green seed sphere.
+white six inversion spheres and a green seed sphere.
 Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb} shows the orbit of
-green sphere transformed by inversions in white spheres.
+the green sphere transformed by inversions in white spheres.
 
-We use \textit{Sphere Tracing} \cite{hart1996sphere} to render three dimensional
+We use \textit{Sphere Tracing} \cite{hart1996sphere} to render three-dimensional
 fractals and orbit of the seed sphere.
-Sphere Tracing is one of the algorithm to render implicit surfaces using
+Sphere Tracing is one of the algorithms to render implicit surfaces using
 ray tracing.
 In the following paragraphs, we introduce ray tracing and
  sphere tracing.
@@ -359,17 +361,17 @@ On the other hand, in sphere tracing, we march the ``tip'' of the ray
 along the direction of the ray step by step. 
 To check how far the tip of the ray is from the objects, we need a
 \textit{distance function}.
-Distance function is a function which returns minimum distance between
-given point and objects.
+The distance function is a function which returns the minimum distance
+between given point and objects.
 For example, a distance function of a sphere is as follows.
 Let $P$ be a tip of a ray, let $C$ and $R$ be center and
 radius of the sphere.
-Distance function $f(x)$ is $f(x) = distance(P, C) - R$ where $x$ is tip
+Distance function $f(P)$ is $f(P) = distance(P, C) - R$ where $x$ is tip
 of the ray.
 If there are many spheres, we use minimum distance to the sphere.
 
 However, in regard to fractal rendering, it is difficult to
-get an actual distance to its shape. So, we use lower estimated distance
+get an actual distance to its shape. So, we use a lower estimated distance
 as a return value of the distance function. The technique to approximate
 distance is called \textit{distance estimation}.
 For more details about fractal rendering and distance estimation, see also the blog
@@ -395,18 +397,18 @@ by Christensen.
 \end{figure}
 
 Before we introduce distance estimation, we show
-well known technique to render many objects in sphere tracing.
+well-known technique to render many objects in sphere tracing.
 Instead of preparing distance functions for many objects, we can use modulo operator
-to get distance to the lined up objects.
+to get the distance to the lined up objects.
 
-See Figure \ref{fig:modulo1}. We assume there are blue disk, yellow  ray and dotted
-circle and lines.
+See Figure \ref{fig:modulo1}. We assume there are the blue disk, the
+yellow ray, and dotted circle and lines.
 Now, we want to draw all of the dotted circles.
-So, we want to minimum distance between the ray and dotted circles.
-However we only know the position of the tip of the ray and the blue disk.
-We assume the nearest circle to the ray is in same dotted region, and
-we fold up the regions using modulo operator.
-We can measure distance to blue disk as in Figure \ref{fig:modulo2}.
+So, we want a minimum distance between the ray and dotted circles.
+However, we only know the position of the tip of the ray and the blue disk.
+We assume the nearest circle to the ray is in the same dotted region, and
+we fold up the regions using the modulo operator.
+We can measure the distance to blue disk as in Figure \ref{fig:modulo2}.
 Finally, we can draw line upped disks.
 
 \begin{figure}[htbp]
@@ -427,11 +429,11 @@ Finally, we can draw line upped disks.
 \end{figure}
 
 Next, we consider scaling example. See Figure \ref{fig:iisScale1}.
-There is a yellow ray and a blue disk, and orbit of scaling as
+There are a yellow ray and a blue disk, and orbit of scaling as
 dotted blue circles.
 The green dotted lines show scaling regions.
 We want to minimum distance to dotted blue circles.
-We assume that the nearest sphere to the tip of the ray is at
+We assume that the nearest sphere to the tip of the ray is in
 same regions. 
 However, we only know the coordinates of the original blue
 disk and tip of the ray.
@@ -441,7 +443,7 @@ So, we correct the scale dividing computed distance by
 Jacobian (sometimes referred to as the Jacobian determinant) of scaling.
 See Figure \ref{fig:iisScale2}.
 If the scaling of the circle is $f(x) = 2x$, we divide the scale by
-eight because the ray is moved three green scaling region.
+eight because the ray is moved three green scaling regions.
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
@@ -460,13 +462,13 @@ eight because the ray is moved three green scaling region.
  \end{minipage}
 \end{figure}
 
-In the similar manner to scaling, we can render sphere inversion
+In a similar manner to scaling, we can render sphere inversion
 fractals.
 For the sake of simplicity, we consider a slice image of Figure
 \ref{fig:simpleGenOrb}.
 See Figure \ref{fig:slice2d}. This image shows the XY-slice of the orbit
 of spheres.
-Orange disks in background  are slices of the orbit of initial inversion spheres.
+Orange disks in the background  are slices of the orbit of initial inversion spheres.
 Slices of the orbit of the base sphere are colored in
 the same color as the orbit shown in Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb}.
 $C$ is the white circle, the boundary of the initial inversion sphere.
@@ -493,7 +495,7 @@ approximated distance between the tip of the ray and the nearest sphere.
 For the above case, we get an inequality $d \geq distance(P1, S1)/Jacobian$.
 The formula gives a lower bound for spheres.
 For more details on the derivation of this estimation formula, see the
-blog post\footnote{Inigo Quilez, distance estimation to implicits:
+blog post\footnote{Inigo Quilez, distance estimation:
 \url{http://www.iquilezles.org/www/articles/distance/distance.htm}}
 by Inigo Quilez.
 
@@ -504,7 +506,7 @@ distance function returns unintentionally large distance, and the ray
 can pass through the real objects. This causes artifact shown in Figure
 \ref{fig:3dartifact}. The fore part of the fractals is not rendered.
 In order to avoid this kind of problems, we shrink the length of
-estimated distance.
+the estimated distance.
 It increases the number of steps of sphere tracing, but we can
 eventually obtain the intersection of the ray and the spheres.
 The scaling factor is determined experimentally according to the size of
@@ -542,14 +544,14 @@ The generalized pseudo-code for a distance function is in Algorithm \ref{iis3d}.
 
 \subsection{Related Works}
 
-Aaron Montag uses texture based approach to visualize limit set of the
+Aaron Montag uses texture based approach to visualize a limit set of the
 Kleinian groups \cite{Montag2014hyperbolicIFS}.
 We prepare initial seed circle in the texture.
 Next, we apply generators of the group to each pixel.
-If transformed pixel is on the seed circle or filled pixel, we fill the original pixel.
-We continue iterating this process, we obtain image of the limit set of
+If the transformed pixel is on the seed circle or filled pixel, we fill the original pixel.
+We continue iterating this process; we obtain an image of the limit set of
 the group.
-This algorithm needs high resolution texture, and it is difficult to
+This algorithm needs high-resolution texture, and it is difficult to
 extend this algorithm to three-dimension.
 %% テクスチャベースの描画方法 テクスチャに種となる円を描く，点ごとに，変
 %% 換を作用させ，元のテクスチャの円の上にもどってきたらテクスチャを描く
@@ -572,15 +574,15 @@ extend this algorithm to three-dimension.
  \end{minipage}
 \end{figure}
 
-Jos Leys invented efficient algorithm to draw Kleinian group with Maskit
+Jos Leys invented efficient algorithm to draw a Kleinian group with Maskit
 parametrization shown in Figure \ref{fig:jos}\footnote{\url{http://www.josleys.com/article_show.php?id=221}}.
-IIS uses circle or sphere inversions on the other hand Jos Leys used
+IIS uses circle or sphere inversions, on the other hand, Jos Leys used
 M\"obius transformations algebraically.
-He observe the orbit of the maskit parametrization group and 
+He observes the orbit of the maskit parametrization group and 
 We can apply circle inversions to his figure, and we obtain Figure \ref{fig:josInv}.
 
-Martin von Gagern and Jürgen Richter-Gebert introduce similar algorithm
+Martin von Gagern and Jürgen Richter-Gebert introduce a similar algorithm
 called \textit{Reverse Pixel Lookup}
-\cite{journals/combinatorics/GagernR09} to render two dimensional hyperbolic tiling.
+\cite{journals/combinatorics/GagernR09} to render two-dimensional hyperbolic tiling.
 We explore the method not only tiling but also other varieties of
-images for instance, three dimensional objects.
+images, for instance, three-dimensional objects.

@@ -98,14 +98,31 @@ If the tiles do not collapsed, the group is discrete.
   \label{fig:cayleyGraph}
   \hspace*{\fill}
  \end{minipage}
- \begin{minipage}[t]{0.333\hsize}
+ \begin{minipage}[t]{0.666\hsize}
   \center
-  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/basic/catOrbit.png}
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/basic/catsOrbit.png}
   \caption{\textit{Orbit of the image}}
   \label{fig:orbitCat}
   \hspace*{\fill}
  \end{minipage}
- \begin{minipage}[t]{0.333\hsize}
+\end{figure}
+
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.3333\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/basic/circleOrbit.png}
+  \caption{\textit{The orbit of the disks}}
+  \label{fig:circOrbit}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.3333\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/basic/hyperbolicTessellation.png}
+  \caption{\textit{Hyperbolic Tessellation}}
+  \label{fig:hypTiling}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.3333\hsize}
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/preparation/limitSet/limit.png}
   \caption{\textit{Limit set of the Kleinian group}}
@@ -119,24 +136,29 @@ We consider the \textit{Cayley graph} of the Kleinian groups to enumerate elemen
 of the groups.
 Figure \ref{fig:cayleyGraph} shows the Cayley graph of the group generated
 by two transformations.
-The nodes of the graph show words.
-They represent elements of the group.
-Before we traverse the graph, we decide the maximum depth of traversing in advance.
+The nodes of the graph show words, and they represent elements of the
+group.
+The edges of the graph corresponds to multiplying a generator.
+
+Before we traverse the graph, we decide the maximum depth of the
+traversing in advance.
 According to the way of traversing the graph, 
 there are two types of visualization of transformation groups.
 
 Firstly, we can draw an orbit of the group by traversing the Cayley graph with
 the breadth-first search. We can obtain words from the short ones.
-See Figure \ref{fig:orbitCat}.%% TODO 画像をよいものに変更
-The cat in the center is transformed by found words.
-The circles and cats converge to the circle formed by disks.
-We call the limiting disks the \textit{limit set} of the group.
+See Figure \ref{fig:orbitCat}.
+The cats are transformed by a M\"obius transformation.
+In Figure \ref{fig:circOrbit}, we draw an orbit of four disks.
+The disks are transformed by a M\"obius transformation group.
+The disks converge to the circle formed by disks.
+We call the limiting orbit the \textit{limit set} of the group.
 
 Moreover, it is used to draw a tiling of the fundamental domain (tile.)
+See Figure \ref{fig:hypTiling}.
 We can tile it by elements of the group.
 If the group meet some conditions, we can tile them without gaps and
-self-intersections.%% TODO タイリングの画像をつける(Hyperbolic
-                   %% Tessellationあたり)
+self-intersections.
 
 Secondly, we can only draw the limit set of the group by traversing the
 Cayley graph with the depth-first search.

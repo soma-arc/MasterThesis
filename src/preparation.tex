@@ -140,17 +140,19 @@ The nodes of the graph show words, and they represent elements of the
 group.
 The edges of the graph corresponds to multiplying a generator.
 
-Before we traverse the graph, we decide the maximum depth of the
-traversing in advance.
+Before we traverse the graph, we have to decide the maximum depth of the
+traversing.
 According to the way of traversing the graph, 
 there are two types of visualization of transformation groups.
 
 Firstly, we can draw an orbit of the group by traversing the Cayley graph with
 the breadth-first search. We can obtain words from the short ones.
 See Figure \ref{fig:orbitCat}.
-The cats are transformed by a M\"obius transformation.
-In Figure \ref{fig:circOrbit}, we draw an orbit of four disks.
-The disks are transformed by a M\"obius transformation group.
+The cats are transformed by a M\"obius transformation and its inverse.
+Because transformation is loxodromic, the cats converge to two
+fixed points.
+In Figure \ref{fig:circOrbit}, we draw an orbit of four inversions of disks.
+The disks are transformed by a M\"obius transformation group.\
 The disks converge to the circle formed by disks.
 We call the limiting orbit the \textit{limit set} of the group.
 
@@ -231,9 +233,9 @@ It can visualize not only two-dimensional circle inversion fractals but
 also three-dimensional sphere inversion fractals.
 
 The fractal in Figure \ref{fig:schottkyProcess}\subref{fig:levelMax} shows the orbit of the first
-four circles. %% TODO もうすこし説明を加える
+four circles in Figure \ref{fig:schottkyProcess}\subref{fig:level0}. %% TODO もうすこし説明を加える
 It is also a Kleinian group composed of four circle inversions.
-Especially, it is also called a \textit{quasi-fuchsian group}.
+Especially, it is called a \textit{quasi-fuchsian group}.
 The process of generation of circle inversion fractals is
 as follows.
 

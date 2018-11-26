@@ -47,30 +47,6 @@ bar, that is $aaaa\cdots$ $\bar a$ $abAB \cdots$ $\bar{abAB}$
 These infinite words are not element of $G$, but we use 
 them to write the limit set when we considerthe orbit of $G$.
 
-%%----
-% In this paper, we use the notations about Kleinian groups used in
-% Indra's Pearls.
-% The word \textit{group} or \textit{transformation group} means a set of
-% transformations. 
-% For example, we assume there are complex functions $f(z)$, $g(z)$
-% where $z$ is a complex number, and their inverse transformations. %%TODO f(z), g(z)についてよりくわしく
-% We call the initial elements of the group \textit{generators}.
-% We denote transformations in a lowercase alphabet and 
-% their inverse in an uppercase alphabet.
-% For instance, we write $a$ as $f(z)$, $b$ as $g(z)$, $A$ as $f(z)^{-1}$,
-% and $B$ as $g(z)^{-1}$.
-
-% We also denote compositions of transformations as line up letters.
-% For example, $f(z) \circ g(z) \circ f(z)^{-1}$ is represented by $abA$.
-% We call the compositions of transformations \textit{word}.
-% In this way, we can compose an infinite number of transformations;
-% We call the set of transformations transformation group.
-% An infinitely long word is represented by overline.
-% For instance, the word $aaaaa...$ corresponds to $\overline{a}$ and
-% $abABabAB...$ corresponds to $\overline{abAB}$.
-% The fixed point of the infinite length word corresponds to the action of
-% the word.
-
 \subsection{Inversions in Circles or Spheres}
 
 It is known that M\"obius transformations on $\tilde{\mathbb{C}}$
@@ -113,27 +89,6 @@ We extend surfaces of sphere
 In this case, the inverse mapping about plane $\alpha$ is plane symmetry
 about $\alpha$.
 
-% It is known that we can construct M\"obius transformations out of a finite
-% composition of inversions. Thus, inversion is a kind of primitive
-% functions for M\"obius transformations.
-% For more details, see the chapter 1 of \textit{Hyperbolic Manifolds}
-%  \cite{marden_2016}.
-
-% An inversion in a circle is defined as $f(z) = \frac{R^2}{~\overline{z -C}~} + C$,
-% where $z \in \mathbb{C}$ and $C$ and $R$ are center and radius of the circle.
-% Note that an inversion in a circle with infinite radius is the same as
-% a reflection over a borderline.
-
-% Later, we use Jacobian of the inversions. The equation is as follows.
-% $Jacobian = R^2 / distance(P,~C)^2$, where $P$ is a point before
-% applying the inversion in the circle and $C$ and $R$ are center and
-% radius of the circle.
-% Note that the Jacobian of the inversions in a circle with
-% infinite radius is $1$.
-% Also, sphere inversions and Jacobian of sphere inversions can be
-% derived from the same equation to circle inversions.
-% An inversion in a sphere with infinite radius is also 1.
-
 \subsection{M\"obius Transformations}
 
 In this study, we handle actions on $PSL_2\mathbb{C}$ of $\hat{\mathbb{C}}$.
@@ -157,39 +112,74 @@ even number of circle inversions.
 The compositions of M\"obius transformations is also M\"obius
 transformations. A set of all of the M\"obius transformations makes
 groups. For more details about this topic, refer[*].
-A group $G$
 
+For a group $G$ mapping $G \times X \to X$ following conditions.
+\begin{enumerate}
+ \item e⋅x = x for all x in X. (Here, e denotes the identity element of
+       the group G.)
+ \item (gh)⋅x = g⋅(h⋅x) for all g, h in G and all x in X. 
+       (Here, gh denotes the result of applying the group operation of G to the elements g and h.)
+\end{enumerate}
 
-% M\"obius transformations are defined in the extended complex plane,
-% $\hat{\mathbb{C}} = \mathbb{C} \cup \{\infty\}$ and expressed as linear
-% fractional transformation
-% $f(z)=\frac{az + b}{cz + d}$, where $a,~b,~c,~d,~z \in \hat{\mathbb{C}}$.
-% The M\"obius transformation which acts on complex plane is represented
-% by 2x2 complex number matrix called $PSL(2, \mathbb{C})$.
+This is also called group $G$ acts on space $X$.
+In this sense, A set of the linear fractional transformations acts on 
+$\hat{\mathbb{C}}$
 
-% 標準型とよぶ．Tの標準形が；z → λz乗法因子が0より大きく，1ではないとき，
-% Tは伸縮に共役であり，このときTは双曲型であるという．|λ|=1のときは回転
-% 移動に共役であり
+When all of the constant numbers of M\"obius transformations are real number,
+that is, $a, b, c, d \in \mathbb{R}$, $f(z)$ preserve upper-half plane.
+Moreover, Metric of upper-half plane preserves
+$\dfrac{ds^2}{(\mathrm{Im}z)}$
+Thus, a set of linear fractional transformations whose all of constants
+are real number acts on hyperbolic plane.
 
+When the constants $a, b, c, d$ are complex number, it is thought that
+$f(z)$ acts on hyperbolic space.
+As the model of hyperbolic space $mathbb{H}^3$, we consider upper half
+space model, but we consider three-dimensional space as the coordinates
+$(z, t)$, and $z$ is complex coordinates and $t$ is real coordinates.
+Upper-half space model is $\{(z,t) \mid t>0\}\cup \{ \infty \}$
+universal set. 
+$\hat{\mathbb{C}} = \{ (z,0) \mid z \in \mathbb{C}\} \cup \{ \infty\}$
+is its set of infinite-point. M\"obius transformations are groups acting on
+the set of infinite-point. However, it is known that by Poincare
+expansion, on hyperbolic plane on hyperbolic space.
+M\"obius transformation acts on the set of infinite-point. It is known
+that by poincare expansion method.
+For the relationship between M\"obius transformations and hyperbolic
+space, refer [*]
 
+From the above, researching M\"obius transformation groups is heavily
+related to studying three-dimensional hyperbolic geometry and hyperbolic
+polyhedra.
 
-% M\"obius transformations are classified into three types as \textit{loxodromic},
-% \textit{parabolic}, or \textit{elliptic}.
-% Loxodromic transformations have two fixed points and are conjugate to
-% scaling by complex numbers except for scaling by unit complex numbers.
-% Those whose multiplier is a positive real number
-% are also called \textit{hyperbolic} transformations. Parabolic transformations
-% have one fixed point and are conjugate to parallel translations.
-% Elliptic transformations have two fixed points and are conjugate to rotations.
+Also, in this paper, we also handle a concept extending a M\"obius
+transformation to a $\mathbb{R}^3\cup\{\infty\}$.
+Concretely we consider even number of inversion mapping about a sphere 
+and we define three-dimensional M\"obius transformation.
+The definition is extending inversions in a circle and M\"obius
+transformation .
+In that sense, M\"obius transformation should be called two-dimensional
+M\"obius transformation, but
+simply they are called M\"obius transformation or three-dimensional M\"obius
+transformation without confusion.
 
-% On the other hand, the M\"obius transformation which acts on
-% three-dimensional space is represented
-% by 2x2 quaternion matrix called $Sp^k(1, 1)$.
+Three-dimensional M\"obius transformations are deeply related to
+four-dimantional hyperbolic space. Actually, we assume four-dimensional
+hyperbolic upper half space model, its infinite-point set is 
+$\mathbb{R}^3\cup\{\infty\}$ and it is known that three-dimensional M\"obius
+transformation gives isometric transformation in four-dimensional
+hyperbolic space via poincare expansion.
+In this sense studying three-dimensional M\"obius transformation is
+deeply related to four-dimensional hyperbolic space or four-dimensional
+hyperbolic space and four-dimensional hyperbolic polyhedra.
 
-% However, in this paper, we use compositions of circle or sphere
-% inversions to represent M\"obius transformations in many cases.
+To represent three-dimensional M\"obius transformation using matrix
+there are Quaternion matrix sub-group of two-dimensional square matrix called 
+$Sp^k(1,1)$. About this topic, refer [*][sakugawa].
 
 \subsection{Classification of M\"obius Transformations}
+
+
 
 \subsection{Kleinian Groups}
 

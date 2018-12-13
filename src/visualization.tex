@@ -272,6 +272,39 @@ In the above case, the black area where outside of all circles.
  \label{fig:simpleGenOrb}
 \end{figure}
 
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/visualization/sphereTracing1.png}
+  \subcaption{\textit{}}
+  \label{fig:st1}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/visualization/sphereTracing2.png}
+  \subcaption{\textit{}}
+  \label{fig:st2}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/visualization/sphereTracing3.png}
+  \subcaption{\textit{}}
+  \label{fig:st3}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{img/visualization/sphereTracing4.png}
+  \subcaption{\textit{}}
+  \label{fig:st4}
+  \hspace*{\fill}
+ \end{minipage}
+ \caption{\textit{Sphere tracing}}
+ \label{fig:sphereTracing}
+\end{figure}
+
 In a similar manner to the two-dimensional algorithm,
 we extend the IIS to visualize three-dimensional Kleinian groups.
 We extend circle inversion to sphere inversion easily, and we
@@ -298,7 +331,7 @@ fractals and orbit of the seed sphere.
 Sphere Tracing is one of the algorithms to render implicit surfaces using
 ray tracing.
 In the following paragraphs, we introduce ray tracing and
- sphere tracing.
+sphere tracing.
 
 In the first place, we work a ray as something like a vector.
 We set the origin of the ray to the position of the camera
@@ -319,7 +352,18 @@ Let $P$ be a tip of a ray, let $C$ and $R$ be center and
 radius of the sphere.
 Distance function $f(P)$ is $f(P) = distance(P, C) - R$.
 If there are many spheres, we use minimum distance to the sphere.
-Figure \ref{fig:} shows sphere tracing algorithm. %TODO
+
+Figure \ref{fig:sphereTracing} shows sphere tracing algorithm.
+The yellow arrow is ray and orange disks are visible objects.
+First of all, in Figure Figure \ref{fig:sphereTracing}\subref{fig:st1},
+we use distance function and find minimum distance between
+the ray and the disk.
+Next, we put the ray forward and apply distance function to the position
+of the ray as in Figure \ref{fig:sphereTracing}\subref{fig:st2}.
+Again, we apply distance function and march the ray, and we obtain
+Figure \ref{fig:sphereTracing}\subref{fig:st3}.
+We continue iterating this processes until the value of the distance
+function is less than zero as shown in Figure \ref{fig:sphereTracing}\subref{fig:st4}.
 
 However, in regard to fractal rendering, it is difficult to
 get an actual distance to its shape. So, we use a lower estimated distance
@@ -333,14 +377,14 @@ by Christensen.
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
   \center
-  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/iis3d/modulo1.png}
+  \includegraphics[height=1.35in, keepaspectratio]{img/visualization/translate1.png}
   \subcaption{\textit{}}
   \label{fig:modulo1}
   \hspace*{\fill}
  \end{minipage}
  \begin{minipage}[t]{0.5\hsize}
   \center
-  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/iis3d/modulo2.png}
+  \includegraphics[height=1.35in, keepaspectratio]{img/visualization/translate2.png}
   \subcaption{\textit{}}
   \label{fig:modulo2}
   \hspace*{\fill}
@@ -352,14 +396,14 @@ by Christensen.
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
   \center
-  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/iis3d/scaleIIS.png}
+  \includegraphics[height=1.35in, keepaspectratio]{img/visualization/scaling1.png}
   \subcaption{\textit{}}
   \label{fig:iisScale1}
   \hspace*{\fill}
  \end{minipage}
  \begin{minipage}[t]{0.5\hsize}
   \center
-  \includegraphics[height=1.35in, keepaspectratio]{img/preparation/iis3d/scaleIIS2.png}
+  \includegraphics[height=1.35in, keepaspectratio]{img/visualization/scaling2.png}
   \subcaption{\textit{}}
   \label{fig:iisScale2}
   \hspace*{\fill}
@@ -388,11 +432,11 @@ See Figure \ref{fig:iisScaleAll}\subref{fig:iisScale1}.
 There are a yellow ray and a blue disk, and orbit of scaling as
 dotted blue circles.
 The green dotted lines show scaling regions.
-We want to minimum distance to dotted blue circles.
-We assume that the nearest sphere to the tip of the ray is in
-same regions. 
+We want to minimum distance between dotted blue circles and the ray.
 However, we only know the coordinates of the original blue
 disk and tip of the ray.
+We assume that the nearest sphere to the tip of the ray is in
+same regions. 
 Thus, we scale the tip of the ray to the same region to the blue disk
 but, the distance between scaled ray and disk is also scaled.
 So, we correct the scale dividing computed distance by 

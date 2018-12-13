@@ -150,7 +150,7 @@ For more details of the algorithm, read \cite{MumfordSeriesWright200204}.
   \subcaption{}
   \label{fig:levelMax}
  \end{minipage}
- \caption{\textit{The process of rendering the orbit of Schottky disks}}
+ \caption{\textit{The process of rendering the orbit of disks}}
  \label{fig:schottkyProcess}
 \end{figure}
 
@@ -181,9 +181,9 @@ as follows.
  \item Next, we invert the twelve small disks in the initial circles.
        The inversion in the white circle moves the outer nine small disks
        into the interior of the white circle as shown in Figure \ref{fig:schottkyProcess}\subref{fig:level1inv}.
-       Each inversion in the Schottky circle generates smaller disks, and we
+       Each inversion in the initial circle generates smaller disks, and we
        obtain Figure \ref{fig:schottkyProcess}\subref{fig:level2}.
- \item We continue iterating these process, that is, we continue
+ \item We continue iterating these processes, that is, we continue
        applying each inversion in the initial circle to resulting
        smaller disks.
        Finally, we get Figure \ref{fig:schottkyProcess}\subref{fig:levelMax}.
@@ -326,7 +326,7 @@ white six inversion spheres and a green seed sphere.
 Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb} shows the orbit of
 the green sphere transformed by inversions in white spheres.
 
-We use \textit{Sphere Tracing} \cite{hart1996sphere} to render three-dimensional
+We use \textit{sphere tracing} \cite{hart1996sphere} to render three-dimensional
 fractals and orbit of the seed sphere.
 Sphere Tracing is one of the algorithms to render implicit surfaces using
 ray tracing.
@@ -350,8 +350,8 @@ between given point and objects.
 For example, a distance function of a sphere is as follows.
 Let $P$ be a tip of a ray, let $C$ and $R$ be center and
 radius of the sphere.
-Distance function $f(P)$ is $f(P) = distance(P, C) - R$.
-If there are many spheres, we use minimum distance to the sphere.
+A distance function of sphere $f(P)$ is $f(P) = distance(P, C) - R$.
+If there are many spheres, we use minimum distance to objects.
 
 Figure \ref{fig:sphereTracing} shows sphere tracing algorithm.
 The yellow arrow is ray and orange disks are visible objects.
@@ -462,6 +462,34 @@ eight because the ray is moved three green scaling regions.
  \end{minipage}
 \end{figure}
 
+\begin{algorithm}
+ \caption{Distance Function}
+ \label{iis3d}
+ \begin{algorithmic}
+  \REQUIRE count $= 0$, $d$ = MAX\_DISTANCE, $dr = 1.0$, and coordinates
+  $=$ tip of the ray
+  \FOR{$i=0$ to MAX\_INVERSION}
+  \STATE inFundamentalDomain $\leftarrow$ \TRUE
+  \FOR{ each Map $G$ in Maps}
+  \IF{$G$ is available to coordinates}
+  \STATE $dr \leftarrow dr * $ (Jacobian of $G(\text{coordinates})$)
+  \STATE coordinates $\leftarrow$ $G(\text{coordinates})$
+  \STATE INCREMENT count
+  \STATE inFundamentalDomain $\leftarrow$ \FALSE
+  \ENDIF
+  \ENDFOR
+  \IF {inFundamentalDomain}
+  \STATE BREAK for
+  \ENDIF
+  \ENDFOR
+  \FOR{ each BaseSphere $S$ in BaseSpheres}
+  \STATE $d \leftarrow$ min($d$, scalingFactor $*$ (distance(coordinates, $S$.center) $-$
+  $S$.radius) $/$ (absolute value of $dr$))
+  \ENDFOR
+  \RETURN $d$
+ \end{algorithmic}
+\end{algorithm}
+
 In a similar manner to scaling, we can render sphere inversion
 fractals.
 For the sake of simplicity, we consider a slice image of Figure
@@ -471,6 +499,7 @@ of spheres.
 Orange disks in the background are slices of the orbit of initial inversion spheres.
 Slices of the orbit of the base sphere are colored in
 the same color as the orbit shown in Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb}.
+In Figure \ref{fig:slice2d},
 $C$ is the white circle, the boundary of the initial inversion sphere.
 $S1$ is the base sphere and the inversion of $S2$ in the circle $C$. 
 The white point $P1$ is the inversion of $P2$ in the circle $C$.
@@ -512,50 +541,9 @@ eventually obtain the intersection of the ray and the spheres.
 The scaling factor is determined experimentally according to the size of
 the spheres.
 
-\begin{algorithm}
- \caption{Distance Function}
- \label{iis3d}
- \begin{algorithmic}
-  \REQUIRE count $= 0$, $d$ = MAX\_DISTANCE, $dr = 1.0$, and coordinates
-  $=$ tip of the ray
-  \FOR{$i=0$ to MAX\_INVERSION}
-  \STATE inFundamentalDomain $\leftarrow$ \TRUE
-  \FOR{ each Map $G$ in Maps}
-  \IF{$G$ is available to coordinates}
-  \STATE $dr \leftarrow dr * $ (Jacobian of $G(\text{coordinates})$)
-  \STATE coordinates $\leftarrow$ $G(\text{coordinates})$
-  \STATE INCREMENT count
-  \STATE inFundamentalDomain $\leftarrow$ \FALSE
-  \ENDIF
-  \ENDFOR
-  \IF {inFundamentalDomain}
-  \STATE BREAK for
-  \ENDIF
-  \ENDFOR
-  \FOR{ each BaseSphere $S$ in BaseSpheres}
-  \STATE $d \leftarrow$ min($d$, scalingFactor $*$ (distance(coordinates, $S$.center) $-$
-  $S$.radius) $/$ (absolute value of $dr$))
-  \ENDFOR
-  \RETURN $d$
- \end{algorithmic}
-\end{algorithm}
-
 The generalized pseudo-code for a distance function is in Algorithm \ref{iis3d}. 
 
 \subsection{Related Works}
-
-Aaron Montag uses texture based approach to visualize a limit set of the
-Kleinian groups \cite{Montag2014hyperbolicIFS}.
-We prepare initial seed circle in the texture.
-Next, we apply generators of the group to each pixel.
-If the transformed pixel is on the seed circle or filled pixel, we fill the original pixel.
-We continue iterating this process; we obtain an image of the limit set of
-the group.
-This algorithm needs high-resolution texture, and it is difficult to
-extend this algorithm to three-dimension.
-%% テクスチャベースの描画方法 テクスチャに種となる円を描く，点ごとに，変
-%% 換を作用させ，元のテクスチャの円の上にもどってきたらテクスチャを描く
-%% これを続けることで極限集合を描画する
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
@@ -574,6 +562,16 @@ extend this algorithm to three-dimension.
  \end{minipage}
 \end{figure}
 
+Aaron Montag uses texture based approach to visualize a limit set of the
+Kleinian groups \cite{Montag2014hyperbolicIFS}.
+We prepare initial seed circle in the texture.
+Next, we apply generators of the group to each pixel.
+If the transformed pixel is on the seed circle or filled pixel, we fill the original pixel.
+We continue iterating this process; we obtain an image of the limit set of
+the group.
+This algorithm needs high-resolution texture, and it is difficult to
+extend this algorithm to three-dimension.
+
 Jos Leys invented efficient algorithm to draw a Kleinian group with Maskit
 parametrization shown in Figure
 \ref{fig:jos}\footnote{\url{http://www.josleys.com/article_show.php?id=221}}. 
@@ -584,7 +582,7 @@ He observes the orbit of the Maskit parametrization group and
 successfully discover the algorithm to visualize Maskit groups.
 We can apply circle inversions to his figure, and we obtain Figure \ref{fig:josInv}.
 
-Martin von Gagern and J\"urgen Richter-Gebert introduce an algorithm
+Martin von Gagern and J\"urgen Richter-Gebert introduced an algorithm
 called \textit{Reverse Pixel Lookup}
 \cite{journals/combinatorics/GagernR09} to render two-dimensional
 hyperbolic tiling.

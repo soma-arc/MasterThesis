@@ -72,16 +72,13 @@ we divide computed distance by accumulated Jacobian.
 
 \subsection{Geometrical Representation of M\"obius Transformation Groups}
 
-%% メビウス変換を円や球の反転で定義することによって，より直観的に生成元
-%% を得て描画することができる．
-
 So far, we only use a simple circle or sphere inversions.
 Other interesting images can be generated using more
 complicated M\"obius transformations.
 It is known that we can construct any M\"obius transformation out of
 inversions. We can compose them by an even number of inversion.
 Thus, we can apply IIS to visualize fractals combining circle inversion
-fractals and M\"obius transformation groups.
+fractals and extended M\"obius transformation groups.
 Moreover, we can tweak the parameters of M\"obius transformations by
 arranging geometrical objects like circles or lines on the plane.
 So, we can control parameters easily and intuitively.
@@ -256,6 +253,8 @@ The two half planes are crossing. The rotation axis is crossing point of
 white border lines. The orbit is shown in Figure 
 \ref{fig:rotation2d}\subref{fig:rotation2dOrb}.
 It has a rotation symmetry and it is an elliptic transformation.
+Crossing angle of two border line should be
+rational angles; otherwise, the orbit will overlap each other.
 
 \noindent\textbf{Composition of Two Circles.}
  Next, we use a composition of inversions in two circles.
@@ -567,7 +566,7 @@ parabolic transformation.
 The orbit of spheres touches at the fixed point.
 It is shown in Figure \ref{fig:parabolic3d}\subref{fig:parabolic3dOrb}.
 
-When $S1$ and $S2$ are crossing as in Figure \ref{fig:elliptic3d}.,
+When $S1$ and $S2$ are crossing as in Figure \ref{fig:elliptic3d},
 the generator becomes an elliptic transformation.
 The orbit is as shown in Figure \ref{fig:elliptic3d}\subref{fig:elliptic3dOrb}.
 Similarly to two-dimensional ones, the crossing angle of $S1$ and $S2$

@@ -39,31 +39,46 @@
 \newpage
 
 In this paper, we introduce an efficient algorithm to visualize Kleinian
-groups.
-Kleinian groups theory is one of the fields of mathematics.
-It is suited to visualization and computer experiments.
-Summary of each chapter is as follows.
+groups. Summary of each chapter is as follows.
+The first chapter is Introduction. 
 
-%% 1
-The first chapter is introduction. 
-We show background of the research.
+Kleinian groups theory is one of the fields of mathematics.
+It is advanced by mathematicians in the nineteenth century.
+Felix Klein and his student, Robert Fricke studied M\"obius
+transformation groups.
+Henri Poincare named such groups \textit{Kleinian Groups}.
+Kleinian group is suited to visualization and computer experiments.
+Henri Poincare named such groups \textit{Kleinian Groups}.
+
+M\"obius transformation group is well suited to visualization and
+experiment; Actually, Klein and his students also leave beautiful
+visualized images of a Kleinian group without a computer.
+There are aspects that mathematicians advance research from
+visualization and experiment.
+
+%% なにが問題か 既存のアルゴリズムでは足りない部分がある
+%% それをIISで解決．
+
+
 %% 2
-The second chapter is preparation.
-we introduce some mathematical terms like inversion in circle, 
-M\"obius transformations, or Kleinian groups.
+The second chapter is Preparation.
+We introduce terminology and some mathematical terms.
+They are an inversion in circle, 
+M\"obius transformations, Kleinian groups, and limit set.
 %% 3
 The third chapter introduce visualization of Kleinian groups.
 In the chapter 3.1, basic method of Kleinian groups.
 It has some defective to visualize Kleinian groups.
 To solve this problem,
-After chapter 3.2, we introduce the Iterated Inversion System (IIS).
-It can be use two and three dimensional.
+In chapter 3.2, we introduce the Iterated Inversion System (IIS).
+It can be used two and three dimensional.
 In chapter 3.3, we show the algorithm to draw three dimensional
-obbjects using IIS.
+objects using IIS.
 We use \textit{sphere tracing}, a kind of ray tracing algorithm.
 To render three dimantional objects, Jacobian is important.
 
 %% 4
+
 The fourth chapter is applications.
 We introduce four application of IIS.
 
@@ -74,15 +89,25 @@ Secondly, the method to draw edge of circles.
 
 Thirdly
 the method to generate two or three dimensional Kleinian groups with
-circle or sphere inversion.
+circle or sphere inversion. It enable us to tweak parameters of M\"obius
+transformation intuitively.
+It can be extended to three-dimensional sphere inversion fractals.
 
-Sphairahedron fractals. Sphairahedron is polyhedron with spherical
-faces. We can make a tiling pattern of the sphairahedron.
+Lastly, Sphairahedron fractals. Sphairahedron is polyhedron with spherical
+faces. Using inversions about their faces, we can make a tiling pattern
+of the sphairahedron. 
 In many cases, the boundary of the tiling converge to a three
 dimensional fractal. 
+The fractals are also rendered using IIS algorithm.
 
 %% 5
 
-Finally, chapter 5 is conclusion.
+Finally, chapter 5 is conclusion. We introduced an efficient algorithm
+called Iterated Inversion System (IIS) to visualize Kleinian groups.
+However, there are also Kleinian groups, which we cannot
+visualize using IIS.
+Our final goal is that for all Kleinian groups, we develop this kind of
+efficient algorithm and get mathematical results from obtained images.
+
 
 \end{document}

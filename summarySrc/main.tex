@@ -47,60 +47,219 @@ It is advanced by mathematicians in the nineteenth century.
 Felix Klein and his student, Robert Fricke studied M\"obius
 transformation groups.
 Henri Poincare named such groups \textit{Kleinian Groups}.
-Kleinian group is suited to visualization and computer experiments.
-Henri Poincare named such groups \textit{Kleinian Groups}.
 
-M\"obius transformation group is well suited to visualization and
+Kleinian groups are well suited to visualization and
 experiment; Actually, Klein and his students also leave beautiful
 visualized images of a Kleinian group without a computer.
+After a computer appeared, various visualization and calculation are
+performed by computer.
 There are aspects that mathematicians advance research from
 visualization and experiment.
 
-%% なにが問題か 既存のアルゴリズムでは足りない部分がある
-%% それをIISで解決．
+Our final goals are to visualize all of the Kleinian groups in real time by
+personal computer and help us understand the Kleinian group theory
+intuitively with software.
+As the first step to the goals, we invent an algorithm called
+\textit{Iterated Inversion System (IIS)}.
+IIS is an algorithm to render Kleinian group based on circle or sphere
+inversions.
+It visualizes not only three-dimensional Kleinian groups but also
+four-dimensional Kleinian groups.
 
-
-%% 2
-The second chapter is Preparation.
+The second chapter is preparation.
 We introduce terminology and some mathematical terms.
-They are an inversion in circle, 
+They are an inversion in circle or sphere, 
 M\"obius transformations, Kleinian groups, and limit set.
-%% 3
+
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.3333\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{../src/img/preparation/basic/circleOrbit.png}
+  \caption{\textit{The orbit of the disks}}
+  \label{fig:orbitCircles}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.66666\hsize}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.3333\hsize}
+   \center
+   \includegraphics[height=1.35in, keepaspectratio]{../src/img/preparation/3dExtension/3dKissingGenerator.png}
+   \subcaption{\textit{Generator}}
+   \label{fig:3dGen}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.3333\hsize}
+   \center
+   \includegraphics[height=1.35in, keepaspectratio]{../src/img/preparation/3dExtension/3dOrbit.png}
+   \subcaption{\textit{The orbit of the sphere}}
+   \label{fig:3dOrb}
+  \hspace*{\fill}
+  \end{minipage}
+   \caption{\textit{The orbit of the sphere}}
+  \label{fig:3d} 
+ \end{minipage}
+ \hspace*{\fill}
+\end{figure}
+
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{../src/img/application/internal/schottky.png}
+  \subcaption{\textit{}}
+  \label{fig:schottkyAll}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{../src/img/application/internal/schottkyEdge.png}
+  \subcaption{\textit{}}
+  \label{fig:schottkyEdge}
+  \hspace*{\fill}
+ \end{minipage}
+ \caption{\textit{Edge of the circle inversion fractal}}
+ \label{fig:schottkyDivide}
+\end{figure}
+
 The third chapter introduce visualization of Kleinian groups.
-In the chapter 3.1, basic method of Kleinian groups.
+The chapter 3.1 shows basic method of rendering Kleinian groups.
 It has some defective to visualize Kleinian groups.
-To solve this problem,
-In chapter 3.2, we introduce the Iterated Inversion System (IIS).
-It can be used two and three dimensional.
-In chapter 3.3, we show the algorithm to draw three dimensional
-objects using IIS.
+For example, see Figure \ref{fig:orbitCircles}; there are many nesting
+disks. If we increase the number of initial disks, nesting disks also
+increase exponential order.
+
+To solve this problem, in chapter 3.2, we introduce the Iterated
+Inversion System (IIS).
+IIS is applied to each point on the plane and computes nesting depth of
+the disk which contains the point.
+The process of the algorithm is as follows.
+First of all, if the point is contained in initial disks, we invert the
+point in the boundary circle of the disk.
+We continue applying inversions until the transformed point is in the
+outside of the initial disks.
+
+IIS can be used two and three-dimensional.
+In chapter 3.3, we show the algorithm using IIS to draw three-dimensional
+objects shown in Figure \ref{fig:3d}.
 We use \textit{sphere tracing}, a kind of ray tracing algorithm.
-To render three dimantional objects, Jacobian is important.
 
-%% 4
+\begin{figure}[htbp]
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{../src/img/application/edge/circles.png}
+  \subcaption{\textit{}}
+  \label{}
+  \hspace*{\fill}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\hsize}
+  \center
+  \includegraphics[height=1.35in, keepaspectratio]{../src/img/application/edge/circleEdge.png}
+  \subcaption{\textit{}}
+  \label{}
+  \hspace*{\fill}
+ \end{minipage}
+ \caption{\textit{Circle inversion fractal}}
+ \label{fig:circleEdge}
+\end{figure}
 
-The fourth chapter is applications.
-We introduce four application of IIS.
+The fourth chapter is application.
+We introduce four examples of application of IIS.
+First one shows how to render the interior or exterior of the
+two-dimensional circle inversion fractals as in Figure \ref{fig:schottkyDivide}.
+Secondly, the method to draw edge of disks as shown in
+Figure \ref{fig:circleEdge}.
 
-First one is how to render the interior or exterior of the
-two-dimensional circle inversion fractals.
+\begin{figure}[htbp]
+ \begin{minipage}{0.5\hsize}
+  \begin{minipage}{0.25\hsize}
+   \center
+   \includegraphics[ height=1.4in, keepaspectratio]{../src/img/application/2dGen/hyperbolicRect0.pdf}
+   \subcaption{\textit{Generator}}
+   \label{fig:hyperbolic2dGen}
+  \end{minipage}
+ \hspace*{\fill}
+  \begin{minipage}{0.25\hsize}
+   \center
+   \includegraphics[ height=1.4in, keepaspectratio]{../src/img/application/2dGen/hyperbolicRect.pdf}
+   \subcaption{\textit{Orbit}}
+   \label{fig:hyperbolic2dOrb}
+  \end{minipage}
+ \hspace*{\fill}
+  \caption{\textit{Hyperbolic generator and a Schottky disk}}
+  \label{fig:hyperbolic2d}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\hsize}
+  \begin{minipage}{0.25\hsize}
+   \center
+   \includegraphics[ height=1.4in, keepaspectratio]{../src/img/application/2dGen/parabolicRect0.pdf}
+   \subcaption{\textit{Generator}}
+   \label{fig:parabolic2dGen}
+  \end{minipage}
+ \hspace*{\fill}
+  \begin{minipage}{0.25\hsize}
+   \center
+   \includegraphics[ height=1.4in, keepaspectratio]{../src/img/application/2dGen/parabolicRect.pdf}
+   \subcaption{\textit{Orbit}}
+   \label{fig:parabolic2dOrb}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{\textit{The orbit of Parabolic generator and \\a Schottky disk}}
+  \label{fig:parabolic2d}
+ \end{minipage}
+\end{figure}
 
-Secondly, the method to draw edge of circles.
+\begin{figure}[h!tbp]
+  \begin{minipage}[t]{0.25\textwidth}
+   \centering
+   \includegraphics[height=1.2in,
+   keepaspectratio]{../src/img/application/sphairahedron/cube.png}
+   \caption{Cube-type sphairahedron.}
+   \label{fig:cubeSphaira}
+  \end{minipage}
+  \hspace*{\fill}
+ \begin{minipage}[t]{0.75\textwidth}
+  \begin{minipage}[t]{0.25\textwidth}
+   \centering
+   \includegraphics[height=1.2in,
+   keepaspectratio]{../src/img/application/sphairahedron/quasi-sphere.png}
+   \subcaption{}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.25\textwidth}
+   \centering
+   \includegraphics[height=1.2in,
+   keepaspectratio]{../src/img/application/sphairahedron/other.png}
+   \subcaption{}
+  \end{minipage}
+  \hspace*{\fill}
+  \begin{minipage}[t]{0.25\textwidth}
+   \centering
+   \includegraphics[height=1.2in,
+   keepaspectratio]{../src/img/application/sphairahedron/quasi-sphereZoom.png}
+   \subcaption{}
+  \end{minipage}
+  \hspace*{\fill}
+  \caption{Images of a quasi-sphere rendered in different viewpoints.}
+  \label{fig:quasi-sphere}
+ \end{minipage}
+\end{figure}
 
-Thirdly
-the method to generate two or three dimensional Kleinian groups with
+Thirdly, the method to generate three or four-dimensional Kleinian groups with
 circle or sphere inversion. It enable us to tweak parameters of M\"obius
 transformation intuitively.
+See Figure \ref{fig:hyperbolic2d} and Figure \ref{fig:parabolic2d}.
+The red, green, and blue regions represent M\"obius transformations and
+apply them to a orange disk.
+According to the configuration of disks, orbit of the orange disks are
+changed.
 It can be extended to three-dimensional sphere inversion fractals.
 
 Lastly, Sphairahedron fractals. Sphairahedron is polyhedron with spherical
-faces. Using inversions about their faces, we can make a tiling pattern
-of the sphairahedron. 
-In many cases, the boundary of the tiling converge to a three
-dimensional fractal. 
+faces as shown in Figure \ref{fig:cubeSphaira}.
+Using inversions about their faces, we can make a tiling pattern
+of the sphairahedron. See Figure \ref{fig:quasi-sphere}.
+In many cases, the boundary of the tiling converge to a
+three-dimensional fractal. 
 The fractals are also rendered using IIS algorithm.
-
-%% 5
 
 Finally, chapter 5 is conclusion. We introduced an efficient algorithm
 called Iterated Inversion System (IIS) to visualize Kleinian groups.
@@ -108,6 +267,5 @@ However, there are also Kleinian groups, which we cannot
 visualize using IIS.
 Our final goal is that for all Kleinian groups, we develop this kind of
 efficient algorithm and get mathematical results from obtained images.
-
 
 \end{document}

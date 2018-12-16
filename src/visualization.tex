@@ -425,7 +425,7 @@ However, we only know the position of the tip of the ray and the blue disk.
 Thus, we assume the nearest circle to the ray is in the same dotted region, and
 we fold up the regions using the modulo operator.
 We can measure the distance to blue disk as in Figure \ref{fig:moduloAll}\subref{fig:modulo2}.
-Finally, we can draw line upped disks.
+Finally, we can obtain minimum distance to line upped disks.
 
 Next, we consider scaling example.
 See Figure \ref{fig:iisScaleAll}\subref{fig:iisScale1}.
@@ -442,8 +442,8 @@ but, the distance between scaled ray and disk is also scaled.
 So, we correct the scale dividing computed distance by 
 Jacobian (sometimes referred to as the Jacobian determinant) of scaling.
 See Figure \ref{fig:iisScaleAll}\subref{fig:iisScale2}.
-If the scaling of the circle is $f(x) = 2x$, we divide the scale by
-eight because the ray is moved three green scaling regions.
+If the scaling of the circle is $f(z) = 2z$, we divide the distance by
+$2^{-3}$ because the ray is moved three green scaling regions.
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}

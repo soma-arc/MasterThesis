@@ -38,13 +38,11 @@
 \pagestyle{plain}
 \newpage
 
-In this paper, we introduce an efficient algorithm to visualize Kleinian
-groups. Summary of each chapter is as follows.
-The first chapter is Introduction. 
-
+In this paper, we introduce a summary of each chapter of the master thesis.
+The first chapter is an introduction.
 Kleinian groups theory is one of the fields of mathematics.
 It is advanced by mathematicians in the nineteenth century.
-Felix Klein and his student, Robert Fricke studied M\"obius
+Felix Klein and Robert Fricke studied M\"obius
 transformation groups.
 Henri Poincare named such groups \textit{Kleinian Groups}.
 
@@ -52,24 +50,18 @@ Kleinian groups are well suited to visualization and
 experiment; Actually, Klein and his students also leave beautiful
 visualized images of a Kleinian group without a computer.
 After a computer appeared, various visualization and calculation are
-performed by computer.
-There are aspects that mathematicians advance research from
-visualization and experiment.
+performed by a computer.
 
-Our final goals are to visualize all of the Kleinian groups in real time by
-personal computer and help us understand the Kleinian group theory
-intuitively with software.
+Our final goals are to visualize all of the Kleinian groups in real time
+by personal computer and help us understand the Kleinian group theory
+intuitively.
 As the first step to the goals, we invent an algorithm called
 \textit{Iterated Inversion System (IIS)}.
-IIS is an algorithm to render Kleinian group based on circle or sphere
-inversions.
 It visualizes not only three-dimensional Kleinian groups but also
 four-dimensional Kleinian groups.
 
 The second chapter is preparation.
 We introduce terminology and some mathematical terms.
-They are an inversion in circle or sphere, 
-M\"obius transformations, Kleinian groups, and limit set.
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.3333\hsize}
@@ -120,15 +112,14 @@ M\"obius transformations, Kleinian groups, and limit set.
  \label{fig:schottkyDivide}
 \end{figure}
 
-The third chapter introduce visualization of Kleinian groups.
-The chapter 3.1 shows basic method of rendering Kleinian groups.
+The third chapter introduces the visualization of Kleinian groups.
+Chapter 3.1 shows basic method of rendering Kleinian groups.
 It has some defective to visualize Kleinian groups.
 For example, see Figure \ref{fig:orbitCircles}; there are many nesting
 disks. If we increase the number of initial disks, nesting disks also
 increase exponential order.
 
-To solve this problem, in chapter 3.2, we introduce the Iterated
-Inversion System (IIS).
+To solve this problem, in chapter 3.2, we introduce the IIS.
 IIS is applied to each point on the plane and computes nesting depth of
 the disk which contains the point.
 The process of the algorithm is as follows.
@@ -137,10 +128,9 @@ point in the boundary circle of the disk.
 We continue applying inversions until the transformed point is in the
 outside of the initial disks.
 
-IIS can be used two and three-dimensional.
+IIS can be used two and three-dimension.
 In chapter 3.3, we show the algorithm using IIS to draw three-dimensional
 objects shown in Figure \ref{fig:3d}.
-We use \textit{sphere tracing}, a kind of ray tracing algorithm.
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
@@ -161,11 +151,11 @@ We use \textit{sphere tracing}, a kind of ray tracing algorithm.
  \label{fig:circleEdge}
 \end{figure}
 
-The fourth chapter is application.
-We introduce four examples of application of IIS.
+The fourth chapter is the application.
+We introduce four examples of the application of IIS.
 First one shows how to render the interior or exterior of the
 two-dimensional circle inversion fractals as in Figure \ref{fig:schottkyDivide}.
-Secondly, the method to draw edge of disks as shown in
+Secondly, the method to draw the edge of disks as shown in
 Figure \ref{fig:circleEdge}.
 
 \begin{figure}[htbp]
@@ -244,25 +234,25 @@ Figure \ref{fig:circleEdge}.
 \end{figure}
 
 Thirdly, the method to generate three or four-dimensional Kleinian groups with
-circle or sphere inversion. It enable us to tweak parameters of M\"obius
+a circle or sphere inversion. It enables us to tweak parameters of M\"obius
 transformation intuitively.
 See Figure \ref{fig:hyperbolic2d} and Figure \ref{fig:parabolic2d}.
 The red, green, and blue regions represent M\"obius transformations and
-apply them to a orange disk.
-According to the configuration of disks, orbit of the orange disks are
+apply them to an orange disk.
+According to the configuration of regions, an orbit of the orange disks are
 changed.
 It can be extended to three-dimensional sphere inversion fractals.
 
-Lastly, Sphairahedron fractals. Sphairahedron is polyhedron with spherical
+Lastly, Sphairahedron fractals. Sphairahedron is a polyhedron with spherical
 faces as shown in Figure \ref{fig:cubeSphaira}.
 Using inversions about their faces, we can make a tiling pattern
 of the sphairahedron. See Figure \ref{fig:quasi-sphere}.
-In many cases, the boundary of the tiling converge to a
+In many cases, the boundary of the tiling converges to a
 three-dimensional fractal. 
-The fractals are also rendered using IIS algorithm.
+The fractals are also rendered using IIS.
 
-Finally, chapter 5 is conclusion. We introduced an efficient algorithm
-called Iterated Inversion System (IIS) to visualize Kleinian groups.
+Finally, chapter 5 is the conclusion. We introduced an efficient algorithm
+called IIS.
 However, there are also Kleinian groups, which we cannot
 visualize using IIS.
 Our final goal is that for all Kleinian groups, we develop this kind of

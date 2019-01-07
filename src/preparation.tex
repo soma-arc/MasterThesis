@@ -58,7 +58,6 @@ In the same manner, we consider the three dimensional M\"obius
 transformation group
 \textrm{M\"ob}$(\tilde{\mathbb{R}}^3)$
 
-%********ここまで****
 \subsection{Inversions in Circles or Spheres}
 
 % In the two dimensional case, it is well known that M\"obius transformations on $\tilde{\mathbb{C}}$
@@ -99,7 +98,9 @@ mappings preserving direction of complex plane.
 % preserve any angles, we obtain that Jacobian mapping is given by the composition of multiplication by a complex constant
 %and complex conjugate.
 %Thus the determinant of the Jacobian at a point $P\in\mathbb{C}$ is given by the following formula:
-%\[ \mathrm{Jacobian} = R^2 / distance(P,~C)^2 \]%右辺はこれの二乗
+%\[ \mathrm{Det}(\mathrm{Jacobian}) = R^4 / distance(P,~C)^4 \]%
+%Here the Jacobian is a composition of a scaling and a rotation and a complex conjugate, and we obtain the following.
+%\[ \mathrm{scaling factor at } P  = R^2 / distance(P,~C)^2. \]
 Later, we compute Jacobian of inverse mapping.
 This is Jacobian matrix as mapping from complex plane to complex plane.
 Generally, inverse mapping preserve angles.
@@ -110,8 +111,14 @@ and absolute value of Jacobian is as follows
 $Jacobian = R^2 / distance(P,~C)^2$
 where $P$ is a point before applying the inversion.
 
-%%***************ここまでみた20190107-1822
-
+%In the similar way as the definition of a circle-inversion,
+% a sphere-inversion can be defined as follows.
+% Fix a sphere $C$ in $\mathbb{R}^3$.  Let its center be $C$ and its radius be $R$. 
+% A sphere-inversion $I_C$ is a homeomorphism on $\tilde{\mathbb{R}}^3$ 
+% determined by a map from a point $P$ to a point $Q = I_C(P)$ such that (i) $Q$ is on the half line $CP$ and 
+% that (ii) $\overline{CP}\cdot \overline{CQ} = R^2$.
+% As above, the definition of a circle-inversion can be extended to a plane-symmetry
+% in the same way as a line-symmetry in the two dimensional case.
 In the similar manner to circle inversions we can determine inversion
 mapping about spherical surface $S^2$ included in $\tilde{\mathbb{R}}^3$.
 Here, image of the inversion mapping is determined by center of the sphere and
@@ -121,6 +128,8 @@ Also, a plane $\alpha$ included in $\mathbb{R}^3$ is considered as
 sphere whose center and radius are infinity.
 In this case, the inversion mapping about the plane $\alpha$ is plane symmetry
 transformation about $\alpha$.
+
+%%***************ここまでみた20190107-2056
 
 \subsection{M\"obius Transformations}
 

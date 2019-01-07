@@ -155,9 +155,11 @@ mapping and preserves direction of $\hat{\mathbb{C}}$.
 
 %\par If we consider a map %\varphi: \dfrac{az+b}{cz+d} \mapsto $\begin{pmatrix}a & b \\ c& d \end{pmatrix}$,
 % from the set of linear fractional transformations to $PSL_2\mathbb{C}$.
-% This map $\varphi$ is a homomorphism and it gives an equivalence of actions.
-% In the sequel, we regard the set of linear fractional transformations
-%$PSL_2\mathbb{C}$ without distinction.
+% This map $\varphi$ is a group isomorphism and it gives an induced action of $PSL_2\mathbb{C}$ on $\hat{\mathbb{C}}$.
+% In the sequel, we regard the action of linear fractional transformations
+% and that of $PSL_2\mathbb{C}$ without distinction.
+% For more details about M\"obius transformation, refer
+% \cite{MumfordSeriesWright200204}\cite{marden_2016}.
 As a group acting on $\hat{\mathbb{C}}$, a set of linear fractional
 transformation $f(z) = \dfrac{az + b}{cz + d}$
 and a set of $2 \times 2$ matrix
@@ -166,26 +168,45 @@ $PSL_2\mathbb{C}$ are same type.
 So, in this place, we use linear fractional transformation and
 complex two-dimensional projective special linear group
 $PSL_2\mathbb{C}$ without distinction.
-
-%%***************ここまでみた20190107-2132****遡って加筆もしているので注意してください．
-
 Also it is known that any M\"obius transformation can be represented by
 even number of circle inversions.
 The compositions of M\"obius transformations is also M\"obius
 transformations. A set of all of the M\"obius transformations makes
 groups. For more details about M\"obius transformation, refer
 \cite{MumfordSeriesWright200204}\cite{marden_2016}.
-
 In this sense, a set of the linear fractional transformations acts on
 $\hat{\mathbb{C}}$.
 
+% M\"obius transformation is deeply related to the hyperbolic geometry.
+% When all of the coefficients in $f(z) = \dfrac{az + b}{cz + d}$
+% are real number, $f(z)$ preserve upper-half plane.
+% Moreover, $f(z)$ preserves the hyperbolic metric $\dfrac{dz^2}{(\mathrm{Im}z)}$
+% on the upper-half plane.
+% Such linear fractional transformations corresponds to an element of $PSL_2\mathbb{R}$.
+% Thus the $PSL_2\mathbb{R}$-action on the upper half plane is
+% the isometric transformation group of the hyperbolic plane $\mathbb{H}^2$.
 When all of the constant numbers of M\"obius transformations are real number,
 that is, $a, b, c, d \in \mathbb{R}$, $f(z)$ preserve upper-half plane.
 Moreover, Metric of upper-half plane preserves
 $\dfrac{ds^2}{(\mathrm{Im}z)}$.
 Thus, a set of linear fractional transformations whose all of constants
-are real number acts on hyperbolic plane as isometric transformation group.
+are real number acts on hyperbolic plane as an isometric transformation group.
 
+%\par When the coefficients $a, b, c, d$ are complex numbers, 
+% the action can be thought as an isometric transformation group on the hyperbolic space $\mathbb{H}^3$.
+% We consider the upperhalf model of the hyperbolic space $\mathbb{H}^3$.
+% In fact, 
+% \[\mathbb{H}^3 = \{ (z,t) \in \mathbb{C}\times \mathbb{R}\mid t>0 \} \cup \{\infty\} \]
+% is the upper half model with the hyperbolic metric $\dfrac{dz^2+dt^2}{t^2}$ and 
+% $\hat{\mathbb{C}} = \{ (z,0) \mid z \in \mathbb{C}\} \cup \{ \infty\}$
+% is the set of infinity. The two dimensional M\"obius transformation group acts on $\hat{\mathbb{C}}$
+% naturally and it is well known that this action can be extend to 
+% an action on the upper half model as isometric transformations.
+% This extension is called \lq Poincar\'e extension\rq.
+% As above, researching structures of the M\"obius transformation groups is heavily
+% related to studying three-dimensional hyperbolic geometry and hence hyperbolic manifolds.
+% For more details, refer 
+% \cite{Marden200705outerCircles}\cite{taniguchi_okumura199610invitation}.
 When the constants $a, b, c, d$ are complex number, it is thought that
 $f(z)$ acts on hyperbolic space.
 As the model of hyperbolic space $\mathbb{H}^3$, we consider upper half
@@ -202,10 +223,17 @@ For the relationship between M\"obius transformations and hyperbolic
 space, refer 
 \cite{Marden200705outerCircles}\cite{taniguchi_okumura199610invitation}.
 
-From the above, researching M\"obius transformation groups is heavily
-related to studying three-dimensional hyperbolic geometry and hyperbolic
-polyhedra.
-
+% In this paper, we also consider the three dimensional M\"obius
+% transformation on $\hat{\mathbb{R}^3} = \mathbb{R}^3\cup\{\infty\}$.
+% The definition of the three dimensional M\"obius transformation in the two ways as follows.
+% One is the simple extension of the two dimensional version.
+% A M\"obius transformation is defined as a composition of even number of sphere-inversions 
+% and plane-symmetry.
+% The other is the representation of the isometry group of the four dimensional hyperbolic space.
+% To represent three-dimensional M\"obius transformation using matrix,
+% we consider a quaternion $2 \times 2$ matrix group called
+% $Sp^k(1,1)$. About this topic, refer
+% \cite{sakugawa2010limit}\cite{sakugawa2007master}.
 In this paper, we also use a concept extending a M\"obius
 transformation to a $\mathbb{R}^3\cup\{\infty\}$.
 Concretely, we define composition of even number of inversion mapping
@@ -217,6 +245,17 @@ M\"obius transformation, but
 simply they are called differently M\"obius transformation and
 three-dimensional M\"obius transformation without confusion.
 
+% Three-dimensional M\"obius transformations are deeply related to
+% the four-dimantional hyperbolic space. In fact, the upper-half space model of
+% the four-dimensional hyperbolic space $\mathbb{H}$ is homeomorphic to the 
+% four-dimensional open ball and its boundary (the infinity point set of the hyperbolic
+% space) is $\hat{\mathbb{R}^3} = \mathbb{R}^3\cup\{\infty\}$.
+% Using Poincar\'e extension, a sphere-inversion in $\hat{\mathbb{R}^3}$
+% is extended to an (orientation-reversing) isometric transformation of $\mathbb{H}^4$.
+% Thus the composition of even numbers of sphere-inversions corresponds to an orientation-preserving
+% isometry, and it is known that any isometry of $\mathbb{H}^4$ is given in this way.
+% In this point of view, three-dimensional M\"obius transformations are
+% deeply related to the four-dimensional hyperbolic space and four-dimensional hyperbolic manifolds.
 Three-dimensional M\"obius transformations are deeply related to
 four-dimantional hyperbolic space. Actually, we assume four-dimensional
 hyperbolic upper half space model, its infinite far point set is
@@ -230,6 +269,8 @@ To represent three-dimensional M\"obius transformation using matrix
 there are Quaternion matrix sub-group of $2 \times 2$ matrix called
 $Sp^k(1,1)$. About this topic, refer
 \cite{sakugawa2010limit}\cite{sakugawa2007master}.
+
+%%***************ここまでみた20190107-2241****
 
 
 \subsection{Classification of M\"obius Transformations}

@@ -61,6 +61,13 @@ transformation group
 %********ここまで****
 \subsection{Inversions in Circles or Spheres}
 
+% In the two dimensional case, it is well known that M\"obius transformations on $\tilde{\mathbb{C}}$
+%are composed of even number of circle-inversions and line-symmetries.
+%Here, if a circle is centered at $C\in\mathbb{C}$ and it has a radius $R\in\mathbb{R}$ ($R>0$).
+% Then the formula of the inversion along the circle is given by
+%$f(z) = \frac{R^2}{~\overline{z -C}~} + C$.
+%Since $f \circ f$ is the identity map, the inversion map is a homeomorphism on $\tilde{\mathbb{C}}$.
+% Remark that the inversion is an orientation-reversing conformal map on $\tilde{\mathbb{C}}$.
 It is known that M\"obius transformations on $\tilde{\mathbb{C}}$
 are composed of even number of inversions in circles.
 Here, it is assumed that the inverse mapping about circle centered at
@@ -70,6 +77,11 @@ $f(z) = \frac{R^2}{~\overline{z -C}~} + C$.
 According to the definition, inverse mapping is a homeomorphic mapping on
 $\tilde{\mathbb{C}}$.
 
+% We often distinguish the inversion from a line symmetry map.
+%But in this context, by interpreting the line on the complex plane as a circle centered at the infinity, 
+%we may regard the line symmetry as a kind of the inversion. 
+%In the sequel, we will call inversion both of circle-inversions and line-symmetries.
+%In this category, any inversion is orientation-reversing, conformal, and homeomorphic on $\tilde{\mathbb{C}}$.
 In this context, the circles do not center infinity, but 
 by interpreting the line on complex plane as ``the circle whose center is
 infinitely far point and radius is infinity'', 
@@ -81,6 +93,13 @@ preserve direction of complex plane.
 Thus compositions of even number of inversion mapping are homeomorphic
 mappings preserving direction of complex plane.
 
+% Here we will make a short note on the Jacobian of inversion.
+% If the inversion is a line symmetry, the determinant of the Jacobian is $-1$.
+% Otherwise if the inversion is a circle-inversion, remarking that a circle inversion
+% preserve any angles, we obtain that Jacobian mapping is given by the composition of multiplication by a complex constant
+%and complex conjugate.
+%Thus the determinant of the Jacobian at a point $P\in\mathbb{C}$ is given by the following formula:
+%\[ \mathrm{Jacobian} = R^2 / distance(P,~C)^2 \]%右辺はこれの二乗
 Later, we compute Jacobian of inverse mapping.
 This is Jacobian matrix as mapping from complex plane to complex plane.
 Generally, inverse mapping preserve angles.
@@ -90,6 +109,8 @@ Concretely, Jacobian is composed of rotations and constant scaling
 and absolute value of Jacobian is as follows
 $Jacobian = R^2 / distance(P,~C)^2$
 where $P$ is a point before applying the inversion.
+
+%%***************ここまでみた20190107-1822
 
 In the similar manner to circle inversions we can determine inversion
 mapping about spherical surface $S^2$ included in $\tilde{\mathbb{R}}^3$.

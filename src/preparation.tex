@@ -39,13 +39,15 @@ denoted by $\tilde{ \mathbb{R} }^3$.
 
 %\par We will introduce M\"obius transofmation group on $\tilde{\mathbb{C}}$ and $\tilde{ \mathbb{R} }^3$.  
 % First, the two dimensional M\"obius transformation group
-%\textrm{M\"ob}$(\tilde{\mathbb{C}})$ is the set of linear fractional transformations $f(z)=\frac{az+b}{cz+d}$, 
-%where $a,b,c,d$ are complex numbers and they satisfy $ad-bc = 1$. Here we naturally extend a complex function $f(z)$ 
-%into a transformation on $\tilde{\mathbb{C}}$.
-%In other words, a M\"obius transformation is the composition of even number of circle inversions.  
-% About inversions, see *.*.* .
-%In the same manner, we consider the three dimensional M\"obius
-%transformation group \textrm{M\"ob}$(\tilde{\mathbb{R}}^3)$
+% \textrm{M\"ob}$(\tilde{\mathbb{C}})$ is the set of linear fractional transformations $f(z)=\frac{az+b}{cz+d}$, 
+% where $a,b,c,d$ are complex numbers and they satisfy $ad-bc = 1$. Here we naturally extend a complex function $f(z)$ 
+% into a transformation on $\tilde{\mathbb{C}}$.  
+% A linear fractional transformation is a conformal orientation-preserving homeomorphic map.
+% See also section *.* .
+% From another point of view, a M\"obius transformation is the composition of even number of circle inversions.  
+% About inversions, see section *.* .
+% In the same manner, we consider the three dimensional M\"obius
+% transformation group \textrm{M\"ob}$(\tilde{\mathbb{R}}^3)$
 % In the three dimensional case, we define a M\"obius transformation as the composition of even number of sphere inversions.
 The two dimensional M\"obius transformation group
 \textrm{M\"ob}$(\tilde{\mathbb{C}})$
@@ -92,15 +94,15 @@ preserve direction of complex plane.
 Thus compositions of even number of inversion mapping are homeomorphic
 mappings preserving direction of complex plane.
 
-% Here we will make a short note on the Jacobian of inversion.
+%\par Here we will make a short note on the Jacobian of inversion.
 % If the inversion is a line symmetry, the determinant of the Jacobian is $-1$.
 % Otherwise if the inversion is a circle-inversion, remarking that a circle inversion
 % preserve any angles, we obtain that Jacobian mapping is given by the composition of multiplication by a complex constant
-%and complex conjugate.
-%Thus the determinant of the Jacobian at a point $P\in\mathbb{C}$ is given by the following formula:
-%\[ \mathrm{Det}(\mathrm{Jacobian}) = R^4 / distance(P,~C)^4 \]%
-%Here the Jacobian is a composition of a scaling and a rotation and a complex conjugate, and we obtain the following.
-%\[ \mathrm{scaling factor at } P  = R^2 / distance(P,~C)^2. \]
+% and complex conjugate.
+% Thus the determinant of the Jacobian at a point $P\in\mathbb{C}$ is given by the following formula:
+% \[ \mathrm{Det}(\mathrm{Jacobian}) = R^4 / distance(P,~C)^4 \]%
+% Here the Jacobian is a composition of a scaling and a rotation and a complex conjugate, and we obtain the following.
+% \[ \mathrm{scaling factor at } P  = R^2 / distance(P,~C)^2. \]
 Later, we compute Jacobian of inverse mapping.
 This is Jacobian matrix as mapping from complex plane to complex plane.
 Generally, inverse mapping preserve angles.
@@ -111,7 +113,7 @@ and absolute value of Jacobian is as follows
 $Jacobian = R^2 / distance(P,~C)^2$
 where $P$ is a point before applying the inversion.
 
-%In the similar way as the definition of a circle-inversion,
+%\par In the similar way as the definition of a circle-inversion,
 % a sphere-inversion can be defined as follows.
 % Fix a sphere $C$ in $\mathbb{R}^3$.  Let its center be $C$ and its radius be $R$. 
 % A sphere-inversion $I_C$ is a homeomorphism on $\tilde{\mathbb{R}}^3$ 
@@ -129,10 +131,20 @@ sphere whose center and radius are infinity.
 In this case, the inversion mapping about the plane $\alpha$ is plane symmetry
 transformation about $\alpha$.
 
-%%***************ここまでみた20190107-2056
-
+%\subsection{M\"obius transformations and the hyperbolic geometry}
 \subsection{M\"obius Transformations}
 
+% First we review the definition of a group action. 
+% Let $G$ be a group and $X$ be a set. A map $G \times X \to X : (g,x) \mapsto g\cdot x$
+% is called a $G$-action on $X$ if it satisfies the following conditions.
+% \par \qquad (1) $e \cdot x = x$ for all $x \in X$. (Here, $e$ denotes the unit of $G$.)
+% \par \qquad (2) $(gh) \cdot x = g \cdot (h\cdot x)$ for all $g, h \in G$ and for all $x \in X$.
+
+% In this study, we handle $PSL_2\mathbb{C}$-action on $\hat{\mathbb{C}}$.
+% Here $PSL_2\mathbb{C}$ is the projective space of $2 \times 2 complex matrices $A$ with $\mathrm{det}(M)=1$. 
+% M\"obius transformation is defined as a linear fractional transformation
+%$f(z)=\dfrac{az+b}{cz+d}$ for complex variable $z$ where constants
+%$a, b, c, d$ are complex numbers and satisfy $ad - bc = 1$.
 In this study, we handle actions on $PSL_2\mathbb{C}$ of $\hat{\mathbb{C}}$.
 M\"obius transformation is defined on $\hat{\mathbb{C}}$ and
 linear fractional transformation
@@ -141,6 +153,11 @@ $a, b, c, d$ are complex number and satisfy $ad - bc = 1$.
 Such linear fractional transformation $f(z)$ is conformal homeomorphic
 mapping and preserves direction of $\hat{\mathbb{C}}$.
 
+%\par If we consider a map %\varphi: \dfrac{az+b}{cz+d} \mapsto $\begin{pmatrix}a & b \\ c& d \end{pmatrix}$,
+% from the set of linear fractional transformations to $PSL_2\mathbb{C}$.
+% This map $\varphi$ is a homomorphism and it gives an equivalence of actions.
+% In the sequel, we regard the set of linear fractional transformations
+%$PSL_2\mathbb{C}$ without distinction.
 As a group acting on $\hat{\mathbb{C}}$, a set of linear fractional
 transformation $f(z) = \dfrac{az + b}{cz + d}$
 and a set of $2 \times 2$ matrix
@@ -150,6 +167,8 @@ So, in this place, we use linear fractional transformation and
 complex two-dimensional projective special linear group
 $PSL_2\mathbb{C}$ without distinction.
 
+%%***************ここまでみた20190107-2132****遡って加筆もしているので注意してください．
+
 Also it is known that any M\"obius transformation can be represented by
 even number of circle inversions.
 The compositions of M\"obius transformations is also M\"obius
@@ -157,15 +176,6 @@ transformations. A set of all of the M\"obius transformations makes
 groups. For more details about M\"obius transformation, refer
 \cite{MumfordSeriesWright200204}\cite{marden_2016}.
 
-For a group $G$, mapping $G \times X \to X$ is actions of a group
-satisfying following conditions.
-\begin{enumerate}
- \item e $\cdot$ x = x for all x in X. (Here, e denotes the identity element of
-       the group G.)
- \item (gh) $\cdot$ x = g $\cdot$ (h$\cdot$ x) for all g, h in G and all x in X.
-       (Here, gh denotes the result of applying the group operation of G to the elements g and h.)
-\end{enumerate}
-This is also called group $G$ acts on space $X$.
 In this sense, a set of the linear fractional transformations acts on
 $\hat{\mathbb{C}}$.
 

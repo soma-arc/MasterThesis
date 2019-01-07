@@ -7,6 +7,7 @@ In this section, we introduce some mathematical terms and prerequisites
 to understand the IIS algorithm and basic usage of IIS.
 
 \subsection{Terminology}
+%\subsection{Transformation group theory}
 
 In this paper, we use terms about Kleinian groups used in Indra's
 Pearls \cite{MumfordSeriesWright200204}.
@@ -16,18 +17,36 @@ Algebraic group is a set which has multiplication, satysfies the
 associative law, has a unit, and has an inverse element for each
 element.
 
-Also, a transformation group is an algebraic group consists of
-transformations about plane or space.
+%Also, a transformation group is an algebraic group consists of transformations 
+%on a topological set $X$.  Here a transformation is a homeomorphism $f:X \to X$.
+Also, a transformation group is an algebraic group consists of transformations 
+about plane or space.
+
+%\par We will introduce the M\"obius transformation group and Kleinean group as a subgroup of the M\"obius transformation group.
+
+%In this paper, we mainly consider the cases $X=\tilde{\mathbb{C}}$, which is the union of the complex set and the infinity, 
+%and $X=\tilde{ \mathbb{R} }^3$, which is the union of $\mathbb{R}^3$ and the infinity.
+%In our context we suppose proper topologies on $\tilde{\mathbb{C}}$ by the omplex topology of $P^1(\mathbb{C})$ and on $\tilde{ \mathbb{R} }^3$ by one-point compactification from $\mathbb{R}^3$ respectively.
 However, in this case, because we assume M\"obius transformation
 group, we add infinity $\infty$ to complex plane $\mathbb{C}$ (or three
 dimensional space $\mathbb{R}^3$) and apply one-point compactification
-to the set.
-
+to the set. \par
 Here we consider the plane or the space with the infinity $\infty$. 
 That is, we consider the one-point compactification of $\mathbb{C}$ and
 it is denoted by $\tilde{\mathbb{C}}$. 
 In the same way, the one-point compactification of $\mathbb{R}^3$ is 
 denoted by $\tilde{ \mathbb{R} }^3$.
+
+%\par We will introduce M\"obius transofmation group on $\tilde{\mathbb{C}}$ and $\tilde{ \mathbb{R} }^3$.  
+% First, the two dimensional M\"obius transformation group
+%\textrm{M\"ob}$(\tilde{\mathbb{C}})$ is the set of linear fractional transformations $f(z)=\frac{az+b}{cz+d}$, 
+%where $a,b,c,d$ are complex numbers and they satisfy $ad-bc = 1$. Here we naturally extend a complex function $f(z)$ 
+%into a transformation on $\tilde{\mathbb{C}}$.
+%In other words, a M\"obius transformation is the composition of even number of circle inversions.  
+% About inversions, see *.*.* .
+%In the same manner, we consider the three dimensional M\"obius
+%transformation group \textrm{M\"ob}$(\tilde{\mathbb{R}}^3)$
+% In the three dimensional case, we define a M\"obius transformation as the composition of even number of sphere inversions.
 The two dimensional M\"obius transformation group
 \textrm{M\"ob}$(\tilde{\mathbb{C}})$
 is the set of M\"obius transfromation. 
@@ -39,6 +58,7 @@ In the same manner, we consider the three dimensional M\"obius
 transformation group
 \textrm{M\"ob}$(\tilde{\mathbb{R}}^3)$
 
+%********ここまで****
 \subsection{Inversions in Circles or Spheres}
 
 It is known that M\"obius transformations on $\tilde{\mathbb{C}}$

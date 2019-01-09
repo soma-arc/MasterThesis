@@ -6,7 +6,7 @@
 In this section, we introduce some mathematical terms and prerequisites
 to understand the IIS algorithm and basic usage of IIS.
 
-\subsection{Terminology}
+\subsection{Transformation group theory}
 
 In this paper, we use terms about Kleinian groups used in Indra's
 Pearls \cite{MumfordSeriesWright200204}.
@@ -16,161 +16,139 @@ Algebraic group is a set which has multiplication, satysfies the
 associative law, has a unit, and has an inverse element for each
 element.
 
-Also, a transformation group is an algebraic group consists of
-transformations about plane or space.
-However, in this case, because we assume M\"obius transformation
-group, we add infinity $\infty$ to complex plane $\mathbb{C}$ (or three
-dimensional space $\mathbb{R}^3$) and apply one-point compactification
-to the set.
+Also, a transformation group is an algebraic group consists of transformations 
+on a topological set $X$.  Here a transformation is a homeomorphism
+$f:X \to X$.
 
-Here we consider the plane or the space with the infinity $\infty$. 
-That is, we consider the one-point compactification of $\mathbb{C}$ and
-it is denoted by $\tilde{\mathbb{C}}$. 
-In the same way, the one-point compactification of $\mathbb{R}^3$ is 
-denoted by $\tilde{ \mathbb{R} }^3$.
-The two dimensional M\"obius transformation group
-\textrm{M\"ob}$(\tilde{\mathbb{C}})$
-is the set of M\"obius transfromation. 
-The definition of a M\"obius transformation will be introduced later. 
-This is a group with respect to the composite of transformations.
-The unit is the identity map and the inverse element is the 
-inverse transformation. 
-In the same manner, we consider the three dimensional M\"obius
-transformation group
-\textrm{M\"ob}$(\tilde{\mathbb{R}}^3)$
+We will introduce the M\"obius transformation group and Kleinean group
+as a subgroup of the M\"obius transformation group. 
+In this paper, we mainly consider the cases $X=\tilde{\mathbb{C}}$,
+which is the union of the complex set and the infinity, 
+and $X=\tilde{ \mathbb{R} }^3$, which is the union of $\mathbb{R}^3$ and the infinity.
+In our context we suppose proper topologies on $\tilde{\mathbb{C}}$ 
+by the complex topology of $P^1(\mathbb{C})$ and on $\tilde{ \mathbb{R} }^3$
+by one-point compactification from $\mathbb{R}^3$ respectively.
+
+We will introduce M\"obius transofmation group on $\tilde{\mathbb{C}}$ and $\tilde{ \mathbb{R} }^3$.  
+First, the two-dimensional M\"obius transformation group
+\textrm{M\"ob}$(\tilde{\mathbb{C}})$ is the set of linear fractional transformations $f(z)=\frac{az+b}{cz+d}$, 
+where $a,b,c,d$ are complex numbers and they satisfy $ad-bc = 1$. Here we naturally extend a complex function $f(z)$ 
+into a transformation on $\tilde{\mathbb{C}}$.  
+A linear fractional transformation is a conformal orientation-preserving homeomorphic map.
+See also section 2.3.
+From another point of view, a M\"obius transformation is the composition of even number of circle inversions.  
+About inversions, see section 2.2.
+In the same manner, we consider the three-dimensional M\"obius
+transformation group \textrm{M\"ob}$(\tilde{\mathbb{R}}^3)$
+In the three-dimensional case, we define a M\"obius transformation as
+the composition of even number of sphere inversions.
 
 \subsection{Inversions in Circles or Spheres}
 
-It is known that M\"obius transformations on $\tilde{\mathbb{C}}$
-are composed of even number of inversions in circles.
-Here, it is assumed that the inverse mapping about circle centered at
-$C\in\mathbb{C}$ and radius $R\in\mathbb{R}$ ($R>0$).
-The formula is given by
+In the two dimensional case, it is well known that M\"obius transformations on $\tilde{\mathbb{C}}$
+are composed of even number of circle-inversions and line-symmetries.
+Here, if a circle is centered at $C\in\mathbb{C}$ and it has a radius $R\in\mathbb{R}$ ($R>0$).
+Then the formula of the inversion along the circle is given by
 $f(z) = \frac{R^2}{~\overline{z -C}~} + C$.
-According to the definition, inverse mapping is a homeomorphic mapping on
-$\tilde{\mathbb{C}}$.
+Since $f \circ f$ is the identity map, the inversion map is a homeomorphism on $\tilde{\mathbb{C}}$.
+Remark that the inversion is an orientation-reversing conformal map on $\tilde{\mathbb{C}}$.
 
-In this context, the circles do not center infinity, but 
-by interpreting the line on complex plane as ``the circle whose center is
-infinitely far point and radius is infinity'', 
-line symmetry transformation (but infinitely far point is
-transformed to infinitely far point) on complex plane 
-is also inversion in the circle.
-Inversion mapping (including line symmetry transformation) does not
-preserve direction of complex plane.
-Thus compositions of even number of inversion mapping are homeomorphic
-mappings preserving direction of complex plane.
+We often distinguish the inversion from a line symmetry map.
+But in this context, by interpreting the line on the complex plane as a circle centered at the infinity, 
+we may regard the line symmetry as a kind of the inversion. 
+In the sequel, we will call inversion both of circle-inversions and line-symmetries.
+In this category, any inversion is orientation-reversing, conformal,
+and homeomorphic on $\tilde{\mathbb{C}}$.
 
-Later, we compute Jacobian of inverse mapping.
-This is Jacobian matrix as mapping from complex plane to complex plane.
-Generally, inverse mapping preserve angles.
-From this property, Jacobian mapping is given by multiplication of complex
-number.
-Concretely, Jacobian is composed of rotations and constant scaling
-and absolute value of Jacobian is as follows
-$Jacobian = R^2 / distance(P,~C)^2$
-where $P$ is a point before applying the inversion.
+Here we will make a short note on the Jacobian of inversion.
+If the inversion is a line symmetry, the determinant of the Jacobian is $-1$.
+Otherwise if the inversion is a circle-inversion, remarking that a circle inversion
+preserve any angles, we obtain that Jacobian mapping is given by the composition of multiplication by a complex constant
+and complex conjugate.
+Thus the determinant of the Jacobian at a point $P\in\mathbb{C}$ is given by the following formula:
+\[ \mathrm{Det}(\mathrm{Jacobian}) = R^4 / distance(P,~C)^4 \]%
+Here the Jacobian is a composition of a scaling and a rotation and a complex conjugate, and we obtain the following.
+\[ \mathrm{scaling~factor~at~} P  = R^2 / distance(P,~C)^2. \]
 
-In the similar manner to circle inversions we can determine inversion
-mapping about spherical surface $S^2$ included in $\tilde{\mathbb{R}}^3$.
-Here, image of the inversion mapping is determined by center of the sphere and
-distance to the center.
-Concretely, $f(z) = \frac{R^2}{~\overline{z -C}~} + C$.
-Also, a plane $\alpha$ included in $\mathbb{R}^3$ is considered as
-sphere whose center and radius are infinity.
-In this case, the inversion mapping about the plane $\alpha$ is plane symmetry
-transformation about $\alpha$.
+In the similar way as the definition of a circle-inversion,
+a sphere-inversion can be defined as follows.
+Fix a sphere $C$ in $\mathbb{R}^3$.  Let its center be $C$ and its radius be $R$. 
+A sphere-inversion $I_C$ is a homeomorphism on $\tilde{\mathbb{R}}^3$ 
+determined by a map from a point $P$ to a point $Q = I_C(P)$ such that (i) $Q$ is on the half line $CP$ and 
+that (ii) $\overline{CP}\cdot \overline{CQ} = R^2$.
+As above, the definition of a circle-inversion can be extended to a plane-symmetry
+in the same way as a line-symmetry in the two dimensional case.
 
-\subsection{M\"obius Transformations}
+\subsection{M\"obius transformations and the hyperbolic geometry}
 
-In this study, we handle actions on $PSL_2\mathbb{C}$ of $\hat{\mathbb{C}}$.
-M\"obius transformation is defined on $\hat{\mathbb{C}}$ and
-linear fractional transformation
+First we review the definition of a group action. 
+Let $G$ be a group and $X$ be a set. A map $G \times X \to X : (g,x) \mapsto g\cdot x$
+is called a $G$-action on $X$ if it satisfies the following conditions.
+\par \qquad (1) $e \cdot x = x$ for all $x \in X$. (Here, $e$ denotes the unit of $G$.)
+\par \qquad (2) $(gh) \cdot x = g \cdot (h\cdot x)$ for all $g, h \in G$ and for all $x \in X$.
+
+In this study, we handle $PSL_2\mathbb{C}$-action on $\hat{\mathbb{C}}$.
+Here $PSL_2\mathbb{C}$ is the projective space of $2 \times 2$ complex matrices $A$ with $\mathrm{det}(M)=1$.
+M\"obius transformation is defined as a linear fractional transformation
 $f(z)=\dfrac{az+b}{cz+d}$ for complex variable $z$ where constants
-$a, b, c, d$ are complex number and satisfy $ad - bc = 1$.
-Such linear fractional transformation $f(z)$ is conformal homeomorphic
-mapping and preserves direction of $\hat{\mathbb{C}}$.
+$a, b, c, d$ are complex numbers and satisfy $ad - bc = 1$.
 
-As a group acting on $\hat{\mathbb{C}}$, a set of linear fractional
-transformation $f(z) = \dfrac{az + b}{cz + d}$
-and a set of $2 \times 2$ matrix
-$\begin{pmatrix}a & b \\ c& d \end{pmatrix}$
-$PSL_2\mathbb{C}$ are same type.
-So, in this place, we use linear fractional transformation and
-complex two-dimensional projective special linear group
-$PSL_2\mathbb{C}$ without distinction.
-
-Also it is known that any M\"obius transformation can be represented by
-even number of circle inversions.
-The compositions of M\"obius transformations is also M\"obius
-transformations. A set of all of the M\"obius transformations makes
-groups. For more details about M\"obius transformation, refer
+If we consider a map $\varphi: \dfrac{az+b}{cz+d} \mapsto \begin{pmatrix}a & b \\ c& d \end{pmatrix}$,
+from the set of linear fractional transformations to $PSL_2\mathbb{C}$.
+This map $\varphi$ is a group isomorphism and it gives an induced action of $PSL_2\mathbb{C}$ on $\hat{\mathbb{C}}$.
+In the sequel, we regard the action of linear fractional transformations
+and that of $PSL_2\mathbb{C}$ without distinction.
+For more details about M\"obius transformation, refer
 \cite{MumfordSeriesWright200204}\cite{marden_2016}.
 
-For a group $G$, mapping $G \times X \to X$ is actions of a group
-satisfying following conditions.
-\begin{enumerate}
- \item e $\cdot$ x = x for all x in X. (Here, e denotes the identity element of
-       the group G.)
- \item (gh) $\cdot$ x = g $\cdot$ (h$\cdot$ x) for all g, h in G and all x in X.
-       (Here, gh denotes the result of applying the group operation of G to the elements g and h.)
-\end{enumerate}
-This is also called group $G$ acts on space $X$.
-In this sense, a set of the linear fractional transformations acts on
-$\hat{\mathbb{C}}$.
+M\"obius transformation is deeply related to the hyperbolic geometry.
+When all of the coefficients in $f(z) = \dfrac{az + b}{cz + d}$
+are real number, $f(z)$ preserve upper-half plane.
+Moreover, $f(z)$ preserves the hyperbolic metric $\dfrac{dz^2}{(\mathrm{Im}z)}$
+on the upper-half plane.
+Such linear fractional transformations corresponds to an element of $PSL_2\mathbb{R}$.
+Thus the $PSL_2\mathbb{R}$-action on the upper half plane is
+the isometric transformation group of the hyperbolic plane $\mathbb{H}^2$.
 
-When all of the constant numbers of M\"obius transformations are real number,
-that is, $a, b, c, d \in \mathbb{R}$, $f(z)$ preserve upper-half plane.
-Moreover, Metric of upper-half plane preserves
-$\dfrac{ds^2}{(\mathrm{Im}z)}$.
-Thus, a set of linear fractional transformations whose all of constants
-are real number acts on hyperbolic plane as isometric transformation group.
-
-When the constants $a, b, c, d$ are complex number, it is thought that
-$f(z)$ acts on hyperbolic space.
-As the model of hyperbolic space $\mathbb{H}^3$, we consider upper half
-space model, but we consider three-dimensional space as the coordinates
-$(z, t)$, and $z$ is complex coordinates and $t$ is real coordinates.
-Upper-half space model is a model of hyperbolic space whose universal
-set is $\{(z,t) \mid t>0\}\cup \{ \infty \}$.
+When the coefficients $a, b, c, d$ are complex numbers, 
+the action can be thought as an isometric transformation group on the hyperbolic space $\mathbb{H}^3$.
+We consider the upperhalf model of the hyperbolic space $\mathbb{H}^3$.
+In fact, 
+\[\mathbb{H}^3 = \{ (z,t) \in \mathbb{C}\times \mathbb{R}\mid t>0 \} \cup \{\infty\} \]
+is the upper half model with the hyperbolic metric $\dfrac{dz^2+dt^2}{t^2}$ and 
 $\hat{\mathbb{C}} = \{ (z,0) \mid z \in \mathbb{C}\} \cup \{ \infty\}$
-is its set of infinitely far points. M\"obius transformations are groups acting on
-the set of infinitely far points. However, it is known that by Poincare
-expansion, M\"obius transformations are extended to isometric mapping
-in hyperbolic space.
-For the relationship between M\"obius transformations and hyperbolic
-space, refer 
+is the set of infinity. The two dimensional M\"obius transformation group acts on $\hat{\mathbb{C}}$
+naturally and it is well known that this action can be extend to 
+an action on the upper half model as isometric transformations.
+This extension is called \textit{\lq Poincar\'e extension\rq}.
+As above, researching structures of the M\"obius transformation groups is heavily
+related to studying three-dimensional hyperbolic geometry and hence hyperbolic manifolds.
+For more details, refer 
 \cite{Marden200705outerCircles}\cite{taniguchi_okumura199610invitation}.
 
-From the above, researching M\"obius transformation groups is heavily
-related to studying three-dimensional hyperbolic geometry and hyperbolic
-polyhedra.
-
-In this paper, we also use a concept extending a M\"obius
-transformation to a $\mathbb{R}^3\cup\{\infty\}$.
-Concretely, we define composition of even number of inversion mapping
-about a sphere as a three-dimensional M\"obius transformation.
-The definition is extended relation between inversions in a circle and
-M\"obius transformation.
-In that sense, M\"obius transformation should be called two-dimensional
-M\"obius transformation, but
-simply they are called differently M\"obius transformation and
-three-dimensional M\"obius transformation without confusion.
-
-Three-dimensional M\"obius transformations are deeply related to
-four-dimantional hyperbolic space. Actually, we assume four-dimensional
-hyperbolic upper half space model, its infinite far point set is
-$\mathbb{R}^3\cup\{\infty\}$, and it is known that three-dimensional M\"obius
-transformation gives orientation preserving isometric transformation in
-four-dimensional hyperbolic space via poincare expansion.
-In this sense studying three-dimensional M\"obius transformation is
-deeply related to four-dimensional hyperbolic space or four-dimensional
-hyperbolic space and four-dimensional hyperbolic polyhedra.
-To represent three-dimensional M\"obius transformation using matrix
-there are Quaternion matrix sub-group of $2 \times 2$ matrix called
+In this paper, we also consider the three dimensional M\"obius
+transformation on $\hat{\mathbb{R}^3} = \mathbb{R}^3\cup\{\infty\}$.
+The definition of the three dimensional M\"obius transformation in the two ways as follows.
+One is the simple extension of the two dimensional version.
+A M\"obius transformation is defined as a composition of even number of sphere-inversions 
+and plane-symmetry.
+The other is the representation of the isometry group of the four dimensional hyperbolic space.
+To represent three-dimensional M\"obius transformation using matrix,
+we consider a quaternion $2 \times 2$ matrix group called
 $Sp^k(1,1)$. About this topic, refer
 \cite{sakugawa2010limit}\cite{sakugawa2007master}.
 
+Three-dimensional M\"obius transformations are deeply related to
+the four-dimantional hyperbolic space. In fact, the upper-half space model of
+the four-dimensional hyperbolic space $\mathbb{H}$ is homeomorphic to the 
+four-dimensional open ball and its boundary (the infinity point set of the hyperbolic
+space) is $\hat{\mathbb{R}^3} = \mathbb{R}^3\cup\{\infty\}$.
+Using Poincar\'e extension, a sphere-inversion in $\hat{\mathbb{R}^3}$
+is extended to an (orientation-reversing) isometric transformation of $\mathbb{H}^4$.
+Thus the composition of even numbers of sphere-inversions corresponds to an orientation-preserving
+isometry, and it is known that any isometry of $\mathbb{H}^4$ is given in this way.
+In this point of view, three-dimensional M\"obius transformations are
+deeply related to the four-dimensional hyperbolic space and four-dimensional hyperbolic manifolds.
 
 \subsection{Classification of M\"obius Transformations}
 

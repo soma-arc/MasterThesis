@@ -270,11 +270,19 @@ there are Quaternion matrix sub-group of $2 \times 2$ matrix called
 $Sp^k(1,1)$. About this topic, refer
 \cite{sakugawa2010limit}\cite{sakugawa2007master}.
 
-%%***************ここまでみた20190107-2241****
-
-
 \subsection{Classification of M\"obius Transformations}
 
+% Excluding the identical mapping, we will classify M\"obius transformations
+% $f(z) = \dfrac{az + b}{cz + d}$ into three types.
+% The types are \textit{Elliptic}, \textit{Parabolic}, and \textit{Loxodromic}.
+% It is well-known that the standard form of $PSL_2\mathbb{C}$
+% is either one of $\begin{pmatrix}1 & \lambda \\ 0 & 1 \end{pmatrix}$(, $\lambda$ is a non-zero constant,) or
+% $\begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix}$(, $\lambda$ is a non-zero constant,) 
+% from a famous theorem in linear algebra.
+% If $X=\begin{pmatrix}a & b \\ c & d \end{pmatrix}$ is conjugate to the former one,
+% then $f(z)$ is called a parabolic transformation.
+% If $f(z)$ is parabolic, the number of fixed point is one, and
+% the matrix $X$ satisfy $\mathrm{tr}^2X = 4$.
 Excluding the identical mapping, M\"obius transformations
 $f(z) = \dfrac{az + b}{cz + d}$ are classified as three types.
 They are \textit{Elliptic}, \textit{Parabolic}, and \textit{Loxodromic}.
@@ -285,6 +293,16 @@ The former one of $f(z)$ is parabolic transformations.
 For parabolic transformation the number of fixed point is one, and
 $2 \times 2$ square matrix $X$ satisfy $\mathrm{tr}^2X = 4$.
 
+%\par When the standard form of $X$ is
+% $\begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix}$,
+% we have the following two cases. 
+% One is the case $|\lambda|=1$, 
+% $f(z)$ is called an elliptic transformation.
+% When $f(z)$ is elliptic,  the fixed point set of $f(z)$ consists of two distinct points,
+% and $f(z)$ gives a rotation around these fixed points.
+% And, $f(z)$ is elliptic if and only if $\mathrm{tr}^2X > 4$.
+% Remark that if a M\"obius transformation $f(z)$ has a finite order
+% then it is elliptic.
 When the standard form is
 $\begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix}$
 or absolute value of lambda is one, that is  $|\lambda|$ is $1$, 
@@ -297,6 +315,17 @@ necessary and sufficient conditions.
 In addition, the m\"obius transformation having finite order
 is elliptic transformation.
 
+%\par If the standard form is
+% $\begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix}$
+% with $|\lambda| \neq 1$, then $f(z)$ is called a loxodromic transformation.
+% In a special case, if $\lambda$ is real number other than $\pm 1$, the transformation is called
+% a \textit{hyperbolic} transformation too.
+% When $f(z)$ is loxodromic the number of the fixed point set of $f(z)$ is two.
+% One of the fixed points is called an attracting fixed point and the other is called a 
+% repelling fixed point. This is because the orbid space of $f(z)$ of an arbitrary point $z_0$(, excluding the fixed point set,)
+% has two limit point and one of two is the limit of $f^n(z_0)$ for $n\to \infty$, and the other
+% is the limit of $f^n(z_0)$ for $n\to -\infty$.
+% Also, $f(z)$ loxodromic if and only if $\mathrm{tr}^2X < 4$.
 When the standard form is
 $\begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix}$
 and complex number $|\lambda| \neq 1$, $f(z)$ is called loxodromic.
@@ -306,12 +335,22 @@ The properties of loxodromic transformation are they have two fixed
 points. One of the fixed points is attracting and the other one is repelling.
 Also, $\mathrm{tr}^2X < 4$ is necessary and sufficient conditions.
 
+%\par The set of three-dimensional M\"obius transformations also have a similar
+% classification into six types.
+% In three dimensional case, each types \lq parabolic\rq, \lq elliptic\rq, \lq loxodromic\rq has 
+% a modifier \textit{simple} or \textit{compound}.
+% Thus there are six variations of classification types, for example \lq\lq simple elliptic\rq\rq or
+% \lq\lq compound loxodromic\rq\rq.
+% For detailed information of classfication of three dimensional M\"obius, see chapter 4.3.2.
 For three-dimensional transformations also have this kind of
 classification.
 In this case, it is added \textit{simple} or \textit{compound} and
 there are six variations of classification like ``simple elliptic'' or
 ``compound loxodromic''.
 For detailed, see chapter 4.3.2.
+
+%%***************ここまでみた20190111-2127****
+
 
 \subsection{Kleinian Groups}
 

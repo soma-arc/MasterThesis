@@ -422,10 +422,27 @@ Properly discontinuous sub-group of extended M\"obius transformation group
 is called \textit{extended Kleinian groups}.
 Basic property of Kleinian group is described in chapter 2 of \cite{marden_2016}.
 
-%%***************ここまでみた20190111-2208****
-
 \subsection{Limit Set}
 
+% Let $G$ be a Kleinian group.
+% For a general point $z_0 \in \hat{\mathbb{C}}$,
+% a point $p  \in \hat{\mathbb{C}}$ is a limit point 
+% of the orbit space of $z_0$ if and only if 
+% there exists a sequence $\{ g_i \} \subset G$ such that 
+% $\displaymode \limit{i\to\infty} g_i(z_0) = p$.
+% We call the closure of all limit points of an orbit space $Gz_0$ \textit{the limit set} of $G$.
+% The limit set is denoted by $\Lambda(G)$.
+% Some of properties are very useful to visualize the limit set of a Kleinian group.
+% \begin{itemize}
+% \item The limit set does not depend on a general point $z_0$.  
+% That is, the closure of all limit points of any orbit space is $\Lambda(G)$.
+% \item The limit set is preserved by $G$-action.  That is,
+% the image of action $g\in G$ of a point $p\in \Lambda(G)$  
+%       also is included in the limit set $\Lambda(G)$.
+% \item For any element $g \in G$, the fixed point of $g$ is contained in the limit set.
+%\end{itemize}
+% Much more properties of the limit set is also described in chapter 2.4.1 of
+% \cite{marden_2016}.
 Let Kleinian group be $\Gamma$.
 We call closed set of all of the limit point \textit{limit set}.
 Also, We represent it as $\Lambda(\Gamma)$.
@@ -438,12 +455,29 @@ For example,
  \item Fixed points of generators become limit set.
 \end{itemize}
 
+% Here we have some concepts to describe limit points of an orbit. 
+% One is an algebraic limit and the other is a geometric limit.
+% When we fix a set of generators of a Kleinian group $G$, we represent any elements in $G$ 
+% as a word of these generators and their inverses.
+% Let a loxodrmic element $g$ be a word $a_1a_2\cdots a_r$.
+% Suppose that a point sequence $\{ (a_1a_2\cdots a_r)^n\cdot z_0 \}$ converges to a point $p$ in the limit set.
+% This limit point $p$ is one of the fixed points of $g$.
+% Thus we consider a formula $p = (\overline{a_1a_2\cdots a_r})z_0$, where $\overline{a_1a_2\cdots a_r}$
+% is a circulating decimal of generators (and their inverses.)
+% However $\overline{a_1a_2\cdots a_r}$ is not an element in $G$, supposing an abstract infinite word,
+% we may consider a point on the limit set as a point in an orbit.
+% This way of thinking is called an algebraic limit of $G$.
+% On the other hand, the original definition of a limit point is obtained in a geometrical way of thinking.
+% Thus such limit point is also called a geometric limit.
 Infinite words $\overline{ab}$ converge to it is called \textit{algebraic limit.}
 \textit{geometric limit} is a set of transformed points converging to
 the limit.
-
 The property of the limit set is also described in chapter 2.4.1 of
 \cite{marden_2016}.
+
+%%***************ここまでみた20190111-2354****
+
+%%以下はカット
 
 % In this paper, for simplicity, we use
 % lower case alphabets such as $a$ and $b$ instead of $f(z)$ and $g(z)$ and

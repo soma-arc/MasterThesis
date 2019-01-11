@@ -349,11 +349,20 @@ there are six variations of classification like ``simple elliptic'' or
 ``compound loxodromic''.
 For detailed, see chapter 4.3.2.
 
-%%***************ここまでみた20190111-2127****
-
-
 \subsection{Kleinian Groups}
 
+% A Kleinian group is a group originated from the name of Felix Klein who is
+% a famous mathematician in nineteenth century.
+% A group $G$ is a Kleinian group if it satisfies the following two
+% conditions. 
+% First, $G$ is a subgroup of the M\"obius transformation group.
+% Second, the $G$-action on $\mathbb{H}^3$,
+% is properly discontinuous.
+% Here a $G$-action on $\mathbb{H}^3$
+% is properly discontinuous if and only if
+% for any compact set $K \subset \mathbb{H}^3$
+% there are only finite number of elements $g \in G$ such that
+% $\gamma (K) \cap K \neq \O$.
 Kleinian groups are groups originated from name of Felix Klein who is
 a mathematician in nineteenth century.
 The group $G$ is Kleinian group when it satisfies following two
@@ -368,12 +377,29 @@ for any compact set $K$ of $\mathbb{H}^3$,
 there are only finite number of $\gamma$ which is element of $A$
 and becomes $\gamma (K) \cap K \neq \phi$.
 
+%\par When the $G$-action is properly discontinuous, 
+% the $\epsilon$ neighborhoods of points in the orbit space are disjoint
+% for a positive $\epsilon$.
+% This follows that there exists a
+% fundamental domain with positive volume in $\mathbb{H}^3$.
+% Because a M\"obius transformation gives an isometric transformation of
+% $\mathbb{H}^3$, a Kleinian group gives a hyperbolic three manifold 
+% as a quotiont space of the group. 
+% Basic properties of a Kleinian group are described in chapter 2 of \cite{marden_2016}.
 When a point $x$'s orbit space is properly discontinuous, we take
 fundamental domain whose volume is plus.
 Considering M\"obius transformation gives isometric transformation of
 hyperbolic space, we also consider tiling of hyperbolic space by
 Kleinian groups. 
 
+%\par In this paper, we consider a M\"obius transformations in a broad sense, that is,
+% a map which is the composite of
+% any number of inversions.
+% In order to distinguish an original M\"obius transformation,
+% we call it \textit{an extended M\"obius transformation}.
+% The composite of odd number of inversions
+% is an orientaion-reversing map represented by $f(z)=\dfrac{a{\bar{z}}+b}{c{\bar{z}}+d}$, where
+% $a, b, c, d$ are complex number and $ad-bc = 1$.
 In this paper, we consider M\"obius transformation widely and
 think about a mapping which is represented by a composite mapping of
 inversion mapping (not limited to even number).
@@ -384,12 +410,19 @@ is represented by $f(z)=\dfrac{a{\bar{z}}+b}{c{\bar{z}}+d}$ where
 $a, b, c, d$ are complex number and $ad-bc = 1$.
 However, $\overline{z}$ represents conjugation of complex number.
 
+%\par An extended M\"obius transformation induces an isometric mapping 
+% (not necessarily to be orientation-preserving) on the three-dimensional hyperbolic space $\mathbb{H}^3$ by
+% Poincar\'e expansion.
+% We call a properly discontinuous subgroup of the extended M\"obius transformation group
+% \textit{an extended Kleinian group}.
 Extended M\"obius transformation introduced isometric mapping (not
 necessarily preserve direction) on three-dimensional hyperbolic space by
 poincare expansion.
 Properly discontinuous sub-group of extended M\"obius transformation group
 is called \textit{extended Kleinian groups}.
 Basic property of Kleinian group is described in chapter 2 of \cite{marden_2016}.
+
+%%***************ここまでみた20190111-2208****
 
 \subsection{Limit Set}
 

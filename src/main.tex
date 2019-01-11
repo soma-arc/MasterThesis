@@ -20,6 +20,19 @@
 
 \addbibresource{./references.bib}
 
+\AtEveryBibitem{%
+\ifentrytype{article}{%
+}{}
+\ifentrytype{inproceedings}{%
+}{}
+  \clearlist{publisher}
+  \clearfield{isbn}
+  \clearlist{location}
+  \clearfield{doi}
+  \clearfield{url}
+  \clearfield{note}
+}
+
 \setlength{\parindent}{0.3in}
 
 \title{ Iterated Inversion System: An Efficient Algorithm to Visualize Kleinian Groups Based on Inversions }

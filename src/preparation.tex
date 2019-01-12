@@ -152,117 +152,123 @@ deeply related to the four-dimensional hyperbolic space and four-dimensional hyp
 
 \subsection{Classification of M\"obius Transformations}
 
-Excluding the identical mapping, M\"obius transformations
-$f(z) = \dfrac{az + b}{cz + d}$ are classified as three types.
-They are \textit{Elliptic}, \textit{Parabolic}, and \textit{Loxodromic}.
-By the knowledge of linear algebra, the standard form of $PSL_2\mathbb{C}$
-is either one of $\begin{pmatrix}1 & a \\ 0 & 1 \end{pmatrix}$ or
-$\begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix}$.
-The former one of $f(z)$ is parabolic transformations.
-For parabolic transformation the number of fixed point is one, and
-$2 \times 2$ square matrix $X$ satisfy $\mathrm{tr}^2X = 4$.
+Excluding the identical map, we will classify M\"obius transformations
+$f(z) = \dfrac{az + b}{cz + d}$ into three types.
+The types are \textit{elliptic}, \textit{parabolic}, and \textit{loxodromic}.
+It is well-known that the standard form of $PSL_2\mathbb{C}$
+is either one of $\begin{pmatrix}1 & \lambda \\ 0 & 1 \end{pmatrix}$(, $\lambda$ is a non-zero constant,) or
+$\begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix}$(, $\lambda$ is a non-zero constant,) 
+from a famous theorem in linear algebra.
+If $X=\begin{pmatrix}a & b \\ c & d \end{pmatrix}$ is conjugate to the former one,
+then $f(z)$ is called a parabolic transformation.
+If $f(z)$ is parabolic, the number of fixed point is one, and
+the matrix $X$ satisfy $\mathrm{tr}^2X = 4$.
 
-When the standard form is
+When the standard form of $X$ is
+$\begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix}$,
+we have the following two cases. 
+One is the case $|\lambda|=1$ and the other is the case $|\lambda|\neq 1$ 
+If $|\lambda|=1$ then $f(z)$ is called an elliptic transformation.
+When $f(z)$ is elliptic,  the fixed point set of $f(z)$ consists of two distinct points,
+and $f(z)$ gives a rotation around these fixed points.
+And $f(z)$ is elliptic if and only if $\mathrm{tr}^2X > 4$.
+Remark that if the order of a M\"obius transformation $f(z)$ is finite
+then it is elliptic.
+
+If the standard form is
 $\begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix}$
-or absolute value of lambda is one, that is  $|\lambda|$ is $1$, 
-$f(z)$ is called elliptic transformations.
-The properties of elliptic transformation are they have
-two fixed points and the transformation gives rotations around fixed
-points.
-Also, the matrix representation $\mathrm{tr}^2X > 4$ is 
-necessary and sufficient conditions.
-In addition, the m\"obius transformation having finite order
-is elliptic transformation.
+with $|\lambda| \neq 1$, then $f(z)$ is called a loxodromic transformation.
+In a special case, if $\lambda$ is real number other than $\pm 1$, the transformation is called
+a \textit{hyperbolic} transformation too.
+When $f(z)$ is loxodromic the number of the fixed point set of $f(z)$ is two.
+One of the fixed points is called an attracting fixed point and the other is called a 
+repelling fixed point. This is because the orbid space of $f(z)$ of a
+general point $z_0$ has two limit point and one of two is the limit of
+$f^n(z_0)$ for $n\to \infty$, and the other is the limit of $f^n(z_0)$
+for $n\to -\infty$. 
+Also, $f(z)$ is loxodromic if and only if $\mathrm{tr}^2X < 4$.
 
-When the standard form is
-$\begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix}$
-and complex number $|\lambda| \neq 1$, $f(z)$ is called loxodromic.
-If $\lambda$ is real number exclude in $1$, the transformation is called
-\textit{hyperbolic} too.
-The properties of loxodromic transformation are they have two fixed
-points. One of the fixed points is attracting and the other one is repelling.
-Also, $\mathrm{tr}^2X < 4$ is necessary and sufficient conditions.
-
-For three-dimensional transformations also have this kind of
-classification.
-In this case, it is added \textit{simple} or \textit{compound} and
-there are six variations of classification like ``simple elliptic'' or
-``compound loxodromic''.
-For detailed, see chapter 4.3.2.
+The set of three-dimensional M\"obius transformations also have a similar
+classification into six types.
+In three dimensional case, each types \lq parabolic\rq, \lq elliptic\rq, \lq loxodromic\rq has 
+a modifier \textit{simple} and \textit{compound}.
+Thus there are six variations of classification types, for example \lq\lq simple elliptic\rq\rq or
+\lq\lq compound loxodromic\rq\rq.
+For detailed information of classfication of three dimensional M\"obius transformation, see chapter 4.3.2.
 
 \subsection{Kleinian Groups}
 
-Kleinian groups are groups originated from name of Felix Klein who is
-a mathematician in nineteenth century.
-The group $G$ is Kleinian group when it satisfies following two
+A Kleinian group is a group originated from the name of Felix Klein who is
+a famous mathematician in nineteenth century.
+A group $G$ is a Kleinian group if it satisfies the following two
 conditions. 
-Firstly, $G$ should be a sub-group of M\"obius transformation group.
-Secondly, about a fixed point $x\in\mathbb{H}^3$ in hyperbolic space,
-its orbit space $Gx = \{ gx \mid g\in G\}\subset \mathbb{H}^3$
+First, $G$ is a subgroup of the M\"obius transformation group.
+Second, the $G$-action on $\mathbb{H}^3$,
 is properly discontinuous.
-In this place, sub-set $A$ of hyperbolic space $\mathbb{H}^3$
-is properly discontinuous means
-for any compact set $K$ of $\mathbb{H}^3$,
-there are only finite number of $\gamma$ which is element of $A$
-and becomes $\gamma (K) \cap K \neq \phi$.
+Here a $G$-action on $\mathbb{H}^3$
+is properly discontinuous if and only if
+for any compact set $K \subset \mathbb{H}^3$
+there are only finite number of elements $g \in G$ such that
+$\gamma (K) \cap K \neq \O$.
 
-When a point $x$'s orbit space is properly discontinuous, we take
-fundamental domain whose volume is plus.
-Considering M\"obius transformation gives isometric transformation of
-hyperbolic space, we also consider tiling of hyperbolic space by
-Kleinian groups. 
+When the $G$-action is properly discontinuous, 
+the $\epsilon$ neighborhoods of points in the orbit space are disjoint
+for a positive $\epsilon$.
+This follows that there exists a
+fundamental domain with positive volume in $\mathbb{H}^3$.
+Because a M\"obius transformation gives an isometric transformation of
+$\mathbb{H}^3$, a Kleinian group gives a hyperbolic three manifold 
+as a quotiont space of the group. 
+Basic properties of a Kleinian group are described in chapter 2 of \cite{marden_2016}.
 
-In this paper, we consider M\"obius transformation widely and
-think about a mapping which is represented by a composite mapping of
-inversion mapping (not limited to even number).
-As a term, to distinguish original M\"obius transformation
-we call them \textit{extended M\"obius transformation}.
-A composite mapping composed of odd number of inversion mapping
-is represented by $f(z)=\dfrac{a{\bar{z}}+b}{c{\bar{z}}+d}$ where
+In this paper, we consider a M\"obius transformations in a broad sense, that is,
+a map which is the composite of
+any number of inversions.
+In order to distinguish an original M\"obius transformation,
+we call it \textit{an extended M\"obius transformation}.
+The composite of odd number of inversions
+is an orientaion-reversing map represented by $f(z)=\dfrac{a{\bar{z}}+b}{c{\bar{z}}+d}$, where
 $a, b, c, d$ are complex number and $ad-bc = 1$.
-However, $\overline{z}$ represents conjugation of complex number.
 
-Extended M\"obius transformation introduced isometric mapping (not
-necessarily preserve direction) on three-dimensional hyperbolic space by
-poincare expansion.
-Properly discontinuous sub-group of extended M\"obius transformation group
-is called \textit{extended Kleinian groups}.
-Basic property of Kleinian group is described in chapter 2 of \cite{marden_2016}.
+An extended M\"obius transformation induces an isometric mapping 
+(not necessarily to be orientation-preserving) on the three-dimensional hyperbolic space $\mathbb{H}^3$ by
+Poincar\'e expansion.
+We call a properly discontinuous subgroup of the extended M\"obius transformation group
+\textit{an extended Kleinian group}.
 
 \subsection{Limit Set}
 
-Let Kleinian group be $\Gamma$.
-We call closed set of all of the limit point \textit{limit set}.
-Also, We represent it as $\Lambda(\Gamma)$.
-There are some known properties about limit set.
-For example,
+Let $G$ be a Kleinian group.
+For a general point $z_0 \in \hat{\mathbb{C}}$,
+a point $p  \in \hat{\mathbb{C}}$ is a limit point 
+of the orbit space of $z_0$ if and only if 
+there exists a sequence $\{ g_i \} \subset G$ such that 
+$\displaystyle \lim_{i\to\infty} g_i(z_0) = p$.
+We call the closure of all limit points of an orbit space $Gz_0$ \textit{the limit set} of $G$.
+The limit set is denoted by $\Lambda(G)$.
+Some of properties are very useful to visualize the limit set of a Kleinian group.
 \begin{itemize}
- \item The orbit space of fixed points of generators becomes limit set.
- \item A point on the limit set transformed by element of the group 
-       also a point on the limit set.
- \item Fixed points of generators become limit set.
+\item The limit set does not depend on a general point $z_0$.  
+That is, the closure of all limit points of any orbit space is $\Lambda(G)$.
+\item The limit set is preserved by $G$-action.  That is,
+the image of action $g\in G$ of a point $p\in \Lambda(G)$  
+      also is included in the limit set $\Lambda(G)$.
+\item For any element $g \in G$, the fixed point of $g$ is contained in the limit set.
 \end{itemize}
-
-Infinite words $\overline{ab}$ converge to it is called \textit{algebraic limit.}
-\textit{geometric limit} is a set of transformed points converging to
-the limit.
-
-The property of the limit set is also described in chapter 2.4.1 of
+Much more properties of the limit set is also described in chapter 2.4.1 of
 \cite{marden_2016}.
 
-% In this paper, for simplicity, we use
-% lower case alphabets such as $a$ and $b$ instead of $f(z)$ and $g(z)$ and
-% upper case alphabet such as $A$ and $B$ instead of $f^{-1}(z)$ and $g^{-1}(z)$
-
-% From this point, we assume transformation group $G$ is generated by two
-% elements $a$ and $b$. Arbitrary elements of $G$ is represented by
-% four alphabet $a$, $b$, $A$, and $B$ and we follow the rule of inverse
-%  of $a$ is $A$ and inverse of $b$ is $B$.
-% Thus, composite mapping $f(z)\circ g(z) \circ f^{-1}(z)$ simply
-% is represented by $abA$.
-
-% Following the rule of the words, we represent circular infinite words as
-% bar, that is, $aaaa\cdots$ is represented by $\overline{a}$ and $abABabAB \cdots$ 
-% is represented by $\overline{abAB}$.
-% These infinite words are not element of $G$. However, when we consider
-% the orbit by $G$, we use such notations to express the limit set.
+Here we have some concepts to describe limit points of an orbit. 
+One is an algebraic limit and the other is a geometric limit.
+When we fix a set of generators of a Kleinian group $G$, we represent any elements in $G$ 
+as a word of these generators and their inverses.
+Let a loxodrmic element $g$ be a word $a_1a_2\cdots a_r$.
+Suppose that a point sequence $\{ (a_1a_2\cdots a_r)^n\cdot z_0 \}$ converges to a point $p$ in the limit set.
+This limit point $p$ is one of the fixed points of $g$.
+Thus we consider a formula $p = (\overline{a_1a_2\cdots a_r})z_0$, where $\overline{a_1a_2\cdots a_r}$
+is a circulating decimal of generators (and their inverses.)
+However $\overline{a_1a_2\cdots a_r}$ is not an element in $G$, supposing an abstract infinite word,
+we may consider a point on the limit set as a point in an orbit.
+This way of thinking is called an algebraic limit of $G$.
+On the other hand, the original definition of a limit point is obtained in a geometrical way of thinking.
+Thus such limit point is also called a geometric limit.

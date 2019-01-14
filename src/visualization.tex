@@ -229,10 +229,10 @@ as follows.
 
 \noindent IIS computes the depth of the circles point by point.
 Thus, we can perform parallel processing and render the images efficiently.
-The images in this paper are rendered using \textit{OpenGL Shading
-Language (GLSL)}.
+All of the images in this paper are rendered using
+\textit{OpenGL Shading Language (GLSL)}.
 
-IIS is applied to each point on the plane and computes nesting depth of
+IIS can be applied to each point on the plane and computes nesting depth of
 the disk which contains the point.
 The process of the algorithm is as follows.
 First of all, if the point is contained in initial disks, we invert the
@@ -249,12 +249,13 @@ The points except for the limit set are guaranteed that they
 are transformed to outside because inversions are involution.
 
 Pseudo-code of IIS is shown in Algorithm \ref{arg:iis2d}.
-Later, we will introduce generators other than simple inversions.
-Thus, we consider a map $G$ such that $G$ is an identity for a point in the
-\textit{fundamental domain} and that $G$ is a composition of inversions for other
+Later in section 4.3, we will introduce generators other than simple inversions.
+Thus, we consider a map $\gamma : \mathbb{C} \to G$ such that $\gamma(p)$ is the unit for a point $p$ in the
+\textit{fundamental domain} and that $G \to \gamma(p)$ is a composition of inversions for other
 points.
 The fundamental domain is the terminal area of transformations. 
-In the above case, the black area where outside of all circles.
+In the above case, the black area consists of the outside and the
+boundary of all circles is the fundamental domain.
 
 \subsubsection{Three Dimensional Extension}
 
@@ -311,21 +312,24 @@ In the above case, the black area where outside of all circles.
 \end{figure}
 
 In a similar manner to the two-dimensional algorithm,
-we extend the IIS to visualize three-dimensional Kleinian groups.
-We extend circle inversion to sphere inversion easily, and we
-compute the nesting depth of the sphere voxel by voxel.
+we extend the IIS to visualize three-dimensional Kleinian fractals.
+We extend the IIS algrithm by replacing circle inversions to sphere inversions easily, 
+and we compute the nesting depth of the sphere voxel by voxel.
 
 We use \textit{ray tracing} to visualize three-dimensional objects.
 Ray tracing computes an intersection between a ray and objects
 algebraically.
-There are two ways to render nesting spheres. First one is to draw
-nesting spheres as transparent spheres.
+When we consider three-dimensional sphere inversion fractals in the similar
+manner to circle inversion fractals, we can obtain an image of an
+infinite number of nesting spheres in a sphere.
+There are two ways to render the nesting spheres. First one is to draw
+the nesting spheres as transparent spheres.
 Second one is \textit{volume rendering}.
-However, these are difficult to render them efficiently, and
-visualized images are not interesting.
+However, it is difficult to render these two way of imaging efficiently, and
+visualized images are not helpful to study Kleinian groups.
 
 Therefore we render the orbit of the sphere in a similar way to the
-two-dimensional circle inversion fractals.
+two-dimensional circle inversion fractals by using IIS.
 See Figure \ref{fig:simpleGenOrb}\subref{fig:simpleGen}. It shows
 white six inversion spheres and a green seed sphere.
 Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb} shows the orbit of
@@ -344,19 +348,21 @@ and direction of the ray to the direction to each pixel on the screen
 from the camera. Each pixel is colored according to the
 first object the ray hits. 
 
-In regular ray tracing, we calculate the intersections algebraically, but
-we can not compute intersection to fractal objects.
-On the other hand, in sphere tracing, we march the ``tip'' of the ray
-along the direction of the ray step by step. 
+In the regular ray tracing, we calculate the intersections between the
+ray and the object albraically, but
+it is impracticable to compute the intersections to fractal objects.
+As an alternating methods, in sphere tracing, we we make the tip of the
+ray marching along the direction of the ray step by step. 
 To check how far the tip of the ray is from the objects, we need a
 \textit{distance function}.
 The distance function is a function which returns the minimum distance
-between given point and objects.
-For example, a distance function of a sphere is as follows.
-Let $P$ be a tip of a ray, let $C$ and $R$ be center and
-radius of the sphere.
-A distance function of sphere $f(P)$ is $f(P) = distance(P, C) - R$.
-If there are many spheres, we use minimum distance to objects.
+between a given point and the object.
+For example, a distance function of a sphere can be obtained easily.
+Let $P$ be a tip of a ray, let $C$ and $R$ be the center and the radius
+of the sphere respectively.
+A distance function of sphere $f(P)$ is given by $f(P) = distance(P, C) - R$.
+If there are many spheres, we use the minimum of the distance functions
+of the spheres.
 
 Figure \ref{fig:sphereTracing} shows sphere tracing algorithm.
 The yellow arrow is ray and orange disks are visible objects.

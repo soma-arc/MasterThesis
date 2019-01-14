@@ -211,8 +211,10 @@ four circles in Figure \ref{fig:schottkyProcess}\subref{fig:level0}.
 %% TODO もうすこし説明を加える <- そうしてください．
 It is also a Kleinian group composed of four circle inversions.
 Especially, it is called a \textit{quasi-fuchsian group}.
-% limit setが正円になる時にはfuchsian groupと言います．この例はlimit setは正円です．
-% limit setが正円ではない閉曲線になるとき， quasi-fuchsian groupと呼びます．
+% limit setが正円になる時にはfuchsian groupと言います．この例はlimit setは正円ですので，これはfuchsian groupです．
+% limit setが閉曲線で正円ではないとき， quasi-fuchsian groupと呼びます．ですので，円が輪状につながり，フラクタル上の閉曲線が
+% できるときはquasi-fuchsian groupと呼ばれます．
+% 閉曲線より複雑な形をしている時にはクライン群以外に特に名前はありません．
 The process of generation of circle inversion fractals is
 as follows.
 
@@ -274,8 +276,10 @@ as follows.
 Thus, we can perform parallel processing and render the images efficiently.
 The images in this paper are rendered using \textit{OpenGL Shading
 Language (GLSL)}.
+% どの範囲の画像が該当するのか（第＊章の画像は，のように）を明確にするとよい．論文にわたって全てであればAll ofを最初につける．
 
 IIS is applied to each point on the plane and computes nesting depth of
+% is -> can be のような気がする
 the disk which contains the point.
 The process of the algorithm is as follows.
 First of all, if the point is contained in initial disks, we invert the
@@ -293,11 +297,15 @@ are transformed to outside because inversions are involution.
 
 Pseudo-code of IIS is shown in Algorithm \ref{arg:iis2d}.
 Later, we will introduce generators other than simple inversions.
+% Later in section 2.3.3, のように具体的に
 Thus, we consider a map $G$ such that $G$ is an identity for a point in the
+% a map $\gamma : \mathbb{C} \to G$ such that $\gamma(p)$ is the unit for a point $p$ in the
 \textit{fundamental domain} and that $G$ is a composition of inversions for other
+% $G$ -> $\gamma(p)$ 写像を考えると言っているので，集合から集合への対応を提示しないといけない．
 points.
 The fundamental domain is the terminal area of transformations. 
-In the above case, the black area where outside of all circles.
+In the above case, the black area where outside of all circles. 
+% black area consists of the outside and the boundary of all circles is the fundamental domain.
 
 \subsubsection{Three Dimensional Extension}
 
@@ -355,20 +363,29 @@ In the above case, the black area where outside of all circles.
 
 In a similar manner to the two-dimensional algorithm,
 we extend the IIS to visualize three-dimensional Kleinian groups.
+% クライン群としての次元は一つ上なので，three-dimensional Keleinian fractalsくらいにしておきますか．
 We extend circle inversion to sphere inversion easily, and we
+% We extend the IIS algrithm by replacing circle inversions to sphere inversions easily, ..
 compute the nesting depth of the sphere voxel by voxel.
 
 We use \textit{ray tracing} to visualize three-dimensional objects.
 Ray tracing computes an intersection between a ray and objects
 algebraically.
+% この後ににある3つの文は，何が話題なのかわかりにくいです．
+% 「circle inersion fractal のようなものを3次元空間内の球でそのまま考えると」という説明がほしいです．
+% 球体の中に無限個の球体が含まれるような絵（これがnesting spheresの中身ですね）になる，
 There are two ways to render nesting spheres. First one is to draw
+% 上の説明があれば，nesting spheres -> the nesting spheres になります．
 nesting spheres as transparent spheres.
 Second one is \textit{volume rendering}.
 However, these are difficult to render them efficiently, and
+% it is difficult to render these two way of imaging efficiently, 
 visualized images are not interesting.
+% interestingは主観的な語ですので，客観的な形容詞に変更してください．
 
 Therefore we render the orbit of the sphere in a similar way to the
 two-dimensional circle inversion fractals.
+% 文末に by using IIS をつけてはどうでしょうか．
 See Figure \ref{fig:simpleGenOrb}\subref{fig:simpleGen}. It shows
 white six inversion spheres and a green seed sphere.
 Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb} shows the orbit of
@@ -388,18 +405,34 @@ from the camera. Each pixel is colored according to the
 first object the ray hits. 
 
 In regular ray tracing, we calculate the intersections algebraically, but
+% ray tracing に冠詞が付かないのはいいかなと思うのですが，regularという形容詞が付いた場合は，ちょっと迷います．
+% いつものアレ的な感じならば定冠詞がいいでしょう．
+% intersections between the ray and the object albraically,
 we can not compute intersection to fractal objects.
+% intersection は2者の関係のうえに成立する概念ですから，「何と何の交わり」をはっきりさせるか「その交わり」と前を受けるかどちらかです．
+% it is impracticable to compute the intersections to ... 
 On the other hand, in sphere tracing, we march the ``tip'' of the ray
+% 気持ち的な問題ですが，普通のレイトレでは厳しいので「その代わりの方法として」的なニュアンスが出るといいかなと思います．
+% As an alternating methods, ではどうでしょうか．
+% march は自動詞なので，we make the tip of the ray marching along くらいしかなと思います．
 along the direction of the ray step by step. 
 To check how far the tip of the ray is from the objects, we need a
 \textit{distance function}.
 The distance function is a function which returns the minimum distance
 between given point and objects.
+% given point -> a given point
+% objects -> the object
 For example, a distance function of a sphere is as follows.
+% as follows で悪くありませんが，別法で can be obtained easily.などでもよさそうです．
 Let $P$ be a tip of a ray, let $C$ and $R$ be center and
 radius of the sphere.
+% the center and the radius of the sphere respectively
 A distance function of sphere $f(P)$ is $f(P) = distance(P, C) - R$.
+% is -> is given by 
 If there are many spheres, we use minimum distance to objects.
+% we use the minimum of the distance functions of the spheres.
+
+%%% 休憩します！0114-1726
 
 Figure \ref{fig:sphereTracing} shows sphere tracing algorithm.
 The yellow arrow is ray and orange disks are visible objects.

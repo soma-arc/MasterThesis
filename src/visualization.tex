@@ -432,24 +432,36 @@ A distance function of sphere $f(P)$ is $f(P) = distance(P, C) - R$.
 If there are many spheres, we use minimum distance to objects.
 % we use the minimum of the distance functions of the spheres.
 
-%%% 休憩します！0114-1726
-
 Figure \ref{fig:sphereTracing} shows sphere tracing algorithm.
 The yellow arrow is ray and orange disks are visible objects.
+% ray -> a ray
+% visible -> the visible
 First of all, in Figure \ref{fig:sphereTracing}\subref{fig:st1},
 we use distance function and find minimum distance between
+% distance -> a distance (theか？)
+% minimum -> the minimum
 the ray and the disk.
+% ray -> tip of the ray
+% disk -> disks
 Next, we put the ray forward and apply distance function to the position
+% ray -> tip 
 of the ray as in Figure \ref{fig:sphereTracing}\subref{fig:st2}.
 Again, we apply distance function and march the ray, and we obtain
+% distance -> a distance (theか？)
+% march the ray -> march the tip もしくは make the tip marching 
+% 他動詞としてのmarch は「＊＊＊を進軍させる」という雰囲気で，この場面のイメージに合うかどうか・・・
 Figure \ref{fig:sphereTracing}\subref{fig:st3}.
 We continue iterating this processes until the value of the distance
 function is less than zero as shown in Figure \ref{fig:sphereTracing}\subref{fig:st4}.
+% 「０未満」と言っていますが，「小さな正の閾値未満ならば」でなくて大丈夫ですか．
+% 「object のあいだをすり抜けた場合」には「distance function が十分に大きくなったらやめる」ということも必要です．
 
 However, in regard to fractal rendering, it is difficult to
 get an actual distance to its shape. So, we use a lower estimated distance
+% to its shape -> from a given point to the object.
 as a return value of the distance function. The technique to approximate
 distance is called \textit{distance estimation}.
+% a distance (具体的な距離の場合は可算名詞)
 For more details about fractal rendering and distance estimation, see also the blog
 post\footnote{Mikael H Christensen, Distance Estimated 3D Fractals (Part I):\\ \quad\quad
 \url{http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/}}
@@ -494,7 +506,9 @@ by Christensen.
 \end{figure}
 
 Before we introduce distance estimation, we show
+% 気持ちとしては，「distance estimation の詳細を紹介する前に」
 well-known technique to render many objects in sphere tracing.
+% 単にmany ではちょっと違うような気がする．many objects lined up in a rowではどうですか．
 Instead of preparing distance functions for many objects, we can use modulo operator
 to get the distance to the lined up objects.
 
@@ -502,11 +516,15 @@ See Figure \ref{fig:moduloAll}\subref{fig:modulo1}. We assume there are the blue
 yellow ray, and dotted circle and lines.
 Now, we want to draw all of the dotted circles.
 So, we want a minimum distance between the ray and dotted circles.
+% the niminum 
+% ray -> tip of the ray (?)
 However, we only know the position of the tip of the ray and the blue disk.
+% If we only know .... disk, then how can we get the minimum distance?
 Thus, we assume the nearest circle to the ray is in the same dotted region, and
 we fold up the regions using the modulo operator.
 We can measure the distance to blue disk as in Figure \ref{fig:moduloAll}\subref{fig:modulo2}.
 Finally, we can obtain minimum distance to line upped disks.
+% the minimum
 
 Next, we consider scaling example.
 See Figure \ref{fig:iisScaleAll}\subref{fig:iisScale1}.
@@ -514,17 +532,26 @@ There are a yellow ray and a blue disk, and orbit of scaling as
 dotted blue circles.
 The green dotted lines show scaling regions.
 We want to minimum distance between dotted blue circles and the ray.
+% to -> to get the
+% the blue circles and the tip of the ray
 However, we only know the coordinates of the original blue
+% If we only know .... , then how can we get the minimum distance?
 disk and tip of the ray.
 We assume that the nearest sphere to the tip of the ray is in
 same regions. 
 Thus, we scale the tip of the ray to the same region to the blue disk
 but, the distance between scaled ray and disk is also scaled.
 So, we correct the scale dividing computed distance by 
+% correct the scale dividing computed distance by Jacobian
+% -> correct the distance by the ratio determined by Jacobian (correctはmodifyでもいいかもです．)
 Jacobian (sometimes referred to as the Jacobian determinant) of scaling.
+% scaling -> scaling transformation (scaleという言葉が繰り返されているので．)
 See Figure \ref{fig:iisScaleAll}\subref{fig:iisScale2}.
 If the scaling of the circle is $f(z) = 2z$, we divide the distance by
 $2^{-3}$ because the ray is moved three green scaling regions.
+% the ray is moved to the 3 regions away from the original.
+
+%%% あと150行!-0114-2030
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}

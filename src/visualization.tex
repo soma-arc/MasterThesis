@@ -551,8 +551,6 @@ If the scaling of the circle is $f(z) = 2z$, we divide the distance by
 $2^{-3}$ because the ray is moved three green scaling regions.
 % the ray is moved to the 3 regions away from the original.
 
-%%% あと150行!-0114-2030
-
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
   \center
@@ -605,6 +603,7 @@ For the sake of simplicity, we consider a slice image of Figure
 See Figure \ref{fig:slice2d}. This image shows the XY-slice of the orbit
 of spheres.
 Orange disks in the background are slices of the orbit of initial inversion spheres.
+% the initial
 Slices of the orbit of the base sphere are colored in
 the same color as the orbit shown in Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb}.
 In Figure \ref{fig:slice2d},
@@ -643,8 +642,10 @@ distance function returns unintentionally large distance, and the ray
 can pass through the real objects. This causes artifact shown in Figure
 \ref{fig:3dartifact}. The fore part of the fractals is not rendered.
 In order to avoid this kind of problems, we shrink the length of
+% problem -> trouble (?)
 the estimated distance.
 It increases the number of steps of sphere tracing, but we can
+%この主語のItは何を指しているかがわかりません．It increases that ... かな．
 eventually obtain the intersection of the ray and the spheres.
 The scaling factor is determined experimentally according to the size of
 the spheres.
@@ -686,6 +687,8 @@ parametrization shown in Figure
 The pink points are control points of the fractal.
 IIS uses circle or sphere inversions, on the other hand, Jos Leys used
 M\"obius transformations algebraically.
+% この文章，意味は分かるのですが，なんか言葉足らずな気がします．
+%IISは反転を利用したアルゴリズムですが，(Although出始めてはどうか？）Leysのアルゴリズムは・・・・
 He observes the orbit of the Maskit parametrization group and
 successfully discover the algorithm to visualize Maskit groups.
 We can apply circle inversions to his figure, and we obtain Figure \ref{fig:josInv}.
@@ -697,3 +700,5 @@ hyperbolic tiling.
 The algorithm is similar to ours, but
 we explore the method not only tiling but also other varieties of
 images, for instance, three-dimensional objects.
+
+% 最後のほうは，特に問題が見当たりませんでした！

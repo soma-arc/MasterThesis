@@ -365,21 +365,23 @@ If there are many spheres, we use the minimum of the distance functions
 of the spheres.
 
 Figure \ref{fig:sphereTracing} shows sphere tracing algorithm.
-The yellow arrow is ray and orange disks are visible objects.
+The yellow arrow is a ray and orange disks are the visible objects.
 First of all, in Figure \ref{fig:sphereTracing}\subref{fig:st1},
-we use distance function and find minimum distance between
-the ray and the disk.
-Next, we put the ray forward and apply distance function to the position
+we use the distance function and find the minimum distance between
+the tip of the ray and the disks.
+Next, we put the tip forward and apply distance function to the position
 of the ray as in Figure \ref{fig:sphereTracing}\subref{fig:st2}.
-Again, we apply distance function and march the ray, and we obtain
+Again, we apply the distance function and make the tip marching, and we obtain
 Figure \ref{fig:sphereTracing}\subref{fig:st3}.
 We continue iterating this processes until the value of the distance
-function is less than zero as shown in Figure \ref{fig:sphereTracing}\subref{fig:st4}.
+function is less than a small positive threshold as shown in Figure
+\ref{fig:sphereTracing}\subref{fig:st4} or sufficiently large.
 
 However, in regard to fractal rendering, it is difficult to
-get an actual distance to its shape. So, we use a lower estimated distance
+get an actual distance from a given point to the object.
+So, we use a lower estimated distance
 as a return value of the distance function. The technique to approximate
-distance is called \textit{distance estimation}.
+a distance is called \textit{distance estimation}.
 For more details about fractal rendering and distance estimation, see also the blog
 post\footnote{Mikael H Christensen, Distance Estimated 3D Fractals (Part I):\\ \quad\quad
 \url{http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/}}
@@ -423,38 +425,44 @@ by Christensen.
  \label{fig:iisScaleAll}
 \end{figure}
 
-Before we introduce distance estimation, we show
+Before we introduce details of distance estimation, we show
 well-known technique to render many objects in sphere tracing.
-Instead of preparing distance functions for many objects, we can use modulo operator
+Instead of preparing distance functions for many objects lined up in a
+row, we can use modulo operator
 to get the distance to the lined up objects.
 
-See Figure \ref{fig:moduloAll}\subref{fig:modulo1}. We assume there are the blue disk, the
+See Figure \ref{fig:moduloAll}\subref{fig:modulo1}. 
+We assume there are the blue disk, the
 yellow ray, and dotted circle and lines.
 Now, we want to draw all of the dotted circles.
-So, we want a minimum distance between the ray and dotted circles.
-However, we only know the position of the tip of the ray and the blue disk.
+So, we want the minimum distance between the tip of the ray and dotted circles.
+If we only know the position of the tip of the ray and the blue disk,
+then
+how can we get the minimum distance?
 Thus, we assume the nearest circle to the ray is in the same dotted region, and
 we fold up the regions using the modulo operator.
 We can measure the distance to blue disk as in Figure \ref{fig:moduloAll}\subref{fig:modulo2}.
-Finally, we can obtain minimum distance to line upped disks.
+Finally, we can obtain the minimum distance to line upped disks.
 
 Next, we consider scaling example.
 See Figure \ref{fig:iisScaleAll}\subref{fig:iisScale1}.
 There are a yellow ray and a blue disk, and orbit of scaling as
 dotted blue circles.
 The green dotted lines show scaling regions.
-We want to minimum distance between dotted blue circles and the ray.
-However, we only know the coordinates of the original blue
-disk and tip of the ray.
+We want to get the minimum distance between dotted blue circles and the
+tip of the ray.
+If we only know the coordinates of the original blue
+disk and tip of the ray, then how can we get the minimum distance?
 We assume that the nearest sphere to the tip of the ray is in
 same regions. 
 Thus, we scale the tip of the ray to the same region to the blue disk
 but, the distance between scaled ray and disk is also scaled.
-So, we correct the scale dividing computed distance by 
-Jacobian (sometimes referred to as the Jacobian determinant) of scaling.
+So, we correct the distance by the ratio determined by Jacobian
+(sometimes referred to as the Jacobian determinant) of scaling transformation.
 See Figure \ref{fig:iisScaleAll}\subref{fig:iisScale2}.
 If the scaling of the circle is $f(z) = 2z$, we divide the distance by
-$2^{-3}$ because the ray is moved three green scaling regions.
+$2^{-3}$ because the tip of the ray is moved to the three regions away
+from the original.
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
@@ -507,7 +515,7 @@ For the sake of simplicity, we consider a slice image of Figure
 \ref{fig:simpleGenOrb}.
 See Figure \ref{fig:slice2d}. This image shows the XY-slice of the orbit
 of spheres.
-Orange disks in the background are slices of the orbit of initial inversion spheres.
+Orange disks in the background are slices of the orbit of the initial inversion spheres.
 Slices of the orbit of the base sphere are colored in
 the same color as the orbit shown in Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb}.
 In Figure \ref{fig:slice2d},
@@ -545,9 +553,10 @@ For example, if a given point is in the outer area of the orbit, the
 distance function returns unintentionally large distance, and the ray
 can pass through the real objects. This causes artifact shown in Figure
 \ref{fig:3dartifact}. The fore part of the fractals is not rendered.
-In order to avoid this kind of problems, we shrink the length of
+In order to avoid this kind of trouble, we shrink the length of
 the estimated distance.
-It increases the number of steps of sphere tracing, but we can
+Shrinking the length of the distance increases the number of steps of
+sphere tracing, but we can
 eventually obtain the intersection of the ray and the spheres.
 The scaling factor is determined experimentally according to the size of
 the spheres.
@@ -587,7 +596,7 @@ Jos Leys invented efficient algorithm to draw a Kleinian group with Maskit
 parametrization shown in Figure
 \ref{fig:jos}\footnote{\url{http://www.josleys.com/article_show.php?id=221}}. 
 The pink points are control points of the fractal.
-IIS uses circle or sphere inversions, on the other hand, Jos Leys used
+Although IIS uses circle or sphere inversions, Jos Leys used
 M\"obius transformations algebraically.
 He observes the orbit of the Maskit parametrization group and
 successfully discover the algorithm to visualize Maskit groups.

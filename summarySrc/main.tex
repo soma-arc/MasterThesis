@@ -38,13 +38,13 @@
 \pagestyle{plain}
 \newpage
 
-In this paper, we introduce a summary of each chapter of the master thesis.
-The first chapter is an introduction.
+In this paper, we introduce a summary of each section of the master thesis.
+The first section is an introduction.
 Kleinian groups theory is one of the fields of mathematics.
 It is advanced by mathematicians in the nineteenth century.
 Felix Klein and Robert Fricke studied a certain category of M\"obius
 transformation groups.
-Henri Poincare named such groups \textit{Kleinian Groups}.
+Henri Poincar\'e named such groups \textit{Kleinian Groups}.
 
 Kleinian groups are well suited to visualization and
 experiment; Actually, Klein and his students also leave beautiful
@@ -60,7 +60,7 @@ As the first step to the goals, we invent an algorithm called
 It visualizes not only three-dimensional Kleinian groups but also
 four-dimensional Kleinian groups.
 
-The second chapter is preparation. We introduce some mathematical terms.
+The second section is preparation. We introduce some mathematical terms.
 
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.3333\hsize}
@@ -205,13 +205,14 @@ The second chapter is preparation. We introduce some mathematical terms.
  \end{minipage}
 \end{figure}
 
-The third chapter introduces the visualization of Kleinian groups.
-Chapter 3.1 shows a basic method of rendering Kleinian groups.
+\noindent The third section introduces the visualization of Kleinian groups.
+Section 3.1 shows a basic method of rendering Kleinian groups.
 It has some defective to visualize Kleinian groups.
 For example, see Figure \ref{fig:orbitCircles}; there are many nesting
 disks. If we increase the number of initial disks, nesting disks also
-increase exponential order.
-To solve this problem, in chapter 3.2, we introduce the IIS.
+increase exponential order, and it becomes difficult to visualize
+such many nesting disks.
+To solve this problem, in section 3.2, we introduce the IIS.
 IIS is applied to each point on the plane and computes nesting depth of
 the disk which contains the point.
 The process of the algorithm is as follows.
@@ -220,12 +221,12 @@ point in the boundary circle of the disk.
 We continue applying inversions until the transformed point is in the
 outside of all the initial disks.
 IIS can be used in two and three-dimensional cases.
-In chapter 3.3, we show some algorithms using IIS to draw three-dimensional
+In section 3.3, we show some algorithms using IIS to draw three-dimensional
 objects shown in Figure \ref{fig:3d}.
 
-The fourth chapter gives some application.
+The fourth section gives some application.
 We introduce four examples of the application of IIS.
-First one shows how to render the interior or exterior of the
+First one is how to render the interior or exterior of the
 two-dimensional circle inversion fractals as in Figure \ref{fig:schottkyDivide}.
 Secondly, we show the method to draw the edge of disks as shown in
 Figure \ref{fig:circleEdge}.
@@ -238,7 +239,7 @@ apply them to an orange disk.
 According to the configuration of regions, an orbit of the orange disks are
 changed.
 It can be extended to three-dimensional sphere inversion fractals.
-Lastly, we can visualize sphairahedron fractals with IIS.
+Lastly, we visualize sphairahedron fractals with IIS.
 Sphairahedron is a polyhedron with spherical
 faces as shown in Figure \ref{fig:cubeSphaira}.
 Using inversions about their faces, we can make a tiling pattern
@@ -246,7 +247,7 @@ of the sphairahedron. See Figure \ref{fig:quasi-sphere}.
 In many cases, the boundary of the tiling converges to a
 three-dimensional fractal. 
 
-Finally, the fifth chapter is the conclusion. We introduced an efficient algorithm
+Finally, the fifth section is the conclusion. We introduced an efficient algorithm
 called IIS.
 However, there are also Kleinian groups, which we cannot
 visualize using IIS.

@@ -12,7 +12,7 @@ In this paper, we use terms about Kleinian groups used in Indra's
 Pearls \cite{MumfordSeriesWright200204}.
 The word \textit{group} represents an algebraic group which is
 central concept about group theory.
-Algebraic group is a set which has multiplication, satysfies the
+The algebraic group is a set which has multiplication, satisfies the
 associative law, has a unit, and has an inverse element for each
 element.
 
@@ -20,33 +20,34 @@ Also, a transformation group is an algebraic group consists of transformations
 on a topological set $X$.  Here a transformation is a homeomorphism
 $f:X \to X$.
 
-We will introduce the M\"obius transformation group and Kleinean group
+We will introduce the M\"obius transformation group and Kleinian group
 as a subgroup of the M\"obius transformation group. 
 In this paper, we mainly consider the cases $X=\tilde{\mathbb{C}}$,
 which is the union of the complex set and the infinity, 
 and $X=\tilde{ \mathbb{R} }^3$, which is the union of $\mathbb{R}^3$ and the infinity.
-In our context we suppose proper topologies on $\tilde{\mathbb{C}}$ 
+In our context, we suppose proper topologies on $\tilde{\mathbb{C}}$ 
 by the complex topology of $P^1(\mathbb{C})$ and on $\tilde{ \mathbb{R} }^3$
 by one-point compactification from $\mathbb{R}^3$ respectively.
 
-We will introduce M\"obius transofmation group on $\tilde{\mathbb{C}}$ and $\tilde{ \mathbb{R} }^3$.  
+We will introduce M\"obius transformation group on $\tilde{\mathbb{C}}$ and $\tilde{ \mathbb{R} }^3$.  
 First, the two-dimensional M\"obius transformation group
 \textrm{M\"ob}$(\tilde{\mathbb{C}})$ is the set of linear fractional transformations $f(z)=\frac{az+b}{cz+d}$, 
 where $a,b,c,d$ are complex numbers and they satisfy $ad-bc = 1$. Here we naturally extend a complex function $f(z)$ 
 into a transformation on $\tilde{\mathbb{C}}$.  
 A linear fractional transformation is a conformal orientation-preserving homeomorphic map.
 See also section 2.3.
-From another point of view, a M\"obius transformation is the composition of even number of circle inversions.  
+From another point of view, a M\"obius transformation is the composition
+of an even number of circle inversions.  
 About inversions, see section 2.2.
 In the same manner, we consider the three-dimensional M\"obius
 transformation group \textrm{M\"ob}$(\tilde{\mathbb{R}}^3)$
 In the three-dimensional case, we define a M\"obius transformation as
-the composition of even number of sphere inversions.
+the composition of an even number of sphere inversions.
 
 \subsection{Inversions in Circles or Spheres}
 
-In the two dimensional case, it is well known that M\"obius transformations on $\tilde{\mathbb{C}}$
-are composed of even number of circle-inversions and line-symmetries.
+In the two-dimensional cases, it is well known that M\"obius transformations on $\tilde{\mathbb{C}}$
+are composed of an even number of circle-inversions and line-symmetries.
 Here, if a circle is centered at $C\in\mathbb{C}$ and it has a radius $R\in\mathbb{R}$ ($R>0$).
 Then the formula of the inversion along the circle is given by
 $f(z) = \frac{R^2}{~\overline{z -C}~} + C$.
@@ -62,26 +63,26 @@ and homeomorphic on $\tilde{\mathbb{C}}$.
 
 Here we will make a short note on the Jacobian of inversion.
 If the inversion is a line symmetry, the determinant of the Jacobian is $-1$.
-Otherwise if the inversion is a circle-inversion, remarking that a circle inversion
-preserve any angles, we obtain that Jacobian mapping is given by the composition of multiplication by a complex constant
+Otherwise, if the inversion is a circle-inversion, remarking that a circle inversion
+preserves any angles, we obtain that Jacobian mapping is given by the composition of multiplication by a complex constant
 and complex conjugate.
 Thus the determinant of the Jacobian at a point $P\in\mathbb{C}$ is given by the following formula:
 \[ \mathrm{Det}(\mathrm{Jacobian}) = R^4 / distance(P,~C)^4 \]%
 Here the Jacobian is a composition of a scaling and a rotation and a complex conjugate, and we obtain the following.
 \[ \mathrm{scaling~factor~at~} P  = R^2 / distance(P,~C)^2. \]
 
-In the similar way as the definition of a circle-inversion,
+In a similar way as the definition of a circle-inversion,
 a sphere-inversion can be defined as follows.
 Fix a sphere $C$ in $\mathbb{R}^3$.  Let its center be $C$ and its radius be $R$. 
 A sphere-inversion $I_C$ is a homeomorphism on $\tilde{\mathbb{R}}^3$ 
 determined by a map from a point $P$ to a point $Q = I_C(P)$ such that (i) $Q$ is on the half line $CP$ and 
 that (ii) $\overline{CP}\cdot \overline{CQ} = R^2$.
 As above, the definition of a circle-inversion can be extended to a plane-symmetry
-in the same way as a line-symmetry in the two dimensional case.
+in the same way as a line-symmetry in the two-dimensional case.
 
 \subsection{M\"obius Transformations and the Hyperbolic Geometry}
 
-First we review the definition of a group action. 
+First, we review the definition of a group action. 
 Let $G$ be a group and $X$ be a set. A map $G \times X \to X : (g,x) \mapsto g\cdot x$
 is called a $G$-action on $X$ if it satisfies the following conditions.
 \par \qquad (1) $e \cdot x = x$ for all $x \in X$. (Here, $e$ denotes the unit of $G$.)
@@ -95,7 +96,7 @@ $a, b, c, d$ are complex numbers and satisfy $ad - bc = 1$.
 
 If we consider a map $\varphi: \dfrac{az+b}{cz+d} \mapsto \begin{pmatrix}a & b \\ c& d \end{pmatrix}$,
 from the set of linear fractional transformations to $PSL_2\mathbb{C}$.
-This map $\varphi$ is a group isomorphism and it gives an induced action of $PSL_2\mathbb{C}$ on $\hat{\mathbb{C}}$.
+This map $\varphi$ is a group isomorphism, and it gives an induced action of $PSL_2\mathbb{C}$ on $\hat{\mathbb{C}}$.
 In the sequel, we regard the action of linear fractional transformations
 and that of $PSL_2\mathbb{C}$ without distinction.
 For more details about M\"obius transformation, refer
@@ -106,46 +107,46 @@ When all of the coefficients in $f(z) = \dfrac{az + b}{cz + d}$
 are real number, $f(z)$ preserve upper-half plane.
 Moreover, $f(z)$ preserves the hyperbolic metric $\dfrac{dz^2}{(\mathrm{Im}z)}$
 on the upper-half plane.
-Such linear fractional transformations corresponds to an element of $PSL_2\mathbb{R}$.
-Thus the $PSL_2\mathbb{R}$-action on the upper half plane is
+Such linear fractional transformations correspond to an element of $PSL_2\mathbb{R}$.
+Thus the $PSL_2\mathbb{R}$-action on the upper-half plane is
 the isometric transformation group of the hyperbolic plane $\mathbb{H}^2$.
 
 When the coefficients $a, b, c, d$ are complex numbers, 
 the action can be thought as an isometric transformation group on the hyperbolic space $\mathbb{H}^3$.
-We consider the upperhalf model of the hyperbolic space $\mathbb{H}^3$.
+We consider the uppe-half model of the hyperbolic space $\mathbb{H}^3$.
 In fact, 
 \[\mathbb{H}^3 = \{ (z,t) \in \mathbb{C}\times \mathbb{R}\mid t>0 \} \cup \{\infty\} \]
-is the upper half model with the hyperbolic metric $\dfrac{dz^2+dt^2}{t^2}$ and 
+is the upper-half model with the hyperbolic metric $\dfrac{dz^2+dt^2}{t^2}$ and 
 $\hat{\mathbb{C}} = \{ (z,0) \mid z \in \mathbb{C}\} \cup \{ \infty\}$
-is the set of infinity. The two dimensional M\"obius transformation group acts on $\hat{\mathbb{C}}$
-naturally and it is well known that this action can be extend to 
-an action on the upper half model as isometric transformations.
+is the set of infinity. The two-dimensional M\"obius transformation group acts on $\hat{\mathbb{C}}$
+naturally, and it is well known that this action can be extended to 
+an action on the upper-half model as isometric transformations.
 This extension is called \textit{\lq Poincar\'e extension\rq}.
 As above, researching structures of the M\"obius transformation groups is heavily
 related to studying three-dimensional hyperbolic geometry and hence hyperbolic manifolds.
 For more details, refer 
 \cite{Marden200705outerCircles}\cite{taniguchi_okumura199610invitation}.
 
-In this paper, we also consider the three dimensional M\"obius
+In this paper, we also consider the three-dimensional M\"obius
 transformation on $\hat{\mathbb{R}^3} = \mathbb{R}^3\cup\{\infty\}$.
-The definition of the three dimensional M\"obius transformation in the two ways as follows.
-One is the simple extension of the two dimensional version.
-A M\"obius transformation is defined as a composition of even number of sphere-inversions 
+The definition of the three-dimensional M\"obius transformation in the two ways as follows.
+One is the simple extension of the two-dimensional version.
+A M\"obius transformation is defined as a composition of an even number of sphere-inversions 
 and plane-symmetry.
-The other is the representation of the isometry group of the four dimensional hyperbolic space.
+The other is the representation of the isometry group of the four-dimensional hyperbolic space.
 To represent three-dimensional M\"obius transformation using matrix,
 we consider a quaternion $2 \times 2$ matrix group called
 $Sp^k(1,1)$. About this topic, refer
 \cite{sakugawa2010limit}\cite{sakugawa2007master}.
 
 Three-dimensional M\"obius transformations are deeply related to
-the four-dimantional hyperbolic space. In fact, the upper-half space model of
+the four-dimensional hyperbolic space. In fact, the upper-half space model of
 the four-dimensional hyperbolic space $\mathbb{H}$ is homeomorphic to the 
 four-dimensional open ball and its boundary (the infinity point set of the hyperbolic
 space) is $\hat{\mathbb{R}^3} = \mathbb{R}^3\cup\{\infty\}$.
 Using Poincar\'e extension, a sphere-inversion in $\hat{\mathbb{R}^3}$
 is extended to an (orientation-reversing) isometric transformation of $\mathbb{H}^4$.
-Thus the composition of even numbers of sphere-inversions corresponds to an orientation-preserving
+Thus the composition of an even number of sphere-inversions corresponds to an orientation-preserving
 isometry, and it is known that any isometry of $\mathbb{H}^4$ is given in this way.
 In this point of view, three-dimensional M\"obius transformations are
 deeply related to the four-dimensional hyperbolic space and four-dimensional hyperbolic manifolds.
@@ -178,11 +179,11 @@ then it is elliptic.
 If the standard form is
 $\begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix}$
 with $|\lambda| \neq 1$, then $f(z)$ is called a loxodromic transformation.
-In a special case, if $\lambda$ is real number other than $\pm 1$, the transformation is called
+In a special case, if $\lambda$ is a real number other than $\pm 1$, the transformation is called
 a \textit{hyperbolic} transformation too.
 When $f(z)$ is loxodromic the number of the fixed point set of $f(z)$ is two.
 One of the fixed points is called an attracting fixed point and the other is called a 
-repelling fixed point. This is because the orbid space of $f(z)$ of a
+repelling fixed point. This is because the orbit space of $f(z)$ of a
 general point $z_0$ has two limit point and one of two is the limit of
 $f^n(z_0)$ for $n\to \infty$, and the other is the limit of $f^n(z_0)$
 for $n\to -\infty$. 
@@ -190,16 +191,16 @@ Also, $f(z)$ is loxodromic if and only if $\mathrm{tr}^2X < 4$.
 
 The set of three-dimensional M\"obius transformations also have a similar
 classification into six types.
-In three dimensional case, each types \lq parabolic\rq, \lq elliptic\rq, \lq loxodromic\rq has 
+In three-dimensional case, each type \lq parabolic,\rq \lq elliptic,\rq \lq loxodromic\rq has 
 a modifier \textit{simple} and \textit{compound}.
-Thus there are six variations of classification types, for example \lq\lq simple elliptic\rq\rq or
-\lq\lq compound loxodromic\rq\rq.
-For detailed information of classfication of three dimensional M\"obius transformation, see chapter 4.3.2.
+Thus there are six variations of classification types, for example, \lq\lq simple elliptic\rq\rq or
+\lq\lq compound loxodromic.\rq\rq
+For detailed information of classification of three-dimensional M\"obius transformation, see chapter 4.3.2.
 
 \subsection{Kleinian Groups}
 
 A Kleinian group is a group originated from the name of Felix Klein who is
-a famous mathematician in nineteenth century.
+a famous mathematician in the nineteenth century.
 A group $G$ is a Kleinian group if it satisfies the following two
 conditions. 
 First, $G$ is a subgroup of the M\"obius transformation group.
@@ -208,7 +209,7 @@ is properly discontinuous.
 Here a $G$-action on $\mathbb{H}^3$
 is properly discontinuous if and only if
 for any compact set $K \subset \mathbb{H}^3$
-there are only finite number of elements $g \in G$ such that
+there are an only finite number of elements $g \in G$ such that
 $\gamma (K) \cap K \neq \O$.
 
 When the $G$-action is properly discontinuous, 
@@ -217,8 +218,8 @@ for a positive $\epsilon$.
 This follows that there exists a
 fundamental domain with positive volume in $\mathbb{H}^3$.
 Because a M\"obius transformation gives an isometric transformation of
-$\mathbb{H}^3$, a Kleinian group gives a hyperbolic three manifold 
-as a quotiont space of the group. 
+$\mathbb{H}^3$, a Kleinian group gives a hyperbolic three-manifold 
+as a quotient space of the group. 
 Basic properties of a Kleinian group are described in chapter 2 of \cite{marden_2016}.
 
 In this paper, we consider a M\"obius transformations in a broad sense, that is,
@@ -226,9 +227,9 @@ a map which is the composite of
 any number of inversions.
 In order to distinguish an original M\"obius transformation,
 we call it \textit{an extended M\"obius transformation}.
-The composite of odd number of inversions
-is an orientaion-reversing map represented by $f(z)=\dfrac{a{\bar{z}}+b}{c{\bar{z}}+d}$, where
-$a, b, c, d$ are complex number and $ad-bc = 1$.
+The composite of odd numbers of inversions
+is an orientation-reversing map represented by $f(z)=\dfrac{a{\bar{z}}+b}{c{\bar{z}}+d}$, where
+$a, b, c, d$ are complex numbers and $ad-bc = 1$.
 
 An extended M\"obius transformation induces an isometric mapping 
 (not necessarily to be orientation-preserving) on the three-dimensional hyperbolic space $\mathbb{H}^3$ by
@@ -246,7 +247,7 @@ there exists a sequence $\{ g_i \} \subset G$ such that
 $\displaystyle \lim_{i\to\infty} g_i(z_0) = p$.
 We call the closure of all limit points of an orbit space $Gz_0$ \textit{the limit set} of $G$.
 The limit set is denoted by $\Lambda(G)$.
-Some of properties are very useful to visualize the limit set of a Kleinian group.
+Some of the properties are very useful to visualize the limit set of a Kleinian group.
 \begin{itemize}
 \item The limit set does not depend on a general point $z_0$.  
 That is, the closure of all limit points of any orbit space is $\Lambda(G)$.
@@ -262,7 +263,7 @@ Here we have some concepts to describe limit points of an orbit.
 One is an algebraic limit and the other is a geometric limit.
 When we fix a set of generators of a Kleinian group $G$, we represent any elements in $G$ 
 as a word of these generators and their inverses.
-Let a loxodrmic element $g$ be a word $a_1a_2\cdots a_r$.
+Let a loxodromic element $g$ be a word $a_1a_2\cdots a_r$.
 Suppose that a point sequence $\{ (a_1a_2\cdots a_r)^n\cdot z_0 \}$ converges to a point $p$ in the limit set.
 This limit point $p$ is one of the fixed points of $g$.
 Thus we consider a formula $p = (\overline{a_1a_2\cdots a_r})z_0$, where $\overline{a_1a_2\cdots a_r}$

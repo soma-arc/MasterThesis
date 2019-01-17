@@ -1694,6 +1694,8 @@ Yoshiaki Araki also tried to materialize these fractals in 2006
 He succeeded to materialize quasi-sphere with some methods including
 three-dimensional printing.
 However, recently, three-dimensional printing has become more popular.
+The printer has become cheaper than before, and we can easy to
+experiment for three-dimensional printing.
 Now, we can also make full-colored three-dimensional printing objects.
 We use monochrome printing by home use printer and full-colored
 printing by three-dimensional printing service.
@@ -1707,24 +1709,24 @@ to convert voxel data to polygonal mesh data.
 In our case, we use the \textit{OpenVDB} library to represent voxel
 fractal data and generate polygonal mesh data.
 
-Secondly, we decimate generated mesh because it often has
-too many polygons. 
+Secondly, we decimate the mesh data generated in the former step because
+it often has too many polygons. 
 To decimate meshes, we use \textit{Blender} or \textit{ZBrush}.
 For monochrome printing, we complete data conversion.
 See Figure \ref{fig:3dmono}.
 The object printed by Makerbot Replicator Z18 with PLA resin.
 
-Thirdly, if we want to print full-colored fractal data, we have to generate
-texture for the fractal object.
-To obtain texture coordinates, we apply UV unwrapping,
+Thirdly, if we want to print full-colored fractal data, we need
+image texture and texture coordinates of the fractal object.
+To obtain texture coordinates, we apply UV unwrapping.
 After UV unwrapping, we obtain a mapping between world coordinates
 and UV coordinates.
-We create texture using the coordinates. 
+We create image texture using the coordinates. 
 In this case, we used ZBrush to unwrap UV.
 
 Optionally, we can hollow the object out to reduce the printing cost.
 
 We can place an order for full-colored three-dimensional printing service.
 We use \textit{DMM.make 3D print} service.
-See Figure \ref{fig:3dcolPlaster}. The material is plaster.
-Figure \ref{fig:3dcolPlastic} shows plastic.
+See Figure \ref{fig:3dcolPlaster}. The material of this model is plaster.
+Figure \ref{fig:3dcolPlastic} shows another plastic model.

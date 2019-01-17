@@ -1693,6 +1693,8 @@ Yoshiaki Araki also tried to materialize these fractals in 2006
 He succeeded to materialize quasi-sphere with some methods including
 three-dimensional printing.
 However, recently, three-dimensional printing has become more popular.
+%これでいけないというわけではないが、社会現象を説明するには簡単すぎるような気がする。
+%「2006年と比較して、３Dプリンタが廉価になり、手軽に積層の実験ができるようになった」というようなことを書いては。
 Now, we can also make full-colored three-dimensional printing objects.
 We use monochrome printing by home use printer and full-colored
 printing by three-dimensional printing service.
@@ -1708,13 +1710,16 @@ fractal data and generate polygonal mesh data.
 
 Secondly, we decimate generated mesh because it often has
 too many polygons. 
+% decimate generated mesh -> よくわかりませんが、 decimate the mesh data generated in the former step みたいな感じでしょうか。
 To decimate meshes, we use \textit{Blender} or \textit{ZBrush}.
 For monochrome printing, we complete data conversion.
 See Figure \ref{fig:3dmono}.
 The object printed by Makerbot Replicator Z18 with PLA resin.
+% あと、積層型のプリンターでフラクタル形状を精密にプリントアウトすることの困難さも書いてもいいのではないでしょうか。
 
 Thirdly, if we want to print full-colored fractal data, we have to generate
 texture for the fractal object.
+% この場合のTexture は 「textureのデータ＝画像と張り合わせ座標」の意味だと思うのですが。
 To obtain texture coordinates, we apply UV unwrapping,
 After UV unwrapping, we obtain a mapping between world coordinates
 and UV coordinates.
@@ -1726,4 +1731,6 @@ Optionally, we can hollow the object out to reduce the printing cost.
 We can place an order for full-colored three-dimensional printing service.
 We use \textit{DMM 3D printing} service.
 See Figure \ref{fig:3dcolPlaster}. The material is plaster.
+% The material of this model とかでしょうね。
 Figure \ref{fig:3dcolPlastic} shows plastic.
+% shows another plactic model.

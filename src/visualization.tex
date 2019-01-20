@@ -9,14 +9,14 @@
  \begin{minipage}[t]{0.5\hsize}
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/cayleyGraphabcd.png}
-  \caption{\textit{Cayley Graph}}
+  \caption{\textit{Cayley Graph.}}
   \label{fig:cayleyGraph}
   \hspace*{\fill}
  \end{minipage}
  \begin{minipage}[t]{0.5\hsize}
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/preparation/basic/circleOrbit.png}
-  \caption{\textit{Orbit of the disks}}
+  \caption{\textit{Orbit of the disks.}}
   \label{fig:circOrbit}
   \hspace*{\fill}
  \end{minipage}
@@ -26,21 +26,21 @@
  \begin{minipage}[t]{0.3333\hsize}
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/preparation/basic/catCircleOrbit.png}
-  \caption{\textit{The orbit of the cat}}
+  \caption{\textit{The orbit of the cat.}}
   \label{fig:orbitCat}
   \hspace*{\fill}
  \end{minipage}
  \begin{minipage}[t]{0.3333\hsize}
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/preparation/basic/hyperbolicTessellation.png}
-  \caption{\textit{Hyperbolic Tessellation}}
+  \caption{\textit{Hyperbolic Tessellation.}}
   \label{fig:hypTiling}
   \hspace*{\fill}
  \end{minipage}
  \begin{minipage}[t]{0.3333\hsize}
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/preparation/limitSet/limit.png}
-  \caption{\textit{Limit set of the Kleinian group}}
+  \caption{\textit{Limit set of the Kleinian group.}}
   \label{fig:limit}
   \hspace*{\fill}
  \end{minipage}
@@ -152,7 +152,7 @@ For more details of the above methods, read \cite{MumfordSeriesWright200204}.
   \subcaption{}
   \label{fig:levelMax}
  \end{minipage}
- \caption{\textit{The process of rendering the orbit of disks}}
+ \caption{\textit{The process of rendering the orbit of disks.}}
  \label{fig:schottkyProcess}
 \end{figure}
 
@@ -199,13 +199,13 @@ as follows.
 \begin{figure}[htbp]
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/preparation/orbIIS.png}
-  \caption{\textit{Orbit of blue point by IIS}}
+  \caption{\textit{Orbit of blue point by IIS.}}
   \label{fig:iisOrbit}
  \hspace*{\fill}
 \end{figure}
 
  \begin{algorithm}
-  \caption{Iterated Inversion System (IIS)}
+  \caption{Iterated Inversion System (IIS.)}
   \label{arg:iis2d}
   \begin{algorithmic}
    \REQUIRE count $= 0$ and coordinates $=$ position determined by
@@ -274,7 +274,7 @@ boundary of all circles is the fundamental domain.
   \label{fig:simpleOrb}
   \hspace*{\fill}
  \end{minipage}
- \caption{\textit{The orbit of the sphere inversion fractal}}
+ \caption{\textit{The orbit of the sphere inversion fractal.}}
  \label{fig:simpleGenOrb}
 \end{figure}
 
@@ -307,11 +307,11 @@ boundary of all circles is the fundamental domain.
   \label{fig:st4}
   \hspace*{\fill}
  \end{minipage}
- \caption{\textit{Sphere tracing}}
+ \caption{\textit{Sphere tracing.}}
  \label{fig:sphereTracing}
 \end{figure}
 
-In a similar manner to the two-dimensional algorithm,
+\noindent In a similar manner to the two-dimensional algorithm,
 we extend the IIS to visualize three-dimensional Kleinian fractals.
 We extend the IIS algorithm by replacing circle inversions to sphere inversions easily, 
 and we compute the nesting depth of the sphere voxel by voxel.
@@ -339,15 +339,15 @@ We use \textit{sphere tracing} \cite{hart1996sphere} to render three-dimensional
 fractals and orbit of the seed sphere.
 Sphere Tracing is one of the algorithms to render implicit surfaces using
 ray tracing.
-In the following paragraphs, we introduce ray tracing and
-sphere tracing.
-
 In the first place, we work a ray as something like a vector.
 We set the origin of the ray to the position of the camera
 and direction of the ray to the direction to each pixel on the screen
 from the camera. Each pixel is colored according to the
 first object the ray hits. 
+In the following paragraphs, we introduce ray tracing and
+sphere tracing.
 
+\noindent
 In the regular ray tracing, we calculate the intersections between the
 ray and the object algebraically, but
 it is impracticable to compute the intersections to fractal objects.
@@ -377,16 +377,6 @@ We continue iterating this processes until the value of the distance
 function is less than a small positive threshold as shown in Figure
 \ref{fig:sphereTracing}\subref{fig:st4} or sufficiently large.
 
-However, in regard to fractal rendering, it is difficult to
-get an actual distance from a given point to the object.
-So, we use a lower estimated distance
-as a return value of the distance function. The technique to approximate
-a distance is called \textit{distance estimation}.
-For more details about fractal rendering and distance estimation, see also the blog
-post\footnote{Mikael H Christensen, Distance Estimated 3D Fractals (Part I):\\ \quad\quad
-\url{http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/}}
-by Christensen. 
-
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
   \center
@@ -402,7 +392,7 @@ by Christensen.
   \label{fig:modulo2}
   \hspace*{\fill}
  \end{minipage}
- \caption{\textit{Fold space by modulo operator}}
+ \caption{\textit{Fold space by modulo operator.}}
  \label{fig:moduloAll}
 \end{figure}
 
@@ -421,9 +411,19 @@ by Christensen.
   \label{fig:iisScale2}
   \hspace*{\fill}
  \end{minipage}
- \caption{\textit{Fold space by scaling}}
+ \caption{\textit{Fold space by scaling.}}
  \label{fig:iisScaleAll}
 \end{figure}
+
+\noindent However, in regard to fractal rendering, it is difficult to
+get an actual distance from a given point to the object.
+So, we use a lower estimated distance
+as a return value of the distance function. The technique to approximate
+a distance is called \textit{distance estimation}.
+For more details about fractal rendering and distance estimation, see also the blog
+post\footnote{Mikael H Christensen, Distance Estimated 3D Fractals (Part I):\\ \quad\quad
+\url{http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/}}
+by Christensen. 
 
 Before we introduce details of distance estimation, we show
 a well-known technique to render many objects in sphere tracing.
@@ -468,21 +468,21 @@ from the original.
  \begin{minipage}[t]{0.5\hsize}
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/preparation/slice.png}
-  \caption{\textit{XY-slice image of Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb}}}
+  \caption{\textit{XY-slice image of Figure \ref{fig:simpleGenOrb}\subref{fig:simpleOrb}.}}
   \label{fig:slice2d}
   \hspace*{\fill}
  \end{minipage}
  \begin{minipage}[t]{0.5\hsize}
   \center
   \includegraphics[height=1.35in, keepaspectratio]{img/preparation/artifact.pdf}
-  \caption{\textit{artifact}}
+  \caption{\textit{Artifact.}}
   \label{fig:3dartifact}
   \hspace*{\fill}
  \end{minipage}
 \end{figure}
 
 \begin{algorithm}
- \caption{Distance Function}
+ \caption{Distance Function.}
  \label{iis3d}
  \begin{algorithmic}
   \REQUIRE count $= 0$, $d$ = MAX\_DISTANCE, $dr = 1.0$, and coordinates
@@ -509,7 +509,7 @@ from the original.
  \end{algorithmic}
 \end{algorithm}
 
-In a similar manner to scaling, we can render sphere inversion
+\noindent In a similar manner to scaling, we can render sphere inversion
 fractals.
 For the sake of simplicity, we consider a slice image of Figure
 \ref{fig:simpleGenOrb}.
@@ -523,7 +523,7 @@ $C$ is the white circle, the boundary of the initial inversion sphere.
 $S1$ is the base sphere and the inversion of $S2$ in the circle $C$. 
 The white point $P1$ is the inversion of $P2$ in the circle $C$.
 
-Now we assume that the tip of the ray is at $P2$.
+\noindent Now we assume that the tip of the ray is at $P2$.
 Let's calculate the minimum distance between
 $P2$ and the orbit of base spheres.
 The nearest sphere to $P2$ is $S2$.
@@ -563,19 +563,6 @@ the spheres.
 
 The generalized pseudo-code for a distance function is in Algorithm \ref{iis3d}. 
 
-\subsection{Related Works}
-
-Before IIS is developed, there is an algorithm to draw a fractal called
-\textit{pseudo-kleinian}, and there are visualization techniques and
-variations related to pseudo-kleinian.
-The algorithms are fast same as IIS, but pseudo-kleinian is not a Kleinian
-group.
-Pseudo-kleinian uses M\"obius transformation. So, it is similar to IIS in
-terms of to draw three-dimensional fractals efficiently.
-Thus, there is a relationship between pseudo-kleinian and Kleinian groups.
-However, pseudo-kleinian differs from Kleinian groups which the
-mathematicians study.
-
 \begin{figure}[htbp]
  \begin{minipage}[t]{0.5\hsize}
   \center
@@ -592,6 +579,19 @@ mathematicians study.
   \hspace*{\fill}
  \end{minipage}
 \end{figure}
+
+\subsection{Related Works}
+
+Before IIS is developed, there is an algorithm to draw a fractal called
+\textit{pseudo-kleinian}, and there are visualization techniques and
+variations related to pseudo-kleinian.
+The algorithms are fast same as IIS, but pseudo-kleinian is not a Kleinian
+group.
+Pseudo-kleinian uses M\"obius transformation. So, it is similar to IIS in
+terms of to draw three-dimensional fractals efficiently.
+Thus, there is a relationship between pseudo-kleinian and Kleinian groups.
+However, pseudo-kleinian differs from Kleinian groups which the
+mathematicians study.
 
 Aaron Montag uses texture based approach to visualize a limit set of the
 Kleinian groups \cite{Montag2014hyperbolicIFS}.
@@ -613,7 +613,7 @@ He observes the orbit of the Maskit parametrization group and
 successfully discovers the algorithm to visualize Maskit groups.
 We can apply circle inversions to his figure, and we obtain Figure \ref{fig:josInv}.
 
-Martin von Gagern and J\"urgen Richter-Gebert introduced an algorithm
+\noindent Martin von Gagern and J\"urgen Richter-Gebert introduced an algorithm
 called \textit{Reverse Pixel Lookup}
 \cite{journals/combinatorics/GagernR09} to render two-dimensional
 hyperbolic tiling.

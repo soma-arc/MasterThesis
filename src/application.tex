@@ -1685,11 +1685,11 @@ meaningful shape, and there are holes everywhere in the shape.
    \label{fig:3dcolPlastic}
   \end{minipage}
   \hspace*{\fill}
-  \caption{\textit{Full-colored printing by DMM 3D print.}}
+  \caption{\textit{Full-colored printing by DMM.make 3D print.}}
   \label{fig:3dcol}
 \end{figure}
 
-Yoshiaki Araki also tried to materialize these fractals in 2006
+\noindent Yoshiaki Araki also tried to materialize these fractals in 2006
 \cite{araki2006materializing}.
 He succeeded to materialize quasi-sphere with some methods including
 three-dimensional printing.
@@ -1699,19 +1699,29 @@ experiment for three-dimensional printing.
 Now, we can also make full-colored three-dimensional printing objects.
 We use monochrome printing by home use printer and full-colored
 printing by three-dimensional printing service.
+
+Generally, there are troublesome problems in three-dimensional printing of fractals.
+For example, we have to generate mesh data with IIS.
+IIS can generate voxel data, and we use algorithms like the \textit{marching
+cubes} to make mesh data from voxel data.
+Moreover, we have to determine the appropriate level of details of
+meshes of the fractals object because fractals have self-similarity.
+For full-colored printing, we have to generate texture coordinates and
+color of the fractal as texture data.
 In this sub-section, we introduce how to generate fractal data for
 three-dimensional printing.
 
 First of all, we have to generate polygonal fractal data.
 We can use IIS to generate voxel fractal data.
-Once we obtain voxel data, we can use a \textit{marching cubes method}
+Once we obtain voxel data, we can use a marching cubes method
 to convert voxel data to polygonal mesh data.
 In our case, we use the \textit{OpenVDB} library to represent voxel
 fractal data and generate polygonal mesh data.
 
 Secondly, we decimate the mesh data generated in the former step because
 it often has too many polygons. 
-To decimate meshes, we use \textit{Blender} or \textit{ZBrush}.
+To decimate meshes, we use three-dimensional modeling softwares called
+\textit{Blender} or \textit{ZBrush}.
 For monochrome printing, we complete data conversion.
 See Figure \ref{fig:3dmono}.
 The objects are printed by FDM three-dimensional printer. We use Makerbot
@@ -1724,7 +1734,6 @@ After UV unwrapping, we obtain a mapping between world coordinates
 and UV coordinates.
 We create image texture using the coordinates. 
 In this case, we used ZBrush to unwrap UV.
-
 Optionally, we can hollow the object out to reduce the printing cost.
 
 We can place an order for full-colored three-dimensional printing service.
